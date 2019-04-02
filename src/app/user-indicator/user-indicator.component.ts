@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../_services';
+import { Session } from '../_models';
 
 @Component({
   selector: 'app-user-indicator',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-indicator.component.scss']
 })
 export class UserIndicatorComponent implements OnInit {
+  session: Session;
 
-  constructor() { }
+  constructor(
+    private sessionService: SessionService
+  ) { }
 
   ngOnInit() {
+    this.session = this.sessionService.currentSessionValue;
+    this.sessionService.currentSession.subscribe(
+      session => {
+        this.session = session;
+      }
+    );
   }
-
 }

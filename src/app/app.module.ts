@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule, MatIconModule, MatInputModule, MatTabsModule, MatToolbarModule } from '@angular/material';
+import { MatCardModule, MatIconModule, MatInputModule, MatListModule, MatTabsModule, MatToolbarModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { UserIndicatorComponent } from './user-indicator/user-indicator.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -16,6 +16,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreditsComponent } from './credits/credits.component';
 import { AlertComponent } from './alert/alert.component';
 import { RegisterComponent } from './register/register.component';
+import { StudentHomeComponent } from './student-home/student-home.component';
+import { TeacherHomeComponent } from './teacher-home/teacher-home.component';
+import { AdminConsoleComponent } from './admin-console/admin-console.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     CreditsComponent,
     AlertComponent,
-    RegisterComponent
+    RegisterComponent,
+    StudentHomeComponent,
+    TeacherHomeComponent,
+    AdminConsoleComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,8 @@ import { RegisterComponent } from './register/register.component';
     MatIconModule,
     MatCardModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatListModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
