@@ -1,0 +1,25 @@
+<div class="main-div">
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>登陆 SPM MOOC</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <mat-form-field class="form-field">
+          <input matInput type="text" class="form-control"
+                 placeholder="用户名" required formControlName="username">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input matInput type="password" class="form-control"
+                 placeholder="密码" required formControlName="password">
+        </mat-form-field>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" type="submit" [disabled]="!loginForm.valid">登陆</button>
+        <button mat-button routerLink="/register">注册</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
