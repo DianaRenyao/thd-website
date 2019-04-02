@@ -1,5 +1,5 @@
 <div *ngIf="session">
-  <div [ngSwitch]="session.role">
+  <div [ngSwitch]="session.role" class="menu-item">
     <div *ngSwitchCase="'student'">
       <button mat-button routerLink="/student-home">
         <mat-icon>account_circle</mat-icon>
