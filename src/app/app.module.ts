@@ -20,6 +20,7 @@ import { StudentHomeComponent } from './student-home/student-home.component';
 import { TeacherHomeComponent } from './teacher-home/teacher-home.component';
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AddTeacherComponent } from './add-teacher/add-teacher.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LogoutComponent } from './logout/logout.component';
     StudentHomeComponent,
     TeacherHomeComponent,
     AdminConsoleComponent,
-    LogoutComponent
+    LogoutComponent,
+    AddTeacherComponent
   ],
   imports: [
     BrowserModule,
