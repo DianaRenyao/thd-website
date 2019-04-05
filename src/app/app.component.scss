@@ -1,3 +1,19 @@
+@import '~@angular/material/theming';
+
+.header-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 6;
+  @include mat-elevation(6);
+}
+
 .main-container {
+  padding-top: 64px;
   height: 100%;
+}
+
+.footer-container {
+  padding: 12px;
 }

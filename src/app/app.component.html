@@ -1,7 +1,11 @@
-<app-header [title]="title"></app-header>
-<div class="main-container">
+<header class="header-container">
+  <app-header [title]="title"></app-header>
+</header>
+<main class="main-container">
   <app-alert></app-alert>
   <router-outlet></router-outlet>
-</div>
-
-<app-credits></app-credits>
+</main>
+<mat-divider></mat-divider>
+<footer class="footer-container">
+  <app-credits></app-credits>
+</footer>
