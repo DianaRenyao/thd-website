@@ -1,21 +1,21 @@
 <div *ngIf="session">
-  <div [ngSwitch]="session.role" class="menu-item">
+  <div [ngSwitch]="session.userInfo.role" class="menu-item">
     <div *ngSwitchCase="'student'">
       <button mat-button routerLink="/student-home">
         <mat-icon>account_circle</mat-icon>
-        <span class="username">{{ session.username }}</span>
+        <span class="name">{{ session.userInfo.realName }}</span>
       </button>
     </div>
     <div *ngSwitchCase="'teacher'">
       <button mat-button routerLink="/teacher-home">
         <mat-icon>account_circle</mat-icon>
-        <span class="username">{{ session.username }}</span>
+        <span class="name">{{ session.userInfo.realName }}</span>
       </button>
     </div>
     <div *ngSwitchCase="'administrator'">
       <button mat-button routerLink="/admin-console">
         <mat-icon>build</mat-icon>
-        <span class="username">{{ session.username }}</span>
+        <span class="name">{{ session.userInfo.realName }}</span>
       </button>
     </div>
   </div>

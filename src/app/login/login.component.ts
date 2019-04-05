@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertService, SessionService } from '../_services';
 import { first } from 'rxjs/internal/operators/first';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -11,22 +12,29 @@ import { first } from 'rxjs/internal/operators/first';
 })
 export class LoginComponent implements OnInit {
   private returnUrl: string;
-  loginForm = this.formBuilder.group({
-    username: ['', Validators.required],
-    password: ['', Validators.required],
-  });
-
+  loginForm: FormGroup;
+  errorResponse: HttpErrorResponse;
 
   constructor(
     private alertService: AlertService,
     private sessionService: SessionService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router,
+    private router: Router
   ) {
   }
 
+  // convenience getter for easy access to form fields
+  get form() {
+    return this.loginForm.controls;
+  }
+
   ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
 
@@ -36,15 +44,18 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.sessionService.login(this.loginForm.value.username, this.loginForm.value.password)
+    this.sessionService.login({
+      username: this.form.username.value,
+      password: this.form.password.value,
+    })
       .pipe(first())
       .subscribe(
         session => {
           this.router.navigate([this.returnUrl]);
           console.log('session: ', session);
         },
-        error => {
-          this.alertService.error(error);
+        (errorResponse: HttpErrorResponse) => {
+          this.errorResponse = errorResponse;
         });
   }
 }

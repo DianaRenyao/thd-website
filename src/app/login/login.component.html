@@ -1,5 +1,5 @@
 <div class="main-div">
-  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="login-form" id="login-form">
     <mat-card>
       <mat-card-header>
         <mat-card-title>登陆 SPM MOOC</mat-card-title>
@@ -9,12 +9,14 @@
         <mat-form-field class="form-field">
           <input matInput type="text" class="form-control"
                  placeholder="用户名" required formControlName="username">
+          <mat-error *ngIf="form.username.errors?.required">请输入用户名</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
           <input matInput type="password" class="form-control"
                  placeholder="密码" required formControlName="password">
+          <mat-error *ngIf="form.username.errors?.required">请输入密码</mat-error>
         </mat-form-field>
-
+        <app-service-error-message [errorResponse]="errorResponse" [indicator]="'登录失败'"></app-service-error-message>
       </mat-card-content>
       <mat-card-actions>
         <button mat-button color="primary" type="submit" [disabled]="!loginForm.valid">登陆</button>

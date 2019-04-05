@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+
+@mixin spm-alert-theme($theme) {
+  $warn: map-get($theme, warn);
+
+  .alert-danger {
+    background-color: mat-color($warn);
+  }
+}

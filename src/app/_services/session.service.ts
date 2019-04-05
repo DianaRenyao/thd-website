@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Session } from '../_models';
+import { LoginMessage, SessionMessage } from '../_models';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
@@ -8,26 +8,26 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SessionService {
-  private currentSessionSubject: BehaviorSubject<Session>;
+  private currentSessionSubject: BehaviorSubject<SessionMessage>;
 
   constructor(
     private http: HttpClient
   ) {
     const saved = localStorage.getItem('currentSession');
     const parsed = JSON.parse(saved);
-    this.currentSessionSubject = new BehaviorSubject<Session>(parsed);
+    this.currentSessionSubject = new BehaviorSubject<SessionMessage>(parsed);
   }
 
-  get currentSession(): Observable<Session> {
+  get currentSession(): Observable<SessionMessage> {
     return this.currentSessionSubject.asObservable();
   }
 
-  get currentSessionValue(): Session {
+  get currentSessionValue(): SessionMessage {
     return this.currentSessionSubject.value;
   }
 
-  login(username: string, password: string) {
-    return this.http.post<any>(`session`, { username, password })
+  login(loginMessage: LoginMessage): Observable<SessionMessage> {
+    return this.http.post<SessionMessage>('session', loginMessage)
       .pipe(map(session => {
         // login successful if jwt token is in the response
         if (session && session.token) {

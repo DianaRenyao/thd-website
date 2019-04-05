@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+
+@mixin spm-error-message-theme($theme) {
+  $warn: map-get($theme, warn);
+
+  .error-message {
+    color: mat-color($warn);
+  }
+}
