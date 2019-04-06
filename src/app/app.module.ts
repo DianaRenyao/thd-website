@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './_services/app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +20,9 @@ import { StudentHomeComponent } from './student-home/student-home.component';
 import { TeacherHomeComponent } from './teacher-home/teacher-home.component';
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { LogoutComponent } from './logout/logout.component';
+import { StudentCheckscoreComponent } from './student-checkscore/student-checkscore.component';
+import { CdkTableModule } from "@angular/cdk/table";
+import { MatTableModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { LogoutComponent } from './logout/logout.component';
     StudentHomeComponent,
     TeacherHomeComponent,
     AdminConsoleComponent,
-    LogoutComponent
+    LogoutComponent,
+    StudentCheckscoreComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,9 @@ import { LogoutComponent } from './logout/logout.component';
     MatCardModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatListModule
+    MatListModule,
+    CdkTableModule,
+    MatTableModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
