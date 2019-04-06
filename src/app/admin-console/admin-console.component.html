@@ -1,5 +1,11 @@
-<p>
-  admin-console works!
-</p>
+<mat-sidenav-container class="example-container" >
+  <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
+  <mat-sidenav-content>
+    <app-add-teacher></app-add-teacher>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!--<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>-->
 
 <app-logout></app-logout>
