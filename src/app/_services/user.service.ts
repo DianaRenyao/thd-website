@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { StudentRegisterMessage, UserInfoMessage } from '../_models';
 import {TeacherRegisterMessage} from '../_models/teacher-register-message';
+import {of} from 'rxjs/internal/observable/of';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,8 @@ export class UserService {
   }
   addTeacher(registerMessage: TeacherRegisterMessage): Observable<UserInfoMessage> {
     return this.http.post<UserInfoMessage>('teachers', registerMessage);
+  }
+  getAllTeachers(): Observable<UserInfoMessage[]> {
+    return this.http.get<UserInfoMessage[]>('teachers');
   }
 }
