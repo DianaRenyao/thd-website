@@ -1,0 +1,8 @@
+@import '~@angular/material/theming';
+@import "~src/app/alert/alert.component.theme";
+@import "~src/app/error-message/error-message.component.theme";
+
+@mixin spm-custom-theme($theme) {
+  @include spm-alert-theme($theme);
+  @include spm-error-message-theme($theme);
+}

@@ -21,6 +21,8 @@ import { TeacherHomeComponent } from './teacher-home/teacher-home.component';
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AddTeacherComponent } from './add-teacher/add-teacher.component';
+import { ErrorMessageComponent } from './error-message/error-message.component';
+import { ServiceErrorMessageComponent } from './service-error-message/service-error-message.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { AddTeacherComponent } from './add-teacher/add-teacher.component';
     TeacherHomeComponent,
     AdminConsoleComponent,
     LogoutComponent,
-    AddTeacherComponent
+    AddTeacherComponent,
+    ErrorMessageComponent,
+    ServiceErrorMessageComponent
   ],
   imports: [
     BrowserModule,

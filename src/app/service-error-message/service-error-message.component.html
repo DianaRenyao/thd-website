@@ -1,0 +1,5 @@
+<app-error-message *ngIf="errorResponse">
+  <span *ngIf="indicator">{{ indicator }}：</span>
+  <span *ngIf="!indicator">失败：</span>
+  <span>{{ errorMessage }}</span>
+</app-error-message>

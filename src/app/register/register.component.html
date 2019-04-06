@@ -1,3 +1,65 @@
-<p>
-  register works!
-</p>
+<div class="main-div">
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm" class="register-form" id="register-form">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>注册新用户</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <mat-form-field class="form-field">
+          <input class="form-control" formControlName="studentNumber" matInput
+                 placeholder="学号（用户名）" required type="text"/>
+          <mat-error *ngIf="form.studentNumber.errors?.pattern">学号的格式不正确</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input class="form-control" formControlName="password" matInput
+                 placeholder="密码" required type="password"/>
+          <mat-error *ngIf="form.password.errors?.required">请输入密码</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input class="form-control" formControlName="passwordRepeated" matInput
+                 placeholder="确认密码" required type="password"/>
+          <mat-error *ngIf="form.passwordRepeated.errors?.required">请输入确认密码</mat-error>
+        </mat-form-field>
+        <app-error-message *ngIf="registerForm.errors?.notSame">确认密码与密码不一致</app-error-message>
+        <mat-form-field class="form-field">
+          <input class="form-control" formControlName="realName" matInput
+                 placeholder="姓名" required type="text"/>
+          <mat-error *ngIf="form.realName.errors?.required">请输入姓名</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input class="form-control" formControlName="nickname" matInput
+                 placeholder="昵称" type="text"/>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <input class="form-control" formControlName="email" matInput
+                 placeholder="电子邮件" required type="text"/>
+          <mat-error *ngIf="form.email.errors?.required">请输入电子邮件</mat-error>
+          <mat-error *ngIf="form.email.errors?.email">输入的电子邮件的格式不正确</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input class="form-control" formControlName="phone" matInput
+                 placeholder="联系电话" required type="text"/>
+          <mat-error *ngIf="form.phone.errors?.required">请输入联系电话</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <input class="form-control" formControlName="college" matInput
+                 placeholder="学院" type="text"/>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input class="form-control" formControlName="clazz" matInput
+                 placeholder="班级" required type="text"/>
+          <mat-error *ngIf="form.clazz.errors?.required">请输入班级</mat-error>
+        </mat-form-field>
+        <app-service-error-message [errorResponse]="errorResponse"></app-service-error-message>
+      </mat-card-content>
+      <mat-card-actions>
+        <button [disabled]="!registerForm.valid" color="primary" mat-button type="submit">注册</button>
+        <button color="primary" mat-button type="submit">注册</button>
+        <button mat-button routerLink="/login">登陆</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
