@@ -8,8 +8,7 @@ export class ApiInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // TODO: replace this when using in production environment
     // const baseUrl = 'http://localhost:8080/spm_service_war/webapi';
-    const baseUrl = 'http://114.115.159.56:8080/spm-service/webapi';
-
+    const baseUrl = 'http://localhost:8080/spm_service_war/webapi';
     const apiRequest = req.clone({url: `${baseUrl}/${req.url}`});
     return next.handle(apiRequest);
   }
