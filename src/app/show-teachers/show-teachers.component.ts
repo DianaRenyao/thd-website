@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../_services';
 import {TeacherMessage, UserInfoMessage} from '../_models';
 import {Observable} from 'rxjs';
+import {Z} from '@angular/cdk/typings/esm5/keycodes';
 
 @Component({
   selector: 'app-show-teachers',
@@ -10,15 +11,22 @@ import {Observable} from 'rxjs';
 })
 export class ShowTeachersComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'teacherNumber', 'realName', 'email', 'phone'];
-  dataSource: Observable<UserInfoMessage[]>;
+  displayedColumns: string[] = [ 'username', 'realName', 'email', 'phone'];
+  dataSource: UserInfoMessage[];
 
+  getAllTeachers(): void {
+    // this.dataSource = [
+    //   { username: '2016000000', realName: 'Hanwanjiang', email: 'hanwanjiang@bupr.edu.cn', phone: '123123',
+    //     id: 2, role: 'teacher', timeCreated: null } ,
+    // ];
+    this.userService.getAllTeachers().subscribe(dataSource => this.dataSource = dataSource);
+}
   constructor(
     private userService: UserService
   ) { }
 
   ngOnInit() {
-    this.dataSource = this.userService.getAllTeachers();
+    this.getAllTeachers();
   }
 
 }
