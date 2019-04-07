@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../_services';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { UserInfoMessage } from '../_models';
+import { StudentMessage } from '../_models';
 
 @Component({
   selector: 'app-register',
@@ -63,7 +63,7 @@ export class RegisterComponent implements OnInit {
       college: this.form.college.value,
       clazz: this.form.clazz.value,
     }).subscribe(
-      (userInfo: UserInfoMessage) => {
+      (student: StudentMessage) => {
         this.router.navigate(['/login']);
       },
       (errorResponse: HttpErrorResponse) => {

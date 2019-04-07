@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {RegisterComponent} from '../register/register.component';
 import {UserInfoMessage} from '../_models';
 import {CourseService} from '../_services/course.service';
+import {CourseMessage} from '../_models/course-message';
 
 @Component({
   selector: 'app-add-course',
@@ -45,7 +46,7 @@ export class AddCourseComponent implements OnInit {
       startDate: this.form.startDate.value,
       finishDate: this.form.finishDate.value,
     }).subscribe(
-      (userInfo: UserInfoMessage) => {
+      (courseMessage: CourseMessage) => {
         this.router.navigate(['/']);
       },
       (errorResponse: HttpErrorResponse) => {

@@ -10,7 +10,8 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule,
-  MatSidenavModule, MatTableModule,
+  MatSidenavModule,
+  MatTableModule,
   MatTabsModule,
   MatToolbarModule
 } from '@angular/material';
@@ -31,8 +32,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { AddTeacherComponent } from './add-teacher/add-teacher.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import { ServiceErrorMessageComponent } from './service-error-message/service-error-message.component';
-import { ShowTeachersComponent } from './teacher-list/show-teachers.component';
 import { AddCourseComponent } from './add-course/add-course.component';
+import { TeacherListComponent } from './teacher-list/teacher-list.component';
 
 @NgModule({
   declarations: [
@@ -51,8 +52,8 @@ import { AddCourseComponent } from './add-course/add-course.component';
     AddTeacherComponent,
     ErrorMessageComponent,
     ServiceErrorMessageComponent,
-    ShowTeachersComponent,
-    AddCourseComponent
+    AddCourseComponent,
+    TeacherListComponent,
   ],
   imports: [
     BrowserModule,
