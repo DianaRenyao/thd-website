@@ -1,0 +1,24 @@
+<div class="course-summary-container">
+  <mat-card>
+    <mat-card-title>
+      课程名称:{{courseSummaryMessage.courseName}}
+    </mat-card-title>
+    <mat-card-content>
+      <p class="content-field">
+        <span class="field-label">课时数</span>{{courseSummaryMessage.period}}
+      </p>
+      <p class="content-field">
+        <span class="field-label">开课时间</span>{{courseSummaryMessage.startDate | date:'yyyy 年 MM 月 dd 日'}}
+      </p>
+      <p class="content-field">
+        <span class="field-label">结课时间</span>{{courseSummaryMessage.finishDate | date:'yyyy 年 MM 月 dd 日'}}
+      </p>
+      <p class="content-field">
+        <span class="field-label">任课老师</span>{{courseSummaryMessage.teacher.userInfo.realName}}
+      </p>
+      <p class="content-field">
+        <span class="field-label">课程简介</span>{{courseSummaryMessage.descriptionSummary}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
