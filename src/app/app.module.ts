@@ -36,7 +36,7 @@ import { AddCourseComponent } from './add-course/add-course.component';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { CourseSummaryComponent } from './course-summary/course-summary.component';
 import { SelectableCoursesComponent } from './selectable-courses/selectable-courses.component';
-import { CourserDetalComponent } from './courser-detal/courser-detal.component';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,7 @@ import { CourserDetalComponent } from './courser-detal/courser-detal.component';
     TeacherListComponent,
     CourseSummaryComponent,
     SelectableCoursesComponent,
-    CourserDetalComponent,
+    CourseDetailComponent,
   ],
   imports: [
     BrowserModule,
