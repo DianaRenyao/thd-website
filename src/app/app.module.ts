@@ -31,7 +31,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { AddTeacherComponent } from './add-teacher/add-teacher.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import { ServiceErrorMessageComponent } from './service-error-message/service-error-message.component';
-import { ShowTeachersComponent } from './show-teachers/show-teachers.component';
+import { ShowTeachersComponent } from './teacher-list/show-teachers.component';
+import { AddCourseComponent } from './add-course/add-course.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ShowTeachersComponent } from './show-teachers/show-teachers.component';
     AddTeacherComponent,
     ErrorMessageComponent,
     ServiceErrorMessageComponent,
-    ShowTeachersComponent
+    ShowTeachersComponent,
+    AddCourseComponent
   ],
   imports: [
     BrowserModule,
