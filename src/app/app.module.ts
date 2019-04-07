@@ -29,16 +29,13 @@ import { StudentHomeComponent } from './student-home/student-home.component';
 import { TeacherHomeComponent } from './teacher-home/teacher-home.component';
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { LogoutComponent } from './logout/logout.component';
-<<<<<<< HEAD
+
 import { AddTeacherComponent } from './add-teacher/add-teacher.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import { ServiceErrorMessageComponent } from './service-error-message/service-error-message.component';
 import { StudentCheckscoreComponent } from './student-checkscore/student-checkscore.component';
-=======
-import { StudentCheckscoreComponent } from './student-checkscore/student-checkscore.component';
-import { CdkTableModule } from "@angular/cdk/table";
-import { MatTableModule } from '@angular/material';
->>>>>>> 5a3e15293e32478ed3d1d57967c1a66d094c3b3b
+
+
 
 @NgModule({
   declarations: [
@@ -54,13 +51,10 @@ import { MatTableModule } from '@angular/material';
     TeacherHomeComponent,
     AdminConsoleComponent,
     LogoutComponent,
-<<<<<<< HEAD
     AddTeacherComponent,
     ErrorMessageComponent,
+    StudentCheckscoreComponent,
     ServiceErrorMessageComponent,
-=======
->>>>>>> 5a3e15293e32478ed3d1d57967c1a66d094c3b3b
-    StudentCheckscoreComponent
   ],
   imports: [
     BrowserModule,
@@ -76,14 +70,9 @@ import { MatTableModule } from '@angular/material';
     ReactiveFormsModule,
     HttpClientModule,
     MatListModule,
-<<<<<<< HEAD
     MatSidenavModule,
     MatTableModule,
     MatSortModule
-=======
-    CdkTableModule,
-    MatTableModule
->>>>>>> 5a3e15293e32478ed3d1d57967c1a66d094c3b3b
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
