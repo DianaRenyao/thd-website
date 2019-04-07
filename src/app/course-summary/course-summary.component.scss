@@ -1,0 +1,12 @@
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+
+.course-summary-container {
+  width: 300px;
+}
+
+.field-label:after {
+  content: '：';
+}

@@ -1,9 +1,9 @@
 import {TeacherMessage} from './teacher-message';
 
-export class CourseMessage {
+export class CourseSummaryMessage {
   courseId: number ;
   courseName: string ;
-  description: string ;
+  descriptionSummary: string ;
   period: number ;
   startDate: Date;
   finishDate: Date;

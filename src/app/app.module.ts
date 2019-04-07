@@ -34,7 +34,9 @@ import { ErrorMessageComponent } from './error-message/error-message.component';
 import { ServiceErrorMessageComponent } from './service-error-message/service-error-message.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
-import { SelectableCourseComponent } from './selectable-course/selectable-course.component';
+import { CourseSummaryComponent } from './course-summary/course-summary.component';
+import { SelectableCoursesComponent } from './selectable-courses/selectable-courses.component';
+import { CourserDetalComponent } from './courser-detal/courser-detal.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { SelectableCourseComponent } from './selectable-course/selectable-course
     ServiceErrorMessageComponent,
     AddCourseComponent,
     TeacherListComponent,
-    SelectableCourseComponent,
+    CourseSummaryComponent,
+    SelectableCoursesComponent,
+    CourserDetalComponent,
   ],
   imports: [
     BrowserModule,
