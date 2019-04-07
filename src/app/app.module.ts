@@ -33,7 +33,6 @@ import { AddTeacherComponent } from './add-teacher/add-teacher.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import { ServiceErrorMessageComponent } from './service-error-message/service-error-message.component';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
-import { MainComponent } from './home/main/main.component';
 
 @NgModule({
   declarations: [
@@ -52,8 +51,7 @@ import { MainComponent } from './home/main/main.component';
     AddTeacherComponent,
     ErrorMessageComponent,
     ServiceErrorMessageComponent,
-    TeacherListComponent,
-    MainComponent
+    TeacherListComponent
   ],
   imports: [
     BrowserModule,
