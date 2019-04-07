@@ -34,7 +34,10 @@ import { ErrorMessageComponent } from './error-message/error-message.component';
 import { ServiceErrorMessageComponent } from './service-error-message/service-error-message.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
+<<<<<<< HEAD
 import { SelectableCourseComponent } from './selectable-course/selectable-course.component';
+=======
+>>>>>>> b537344081d07cb6f19f22534a185928667b7122
 
 @NgModule({
   declarations: [
