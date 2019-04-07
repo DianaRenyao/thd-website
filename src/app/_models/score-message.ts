@@ -1,6 +1,6 @@
 export interface Score {
-  studentId: number;
-  courseId: number;
+  studentUserId: number;
+  courseCourseId: number;
   approveTime: string;
   avgOnlineScore: number;
   midScore: number;

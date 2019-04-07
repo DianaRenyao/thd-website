@@ -13,8 +13,8 @@ import {
   MatSidenavModule,
   MatTabsModule,
   MatToolbarModule,
-  MatTableModule
-} from '@angular/material';
+  MatTableModule,
+  MatSortModule} from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { UserIndicatorComponent } from './user-indicator/user-indicator.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -68,7 +68,8 @@ import { StudentCheckscoreComponent } from './student-checkscore/student-checksc
     HttpClientModule,
     MatListModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    MatSortModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
