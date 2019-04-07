@@ -1,0 +1,33 @@
+<div class="teacher-list-container">
+  <h2>教师列表</h2>
+  <table [dataSource]="dataSource" mat-table>
+
+    <!-- username column -->
+    <ng-container matColumnDef="username">
+      <th *matHeaderCellDef mat-header-cell>教工号</th>
+      <td *matCellDef="let element" mat-cell> {{element.userInfo.username}} </td>
+    </ng-container>
+
+    <!-- realName column -->
+    <ng-container matColumnDef="realName">
+      <th *matHeaderCellDef mat-header-cell>姓名</th>
+      <td *matCellDef="let element" mat-cell> {{element.userInfo.realName}} </td>
+    </ng-container>
+
+    <!-- email column -->
+    <ng-container matColumnDef="email">
+      <th *matHeaderCellDef mat-header-cell>邮箱</th>
+      <td *matCellDef="let element" mat-cell> {{element.userInfo.email}} </td>
+    </ng-container>
+
+    <!-- phone column -->
+    <ng-container matColumnDef="phone">
+      <th *matHeaderCellDef mat-header-cell>联系电话</th>
+      <td *matCellDef="let element" mat-cell> {{element.userInfo.phone}} </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+  <app-service-error-message [errorResponse]="errorResponse" [indicator]="'获取教师列表失败'"></app-service-error-message>
+</div>
