@@ -11,8 +11,13 @@
 
 .main-container {
   flex: 1 1 auto;
+
+  padding: 8px;
 }
 
 .footer-container {
+  z-index: 6;
+  @include mat-elevation(6);
+
   padding: 12px;
 }
