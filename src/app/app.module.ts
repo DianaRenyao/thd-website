@@ -32,7 +32,11 @@ import { LogoutComponent } from './logout/logout.component';
 import { AddTeacherComponent } from './add-teacher/add-teacher.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import { ServiceErrorMessageComponent } from './service-error-message/service-error-message.component';
+import { AddCourseComponent } from './add-course/add-course.component';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
+import { CourseSummaryComponent } from './course-summary/course-summary.component';
+import { SelectableCoursesComponent } from './selectable-courses/selectable-courses.component';
+import { CourserDetalComponent } from './courser-detal/courser-detal.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +55,11 @@ import { TeacherListComponent } from './teacher-list/teacher-list.component';
     AddTeacherComponent,
     ErrorMessageComponent,
     ServiceErrorMessageComponent,
-    TeacherListComponent
+    AddCourseComponent,
+    TeacherListComponent,
+    CourseSummaryComponent,
+    SelectableCoursesComponent,
+    CourserDetalComponent,
   ],
   imports: [
     BrowserModule,

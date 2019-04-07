@@ -1,0 +1,39 @@
+<div class="main-div">
+  <form class="add-course-form" [formGroup]="addCourseForm" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>添加课程</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field class="form-field">
+          <input matInput class="form-control" formControlName="courseName"
+                 placeholder="课程名称" required type="text" >
+          <mat-error *ngIf="form.courseName.errors?.required">请输入课程名称</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <textarea  matInput class="form-control" formControlName="description"
+                     placeholder="课程描述" required type="text" ></textarea>
+          <mat-error *ngIf="form.description.errors?.required">请输入课程描述</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input class="form-control" formControlName="period" matInput
+                 placeholder="课时数" required type="number"/>
+          <mat-error *ngIf="form.period.errors?.required">请输入姓名</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input class="form-control" formControlName="startDate" matInput
+                 placeholder="开课日期" required type="date"/>
+          <mat-error *ngIf="form.startDate.errors?.required">请输入开课日期</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <input class="form-control" formControlName="finishDate" matInput
+                 placeholder="结课日期" required type="date"/>
+          <mat-error *ngIf="form.finishDate.errors?.required">请输入结课日期</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" type="submit" [disabled]="!addCourseForm.valid">添加</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
