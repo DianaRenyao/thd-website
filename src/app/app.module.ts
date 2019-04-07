@@ -10,7 +10,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule,
-  MatSidenavModule,
+  MatSidenavModule, MatTableModule,
   MatTabsModule,
   MatToolbarModule
 } from '@angular/material';
@@ -31,6 +31,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AddTeacherComponent } from './add-teacher/add-teacher.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import { ServiceErrorMessageComponent } from './service-error-message/service-error-message.component';
+import { ShowTeachersComponent } from './show-teachers/show-teachers.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ServiceErrorMessageComponent } from './service-error-message/service-er
     LogoutComponent,
     AddTeacherComponent,
     ErrorMessageComponent,
-    ServiceErrorMessageComponent
+    ServiceErrorMessageComponent,
+    ShowTeachersComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import { ServiceErrorMessageComponent } from './service-error-message/service-er
     ReactiveFormsModule,
     HttpClientModule,
     MatListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
