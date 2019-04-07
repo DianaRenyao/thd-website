@@ -10,11 +10,14 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
+
 export class LoginComponent implements OnInit {
   private returnUrl: string;
   loginForm: FormGroup;
   errorResponse: HttpErrorResponse;
 
+  
   constructor(
     private alertService: AlertService,
     private sessionService: SessionService,
@@ -59,4 +62,6 @@ export class LoginComponent implements OnInit {
         });
   }
 }
+
+
 
