@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpErrorResponse} from '@angular/common/http';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {UserService} from '../_services';
-import {Router} from '@angular/router';
-import {RegisterComponent} from '../register/register.component';
-import {UserInfoMessage} from '../_models/user-info-message';
+import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../_services';
+import { Router } from '@angular/router';
+import { RegisterComponent } from '../register/register.component';
+import { TeacherMessage } from '../_models';
 
 @Component({
   selector: 'app-add-teacher',
@@ -58,7 +58,7 @@ export class AddTeacherComponent implements OnInit {
       email: this.form.email.value,
       phone: this.form.phone.value,
     }).subscribe(
-      (userInfo: UserInfoMessage) => {
+      (teacherMessage: TeacherMessage) => {
         this.router.navigate(['/']);
       },
       (errorResponse: HttpErrorResponse) => {
