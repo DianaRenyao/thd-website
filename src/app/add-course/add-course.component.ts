@@ -1,10 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpErrorResponse} from '@angular/common/http';
-import {UserService} from '../_services';
 import {Router} from '@angular/router';
-import {RegisterComponent} from '../register/register.component';
-import {UserInfoMessage} from '../_models';
 import {CourseService} from '../_services/course.service';
 import {CourseMessage} from '../_models/course-message';
 
@@ -21,7 +18,8 @@ export class AddCourseComponent implements OnInit {
     private formBuilder: FormBuilder,
     private courseService: CourseService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   // convenience getter for easy access to form fields
   get form() {

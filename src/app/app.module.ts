@@ -34,6 +34,7 @@ import { ErrorMessageComponent } from './error-message/error-message.component';
 import { ServiceErrorMessageComponent } from './service-error-message/service-error-message.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
+import { SelectableCourseComponent } from './selectable-course/selectable-course.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { TeacherListComponent } from './teacher-list/teacher-list.component';
     ServiceErrorMessageComponent,
     AddCourseComponent,
     TeacherListComponent,
+    SelectableCourseComponent,
   ],
   imports: [
     BrowserModule,

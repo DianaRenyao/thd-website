@@ -13,22 +13,22 @@
         <mat-form-field class="form-field">
           <textarea  matInput class="form-control" formControlName="description"
                      placeholder="课程描述" required type="text" ></textarea>
-          <mat-error *ngIf="form.password.errors?.required">请输入课程描述</mat-error>
+          <mat-error *ngIf="form.description.errors?.required">请输入课程描述</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
           <input class="form-control" formControlName="period" matInput
                  placeholder="课时数" required type="number"/>
-          <mat-error *ngIf="form.realName.errors?.required">请输入姓名</mat-error>
+          <mat-error *ngIf="form.period.errors?.required">请输入姓名</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
           <input class="form-control" formControlName="startDate" matInput
                  placeholder="开课日期" required type="date"/>
-          <mat-error *ngIf="form.email.errors?.required">请输入开课日期</mat-error>
+          <mat-error *ngIf="form.startDate.errors?.required">请输入开课日期</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
           <input class="form-control" formControlName="finishDate" matInput
                  placeholder="结课日期" required type="date"/>
-          <mat-error *ngIf="form.phone.errors?.required">请输入结课日期</mat-error>
+          <mat-error *ngIf="form.finishDate.errors?.required">请输入结课日期</mat-error>
         </mat-form-field>
       </mat-card-content>
       <mat-card-actions>

@@ -1,0 +1,51 @@
+<div class="selectable-course-container">
+  <h2>可选课程列表</h2>
+  <table [dataSource]="dataSource" mat-table>
+
+    <!-- courseId column -->
+    <ng-container matColumnDef="courseId">
+      <th *matHeaderCellDef mat-header-cell>课程编号</th>
+      <td *matCellDef="let element" mat-cell> {{element.courseId}} </td>
+    </ng-container>
+
+    <!-- courseName column -->
+    <ng-container matColumnDef="courseName">
+      <th *matHeaderCellDef mat-header-cell>课程名称</th>
+      <td *matCellDef="let element" mat-cell> {{element.courseName}} </td>
+    </ng-container>
+
+    <!-- description column -->
+    <ng-container matColumnDef="description">
+      <th *matHeaderCellDef mat-header-cell>课程描述</th>
+      <td *matCellDef="let element" mat-cell> {{element.summary}} </td>
+    </ng-container>
+
+    <!-- period column -->
+    <ng-container matColumnDef="period">
+      <th *matHeaderCellDef mat-header-cell>课时数</th>
+      <td *matCellDef="let element" mat-cell> {{element.period}} </td>
+    </ng-container>
+
+    <!-- startDate column -->
+    <ng-container matColumnDef="startDate">
+      <th *matHeaderCellDef mat-header-cell>开课时间</th>
+      <td *matCellDef="let element" mat-cell> {{element.startDate}} </td>
+    </ng-container>
+
+    <!-- finishDate column -->
+    <ng-container matColumnDef="finishDate">
+      <th *matHeaderCellDef mat-header-cell>结课时间</th>
+      <td *matCellDef="let element" mat-cell> {{element.finishDate}} </td>
+    </ng-container>
+
+    <!-- teacherName column -->
+    <ng-container matColumnDef="teacherName">
+      <th *matHeaderCellDef mat-header-cell>任课老师</th>
+      <td *matCellDef="let element" mat-cell> {{element.teacher.teacherName}} </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+  <app-service-error-message [errorResponse]="errorResponse" [indicator]="'获取可选课程列表失败'"></app-service-error-message>
+</div>
