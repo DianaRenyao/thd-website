@@ -6,12 +6,14 @@ import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatCardModule,
+  MatDialogModule,
   MatIconModule,
   MatInputModule,
   MatListModule,
   MatPaginatorIntl,
   MatPaginatorModule,
   MatSidenavModule,
+  MatSnackBarModule,
   MatTableModule,
   MatTabsModule,
   MatToolbarModule
@@ -49,6 +51,8 @@ import { CustomMatPaginatorIntl } from './_internationalization/custom-mat-pagin
 import { TeacherManagementComponent } from './admin-console/teacher-management/teacher-management.component';
 import { CourseManagementComponent } from './teacher-home/course-management/course-management.component';
 import { NoticeManagementComponent } from './teacher-home/notice-management/notice-management.component';
+import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -82,6 +86,7 @@ import { NoticeManagementComponent } from './teacher-home/notice-management/noti
     TeacherManagementComponent,
     CourseManagementComponent,
     NoticeManagementComponent,
+    ApplyCourseDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,12 +104,17 @@ import { NoticeManagementComponent } from './teacher-home/notice-management/noti
     MatListModule,
     MatSidenavModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
+    MatSnackBarModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl },
+  ],
+  entryComponents: [
+    ApplyCourseDialogComponent,
   ],
   bootstrap: [AppComponent]
 })

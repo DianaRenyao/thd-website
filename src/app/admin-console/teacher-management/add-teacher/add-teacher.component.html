@@ -6,38 +6,45 @@
       </mat-card-header>
       <mat-card-content>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <input matInput class="form-control" formControlName="teacherNumber"
                  placeholder="教工号（账号）" required type="text" >
           <mat-error *ngIf="form.teacherNumber.errors?.pattern">教工号的格式不正确</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <input matInput class="form-control" formControlName="password"
                  placeholder="初始密码" required type="password" >
                  <mat-error *ngIf="form.password.errors?.required">请输入密码</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <input class="form-control" formControlName="passwordRepeated" matInput
                  placeholder="确认密码" required type="password"/>
           <mat-error *ngIf="form.passwordRepeated.errors?.required">请再次输入密码</mat-error>
         </mat-form-field>
         <app-error-message *ngIf="addTeacherForm.errors?.notSame">两次密码不一致</app-error-message>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <input class="form-control" formControlName="realName" matInput
                  placeholder="姓名" required type="text"/>
           <mat-error *ngIf="form.realName.errors?.required">请输入姓名</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <input class="form-control" formControlName="email" matInput
                  placeholder="电子邮件" required type="text"/>
           <mat-error *ngIf="form.email.errors?.required">请输入电子邮件</mat-error>
           <mat-error *ngIf="form.email.errors?.email">输入的电子邮件的格式不正确</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <input class="form-control" formControlName="phone" matInput
                  placeholder="联系电话" required type="text"/>
           <mat-error *ngIf="form.phone.errors?.required">请输入联系电话</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <textarea cdkTextareaAutosize class="form-control" formControlName="introduction" matInput
                     placeholder="介绍" required type="text"></textarea>
           <mat-error *ngIf="form.introduction.errors?.required">请输入介绍</mat-error>
