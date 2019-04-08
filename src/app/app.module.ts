@@ -40,6 +40,8 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { NoticeComponent } from './notice/notice.component';
 import { UserReferenceComponent } from './user-reference/user-reference.component';
 import { RecentNoticesComponent } from './recent-notices/recent-notices.component';
+import { TeacherComponent } from './teacher/teacher.component';
+import { TeachersComponent } from './teachers/teachers.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { RecentNoticesComponent } from './recent-notices/recent-notices.componen
     NoticeComponent,
     UserReferenceComponent,
     RecentNoticesComponent,
+    TeacherComponent,
+    TeachersComponent,
   ],
   imports: [
     BrowserModule,
