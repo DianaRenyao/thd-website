@@ -1,15 +1,14 @@
 <div class="main-div">
-  <h2>添加教师</h2>
   <form class="add-teacher-form" [formGroup]="addTeacherForm" (ngSubmit)="onSubmit()">
     <mat-card>
-      <!--      <mat-card-header>-->
-      <!--        <mat-card-title>添加教师</mat-card-title>-->
-      <!--      </mat-card-header>-->
+      <mat-card-header>
+        <mat-card-title>添加教师</mat-card-title>
+      </mat-card-header>
       <mat-card-content>
         <mat-form-field class="form-field">
           <input matInput class="form-control" formControlName="teacherNumber"
                  placeholder="教工号（账号）" required type="text" >
-          <mat-error *ngIf="form.teacherNumber.errors?.pattern">学号的格式不正确</mat-error>
+          <mat-error *ngIf="form.teacherNumber.errors?.pattern">教工号的格式不正确</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
           <input matInput class="form-control" formControlName="password"

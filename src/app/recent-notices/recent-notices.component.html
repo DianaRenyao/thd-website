@@ -1,9 +1,0 @@
-<div class="recent-notices-container">
-  <h2 class="recent-notices-title">公告</h2>
-  <button class="see-all-button" mat-button routerLink="/notices">查看所有</button>
-  <div class="notices">
-    <app-notice *ngFor="let notice of notices" [notice]="notice" class="notice">
-    </app-notice>
-  </div>
-  <app-service-error-message [errorResponse]="errorResponse" indicator="'无法最近的公告失败'"></app-service-error-message>
-</div>

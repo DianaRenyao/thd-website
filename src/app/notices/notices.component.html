@@ -1,0 +1,12 @@
+<div class="recent-notices-container">
+  <div class="notices">
+    <app-notice *ngFor="let notice of notices" [notice]="notice" class="notice">
+    </app-notice>
+  </div>
+  <app-service-error-message [errorResponse]="errorResponse" indicator="'获取公告失败'"></app-service-error-message>
+  <mat-paginator (page)="onPageEvent($event)"
+                 *ngIf="numberOfNotices"
+                 [length]="numberOfNotices"
+                 [pageSize]="numberOfNoticesPerPage">
+  </mat-paginator>
+</div>

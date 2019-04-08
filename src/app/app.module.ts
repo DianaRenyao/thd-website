@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -10,6 +9,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule,
+  MatPaginatorModule,
   MatSidenavModule,
   MatTableModule,
   MatTabsModule,
@@ -39,9 +39,11 @@ import { SelectableCoursesComponent } from './selectable-courses/selectable-cour
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { NoticeComponent } from './notice/notice.component';
 import { UserReferenceComponent } from './user-reference/user-reference.component';
-import { RecentNoticesComponent } from './recent-notices/recent-notices.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { TeachersComponent } from './teachers/teachers.component';
+import { AddNoticeComponent } from './add-notice/add-notice.component';
+import { NoticeListComponent } from './notice-list/notice-list.component';
+import { NoticesComponent } from './notices/notices.component';
 
 @NgModule({
   declarations: [
@@ -67,9 +69,11 @@ import { TeachersComponent } from './teachers/teachers.component';
     CourseDetailComponent,
     NoticeComponent,
     UserReferenceComponent,
-    RecentNoticesComponent,
     TeacherComponent,
     TeachersComponent,
+    AddNoticeComponent,
+    NoticeListComponent,
+    NoticesComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,7 +90,8 @@ import { TeachersComponent } from './teachers/teachers.component';
     HttpClientModule,
     MatListModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
