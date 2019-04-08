@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NoticeMessage } from '../_models';
-import { NoticeService } from '../_services/notice.service';
+import { NoticeMessage } from '../../../_models';
 
 @Component({
   selector: 'app-notice-list',
@@ -11,9 +10,7 @@ export class NoticeListComponent implements OnInit {
 
   notices: NoticeMessage[];
 
-  constructor(
-    private noticeService: NoticeService
-  ) {
+  constructor() {
   }
 
   ngOnInit() {

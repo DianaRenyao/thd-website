@@ -7,12 +7,12 @@
       <mat-card-content>
         <mat-form-field class="form-field">
           <input matInput class="form-control" formControlName="courseName"
-                 placeholder="课程名称" required type="text" >
+                 placeholder="课程名称" required type="text">
           <mat-error *ngIf="form.courseName.errors?.required">请输入课程名称</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
-          <textarea  matInput class="form-control" formControlName="description"
-                     placeholder="课程描述" required type="text" ></textarea>
+          <textarea cdkTextareaAutosize class="form-control" formControlName="description" matInput
+                    placeholder="课程描述" required type="text"></textarea>
           <mat-error *ngIf="form.description.errors?.required">请输入课程描述</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">

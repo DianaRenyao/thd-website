@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
-import { NoticeService } from '../_services/notice.service';
-import { NoticeMessage } from '../_models';
+import { NoticeService } from '../../../_services';
+import { NoticeMessage } from '../../../_models';
 
 @Component({
   selector: 'app-add-notice',
