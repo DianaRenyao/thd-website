@@ -9,6 +9,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule,
+  MatPaginatorIntl,
   MatPaginatorModule,
   MatSidenavModule,
   MatTableModule,
@@ -44,6 +45,7 @@ import { TeachersComponent } from './teachers/teachers.component';
 import { AddNoticeComponent } from './add-notice/add-notice.component';
 import { NoticeListComponent } from './notice-list/notice-list.component';
 import { NoticesComponent } from './notices/notices.component';
+import { CustomMatPaginatorIntl } from './_internationalization/custom-mat-paginator-intl';
 
 @NgModule({
   declarations: [
@@ -95,7 +97,8 @@ import { NoticesComponent } from './notices/notices.component';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl },
   ],
   bootstrap: [AppComponent]
 })
