@@ -37,6 +37,9 @@ import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { CourseSummaryComponent } from './course-summary/course-summary.component';
 import { SelectableCoursesComponent } from './selectable-courses/selectable-courses.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { NoticeComponent } from './notice/notice.component';
+import { UserReferenceComponent } from './user-reference/user-reference.component';
+import { RecentNoticesComponent } from './recent-notices/recent-notices.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,9 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
     CourseSummaryComponent,
     SelectableCoursesComponent,
     CourseDetailComponent,
+    NoticeComponent,
+    UserReferenceComponent,
+    RecentNoticesComponent,
   ],
   imports: [
     BrowserModule,
