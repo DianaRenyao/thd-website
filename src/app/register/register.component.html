@@ -9,16 +9,19 @@
         <section class="section-login-credential">
           <h3 class="section-title">登陆凭据</h3>
           <mat-form-field class="form-field">
+            <!--suppress HtmlFormInputWithoutLabel -->
             <input class="form-control" formControlName="studentNumber" matInput
                    placeholder="学号（用户名）" required type="text"/>
             <mat-error *ngIf="form.studentNumber.errors?.pattern">学号的格式不正确</mat-error>
           </mat-form-field>
           <mat-form-field class="form-field">
+            <!--suppress HtmlFormInputWithoutLabel -->
             <input class="form-control" formControlName="password" matInput
                    placeholder="密码" required type="password"/>
             <mat-error *ngIf="form.password.errors?.required">请输入密码</mat-error>
           </mat-form-field>
           <mat-form-field class="form-field">
+            <!--suppress HtmlFormInputWithoutLabel -->
             <input class="form-control" formControlName="passwordRepeated" matInput
                    placeholder="确认密码" required type="password"/>
             <mat-error *ngIf="form.passwordRepeated.errors?.required">请输入确认密码</mat-error>
@@ -31,22 +34,26 @@
         <section class="section-personal-information">
           <h3 class="section-title">个人信息</h3>
           <mat-form-field class="form-field">
+            <!--suppress HtmlFormInputWithoutLabel -->
             <input class="form-control" formControlName="realName" matInput
                    placeholder="姓名" required type="text"/>
             <mat-error *ngIf="form.realName.errors?.required">请输入姓名</mat-error>
           </mat-form-field>
           <mat-form-field class="form-field">
+            <!--suppress HtmlFormInputWithoutLabel -->
             <input class="form-control" formControlName="nickname" matInput
                    placeholder="昵称" type="text"/>
           </mat-form-field>
 
           <mat-form-field class="form-field">
+            <!--suppress HtmlFormInputWithoutLabel -->
             <input class="form-control" formControlName="email" matInput
                    placeholder="电子邮件" required type="text"/>
             <mat-error *ngIf="form.email.errors?.required">请输入电子邮件</mat-error>
             <mat-error *ngIf="form.email.errors?.email">输入的电子邮件的格式不正确</mat-error>
           </mat-form-field>
           <mat-form-field class="form-field">
+            <!--suppress HtmlFormInputWithoutLabel -->
             <input class="form-control" formControlName="phone" matInput
                    placeholder="联系电话" required type="text"/>
             <mat-error *ngIf="form.phone.errors?.required">请输入联系电话</mat-error>
@@ -56,10 +63,12 @@
         <section class="school-infomation">
           <h3 class="section-title">在校信息</h3>
           <mat-form-field class="form-field">
+            <!--suppress HtmlFormInputWithoutLabel -->
             <input class="form-control" formControlName="college" matInput
                    placeholder="学院" type="text"/>
           </mat-form-field>
           <mat-form-field class="form-field">
+            <!--suppress HtmlFormInputWithoutLabel -->
             <input class="form-control" formControlName="clazz" matInput
                    placeholder="班级" required type="text"/>
             <mat-error *ngIf="form.clazz.errors?.required">请输入班级</mat-error>

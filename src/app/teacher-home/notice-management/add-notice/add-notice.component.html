@@ -6,11 +6,13 @@
       </mat-card-header>
       <mat-card-content>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <input class="form-control" formControlName="title" matInput
                  placeholder="标题" required type="text"/>
           <mat-error *ngIf="form.title.errors?.required">请输入标题</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <textarea cdkTextareaAutosize class="form-control" formControlName="detail" matInput
                     placeholder="内容" required type="text"></textarea>
           <mat-error *ngIf="form.detail.errors?.required">请输入内容</mat-error>

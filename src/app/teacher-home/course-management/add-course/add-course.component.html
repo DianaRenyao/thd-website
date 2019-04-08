@@ -6,26 +6,31 @@
       </mat-card-header>
       <mat-card-content>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <input matInput class="form-control" formControlName="courseName"
-                 placeholder="课程名称" required type="text">
+                 placeholder="课程名称" required type="text"/>
           <mat-error *ngIf="form.courseName.errors?.required">请输入课程名称</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <textarea cdkTextareaAutosize class="form-control" formControlName="description" matInput
                     placeholder="课程描述" required type="text"></textarea>
           <mat-error *ngIf="form.description.errors?.required">请输入课程描述</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <input class="form-control" formControlName="period" matInput
                  placeholder="课时数" required type="number"/>
           <mat-error *ngIf="form.period.errors?.required">请输入姓名</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <input class="form-control" formControlName="startDate" matInput
                  placeholder="开课日期" required type="date"/>
           <mat-error *ngIf="form.startDate.errors?.required">请输入开课日期</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <input class="form-control" formControlName="finishDate" matInput
                  placeholder="结课日期" required type="date"/>
           <mat-error *ngIf="form.finishDate.errors?.required">请输入结课日期</mat-error>
