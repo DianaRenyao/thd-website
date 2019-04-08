@@ -4,4 +4,5 @@ export class TeacherRegisterMessage {
   realName: string;
   email: string;
   phone: string;
+  introduction: string;
 }

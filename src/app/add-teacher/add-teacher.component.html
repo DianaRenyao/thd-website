@@ -38,6 +38,11 @@
                  placeholder="联系电话" required type="text"/>
           <mat-error *ngIf="form.phone.errors?.required">请输入联系电话</mat-error>
         </mat-form-field>
+        <mat-form-field class="form-field">
+          <textarea class="form-control" formControlName="introduction" matInput
+                    placeholder="介绍" required type="text"></textarea>
+          <mat-error *ngIf="form.introduction.errors?.required">请输入介绍</mat-error>
+        </mat-form-field>
       </mat-card-content>
       <mat-card-actions>
         <button mat-button color="primary" type="submit" [disabled]="!addTeacherForm.valid">添加</button>

@@ -9,4 +9,5 @@ export * from './student-message';
 export * from './student-register-message';
 export * from './teacher-message';
 export * from './user-info-message';
+export * from './course-message';
 

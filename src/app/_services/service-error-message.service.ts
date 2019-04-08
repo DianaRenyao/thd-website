@@ -43,6 +43,8 @@ export class ServiceErrorMessageService {
         return '课程不存在';
       case ErrorCode.GET_APPLICATION_NO_SUCH_COURSE:
         return '课程不存在';
+      case ErrorCode.GET_APPLICATION_NO_SUCH_APPLICATION:
+        return '申请不存在';
       case ErrorCode.POST_APPLICATION_NO_SUCH_COURSE:
         return '课程不存在';
       case ErrorCode.POST_APPLICATION_COURSE_CAN_NOT_BE_APPLIED:
