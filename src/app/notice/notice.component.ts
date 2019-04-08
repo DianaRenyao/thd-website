@@ -15,7 +15,6 @@ export class NoticeComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(typeof this.notice.timeCreated);
   }
 
 }

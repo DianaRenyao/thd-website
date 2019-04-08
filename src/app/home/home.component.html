@@ -1,8 +1,19 @@
 <div class="main-aside-container">
   <div class="main-container">
-    <app-recent-notices></app-recent-notices>
+    <div>
+      <h2 class="section-title">近期公告</h2>
+      <app-notices [numberOfNoticesPerPage]="3"></app-notices>
+      <button class="see-all-button" mat-button routerLink="/notices">查看所有</button>
+    </div>
+    <div>
+      <h2 class="section-title">可选课程</h2>
+      <app-selectable-courses></app-selectable-courses>
+    </div>
   </div>
   <aside class="aside-container">
-    <app-teachers></app-teachers>
+    <div>
+      <h2 class="section-title">教师团队</h2>
+      <app-teachers></app-teachers>
+    </div>
   </aside>
 </div>

@@ -1,3 +1,4 @@
 <h2>{{ course.courseName }}</h2>
-
-<p>{{ course.courseName }}</p>
+<button mat-button>申请加入</button>
+<app-teacher [teacher]="course.teacher"></app-teacher>
+<p>{{ course.description }}</p>
