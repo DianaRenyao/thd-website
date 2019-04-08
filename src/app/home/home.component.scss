@@ -3,18 +3,19 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
+
+  .aside-container {
+    order: 2;
+    flex: 1 1 300px;
+
+    margin: 16px;
+  }
+
+  .main-container {
+    order: 1;
+    flex: 1 1 600px;
+
+    margin: 16px;
+  }
 }
 
-.aside-container {
-  order: 2;
-  flex: 1 1 300px;
-
-  margin: 16px;
-}
-
-.main-container {
-  order: 1;
-  flex: 1 1 600px;
-
-  margin: 16px;
-}

@@ -1,0 +1,7 @@
+import { Routes } from '@angular/router';
+import { TeacherManagementComponent } from './teacher-management/teacher-management.component';
+
+export const adminConsoleChildRoutes: Routes = [
+  { path: '', redirectTo: 'teacher-management', pathMatch: 'full' },
+  { path: 'teacher-management', component: TeacherManagementComponent },
+];

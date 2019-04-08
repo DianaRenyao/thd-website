@@ -30,11 +30,11 @@ import { StudentHomeComponent } from './student-home/student-home.component';
 import { TeacherHomeComponent } from './teacher-home/teacher-home.component';
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { LogoutComponent } from './logout/logout.component';
-import { AddTeacherComponent } from './add-teacher/add-teacher.component';
+import { AddTeacherComponent } from './admin-console/teacher-management/add-teacher/add-teacher.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import { ServiceErrorMessageComponent } from './service-error-message/service-error-message.component';
-import { AddCourseComponent } from './add-course/add-course.component';
-import { TeacherListComponent } from './teacher-list/teacher-list.component';
+import { AddCourseComponent } from './teacher-home/course-management/add-course/add-course.component';
+import { TeacherListComponent } from './admin-console/teacher-management/teacher-list/teacher-list.component';
 import { CourseSummaryComponent } from './course-summary/course-summary.component';
 import { SelectableCoursesComponent } from './selectable-courses/selectable-courses.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
@@ -42,10 +42,13 @@ import { NoticeComponent } from './notice/notice.component';
 import { UserReferenceComponent } from './user-reference/user-reference.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { TeachersComponent } from './teachers/teachers.component';
-import { AddNoticeComponent } from './add-notice/add-notice.component';
-import { NoticeListComponent } from './notice-list/notice-list.component';
+import { AddNoticeComponent } from './teacher-home/notice-management/add-notice/add-notice.component';
+import { NoticeListComponent } from './teacher-home/notice-management/notice-list/notice-list.component';
 import { NoticesComponent } from './notices/notices.component';
 import { CustomMatPaginatorIntl } from './_internationalization/custom-mat-paginator-intl';
+import { TeacherManagementComponent } from './admin-console/teacher-management/teacher-management.component';
+import { CourseManagementComponent } from './teacher-home/course-management/course-management.component';
+import { NoticeManagementComponent } from './teacher-home/notice-management/notice-management.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +79,9 @@ import { CustomMatPaginatorIntl } from './_internationalization/custom-mat-pagin
     AddNoticeComponent,
     NoticeListComponent,
     NoticesComponent,
+    TeacherManagementComponent,
+    CourseManagementComponent,
+    NoticeManagementComponent,
   ],
   imports: [
     BrowserModule,

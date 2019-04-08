@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../_services';
+import { UserService } from '../../../_services';
 import { Router } from '@angular/router';
-import { RegisterComponent } from '../register/register.component';
-import { TeacherMessage } from '../_models';
+import { RegisterComponent } from '../../../register/register.component';
+import { TeacherMessage } from '../../../_models';
 
 @Component({
   selector: 'app-add-teacher',
