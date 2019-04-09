@@ -1,6 +1,8 @@
 <div class="selectable-courses-container">
+
   <app-course-summary class="course" *ngFor="let courseSummaryMessage of courseSummaryMessages"
                       [courseSummaryMessage]="courseSummaryMessage"
                       (click)="onSelect(courseSummaryMessage)"
-  ></app-course-summary>
+  ><a routerLink="/course-detail/{{courseSummaryMessage.courseId}}"></a>
+  </app-course-summary>
 </div>

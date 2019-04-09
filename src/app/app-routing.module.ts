@@ -6,6 +6,7 @@ import { RegisterComponent } from './register/register.component';
 import { AdminConsoleComponent } from './admin-console/admin-console.component';
 import { StudentHomeComponent } from './student-home/student-home.component';
 import { TeacherHomeComponent } from './teacher-home/teacher-home.component';
+import {CourseDetailComponent} from './course-detail/course-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'admin-console', component: AdminConsoleComponent },
   { path: 'student-home', component: StudentHomeComponent },
-  { path: 'teacher-home', component: TeacherHomeComponent }
+  { path: 'teacher-home', component: TeacherHomeComponent },
+  { path: 'course-detail/:courseId', component: CourseDetailComponent }
 ];
 
 @NgModule({

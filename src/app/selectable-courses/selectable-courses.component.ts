@@ -33,6 +33,5 @@ export class SelectableCoursesComponent implements OnInit {
   onSelect(courseSummaryMessage: CourseSummaryMessage): void {
     console.log('is selected');
     this.selectedCourseSummaryMessage = courseSummaryMessage;
-    this.router.navigate(['/app-course-detail']);
   }
 }

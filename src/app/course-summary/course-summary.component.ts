@@ -20,4 +20,6 @@ export class CourseSummaryComponent implements OnInit {
   }
 
 
+  onClick() {
+  }
 }
