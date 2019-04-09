@@ -21,7 +21,6 @@ import {
   MatProgressSpinnerModule
 } from '@angular/material';
 
-import { TeacherCheckscoreComponent } from './teacher-checkscore/teacher-checkscore.component';
 import { StudentCheckscoreComponent } from './student-checkscore/student-checkscore.component';
 import { MatButtonModule } from '@angular/material/button';
 import { UserIndicatorComponent } from './user-indicator/user-indicator.component';
@@ -57,6 +56,7 @@ import { TeacherManagementComponent } from './admin-console/teacher-management/t
 import { CourseManagementComponent } from './teacher-home/course-management/course-management.component';
 import { NoticeManagementComponent } from './teacher-home/notice-management/notice-management.component';
 import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-dialog.component';
+import { ScoreManagementComponent } from './teacher-home/score-management/score-management.component';
 
 
 @NgModule({
@@ -83,7 +83,6 @@ import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-d
     CourseSummaryComponent,
     SelectableCoursesComponent,
     CourseDetailComponent,
-    TeacherCheckscoreComponent,
     NoticeComponent,
     UserReferenceComponent,
     TeacherComponent,
@@ -94,7 +93,8 @@ import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-d
     TeacherManagementComponent,
     CourseManagementComponent,
     NoticeManagementComponent,
-    ApplyCourseDialogComponent
+    ApplyCourseDialogComponent,
+    ScoreManagementComponent
   ],
   imports: [
     BrowserModule,
