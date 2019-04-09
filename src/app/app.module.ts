@@ -18,7 +18,8 @@ import {
   MatToolbarModule,
   MatPaginatorModule,
   MatSortModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatTooltipModule
 } from '@angular/material';
 
 import { StudentCheckscoreComponent } from './student-checkscore/student-checkscore.component';
@@ -57,6 +58,8 @@ import { CourseManagementComponent } from './teacher-home/course-management/cour
 import { NoticeManagementComponent } from './teacher-home/notice-management/notice-management.component';
 import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-dialog.component';
 import { ScoreManagementComponent } from './teacher-home/score-management/score-management.component';
+import { MessagesComponent } from './messages/messages.component';
+import { CreateMessageDialogComponent } from './create-message-dialog/create-message-dialog.component';
 
 
 @NgModule({
@@ -94,7 +97,9 @@ import { ScoreManagementComponent } from './teacher-home/score-management/score-
     CourseManagementComponent,
     NoticeManagementComponent,
     ApplyCourseDialogComponent,
-    ScoreManagementComponent
+    ScoreManagementComponent,
+    MessagesComponent,
+    CreateMessageDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -115,7 +120,8 @@ import { ScoreManagementComponent } from './teacher-home/score-management/score-
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTooltipModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
@@ -124,6 +130,7 @@ import { ScoreManagementComponent } from './teacher-home/score-management/score-
   ],
   entryComponents: [
     ApplyCourseDialogComponent,
+    CreateMessageDialogComponent,
   ],
   bootstrap: [AppComponent]
 })

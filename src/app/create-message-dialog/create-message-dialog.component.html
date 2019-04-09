@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="createMessageForm">
+  <h2 *ngIf="!replyTo" mat-dialog-title><span>发表留言</span></h2>
+  <h2 *ngIf="replyTo" mat-dialog-title><span>回复</span>{{ replyTo.author.realName }}</h2>
+  <mat-dialog-content>
+    <mat-form-field>
+      <!--suppress HtmlFormInputWithoutLabel -->
+      <textarea cdkTextareaAutosize formControlName="content" matInput placeholder="内容" required
+                type="text"></textarea>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>取消</button>
+    <button [disabled]="!createMessageForm.valid" mat-button type="submit">发送</button>
+  </mat-dialog-actions>
+</form>

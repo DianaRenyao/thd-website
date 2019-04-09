@@ -1,0 +1,43 @@
+<div class="messages-container">
+  <button (click)="createMessage(null)" mat-raised-button>发表新留言</button>
+  <app-service-error-message [errorResponse]="errorResponse" indicator="'失败'"></app-service-error-message>
+  <div class="messages">
+    <mat-card (click)="createMessage(message)" *ngFor="let message of messages"
+              class="message"
+              matTooltip="点击以回复"
+              matTooltipPosition="before">
+      <mat-card-content>
+        <div *ngIf="message.replyToMessage">
+          <mat-card class="message-replied">
+            <mat-card-content>
+              <p>
+                <span class="message-name reply-message-name">{{ message.replyToMessage.author.realName }}：</span>
+                <span class="message-content reply-message-content">{{ message.replyToMessage.content }}</span>
+              </p>
+            </mat-card-content>
+            <mat-card-footer class="message-footer">
+              <p class="message-time-created reply-message-time-created">
+                {{ message.replyToMessage.timeCreated }}
+              </p>
+            </mat-card-footer>
+          </mat-card>
+        </div>
+        <p>
+          <span class="message-name">{{ message.author.realName }}：</span>
+          <span class="content">{{ message.content }}</span>
+        </p>
+      </mat-card-content>
+      <mat-card-footer class="message-footer">
+        <p class="message-time-created">
+          {{ message.timeCreated }}
+        </p>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+  <mat-paginator (page)="onPageEvent($event)"
+                 *ngIf="numberOfMessages"
+                 [length]="numberOfMessages"
+                 [pageIndex]="pageIndex"
+                 [pageSize]="numberOfMessagesPerPage">
+  </mat-paginator>
+</div>
