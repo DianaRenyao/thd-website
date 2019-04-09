@@ -14,7 +14,9 @@ import {
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
-  MatSortModule
+  MatPaginatorModule,
+  MatSortModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import {UserIndicatorComponent} from './user-indicator/user-indicator.component';
@@ -40,6 +42,7 @@ import {TeacherListComponent} from './teacher-list/teacher-list.component';
 import {CourseSummaryComponent} from './course-summary/course-summary.component';
 import {SelectableCoursesComponent} from './selectable-courses/selectable-courses.component';
 import {CourseDetailComponent} from './course-detail/course-detail.component';
+import { TeacherCheckscoreComponent } from './teacher-checkscore/teacher-checkscore.component';
 
 
 @NgModule({
@@ -65,7 +68,8 @@ import {CourseDetailComponent} from './course-detail/course-detail.component';
     TeacherListComponent,
     CourseSummaryComponent,
     SelectableCoursesComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    TeacherCheckscoreComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +87,9 @@ import {CourseDetailComponent} from './course-detail/course-detail.component';
     MatListModule,
     MatSidenavModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ],
   providers:
     [

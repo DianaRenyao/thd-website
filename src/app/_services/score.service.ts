@@ -16,6 +16,10 @@ export class ScoreService {
   }
 
   getScores(): Observable<Score[]> {
-    return this.http.get<Score[]>(this.scoresUrl);
+    return this.http.get<Score[]>(this.scoresUrl, {
+      params: {
+        username: '2000000001'
+      }
+    });
   }
 }
