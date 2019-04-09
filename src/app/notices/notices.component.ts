@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NoticeMessage } from '../_models';
 import { HttpErrorResponse } from '@angular/common/http';
-import { NoticeService } from '../_services/notice.service';
+import { NoticeService } from '../_services';
 import { mergeMap } from 'rxjs/internal/operators/mergeMap';
 import { Observable } from 'rxjs';
 import { PageEvent } from '@angular/material';
@@ -16,7 +16,6 @@ export class NoticesComponent implements OnInit {
   @Input()
   numberOfNoticesPerPage: number;
   numberOfNotices: number;
-  pageEvent: PageEvent;
   notices: NoticeMessage[];
   errorResponse: HttpErrorResponse;
 

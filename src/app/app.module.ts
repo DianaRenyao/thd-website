@@ -16,7 +16,8 @@ import {
   MatSnackBarModule,
   MatTableModule,
   MatTabsModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatTooltipModule
 } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { UserIndicatorComponent } from './user-indicator/user-indicator.component';
@@ -52,6 +53,8 @@ import { TeacherManagementComponent } from './admin-console/teacher-management/t
 import { CourseManagementComponent } from './teacher-home/course-management/course-management.component';
 import { NoticeManagementComponent } from './teacher-home/notice-management/notice-management.component';
 import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-dialog.component';
+import { MessagesComponent } from './messages/messages.component';
+import { CreateMessageDialogComponent } from './create-message-dialog/create-message-dialog.component';
 
 
 @NgModule({
@@ -87,6 +90,8 @@ import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-d
     CourseManagementComponent,
     NoticeManagementComponent,
     ApplyCourseDialogComponent,
+    MessagesComponent,
+    CreateMessageDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,6 +112,7 @@ import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-d
     MatPaginatorModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatTooltipModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
@@ -115,6 +121,7 @@ import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-d
   ],
   entryComponents: [
     ApplyCourseDialogComponent,
+    CreateMessageDialogComponent,
   ],
   bootstrap: [AppComponent]
 })
