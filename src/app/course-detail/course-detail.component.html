@@ -1,7 +1,10 @@
 <app-service-error-message [errorResponse]="courseErrorResponse" [indicator]="'获取课程信息失败'"></app-service-error-message>
 <div *ngIf="course">
   <h2>{{ course.courseName }}</h2>
-  <div *ngIf="session.userInfo.role == 'student'">
+  <div *ngIf="!session">
+    <button mat-raised-button routerLink="/login">申请加入</button>
+  </div>
+  <div *ngIf="session && session.userInfo.role == 'student'">
     <button (click)="applyCourse()" *ngIf="!application" mat-raised-button>申请加入</button>
     <button *ngIf="application && application.state === applicationState.Waiting" [disabled]="true" mat-raised-button>
       等待申请结果
