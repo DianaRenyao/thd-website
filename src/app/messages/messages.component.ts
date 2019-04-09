@@ -6,6 +6,9 @@ import { MessageService } from '../_services/message.service';
 import { Observable } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 import { CreateMessageDialogComponent } from '../create-message-dialog/create-message-dialog.component';
+import { Router } from '@angular/router';
+import { SessionMessage } from '../_models';
+import { SessionService } from '../_services';
 
 @Component({
   selector: 'app-messages',
@@ -20,15 +23,28 @@ export class MessagesComponent implements OnInit {
   pageIndex: number;
   messages: MessageWithRepliedMessage[];
   errorResponse: HttpErrorResponse;
+  session: SessionMessage;
 
   constructor(
     private messageService: MessageService,
     private dialog: MatDialog,
+    private router: Router,
+    private sessionService: SessionService,
   ) {
   }
 
   ngOnInit() {
+    this.getSession();
     this.initialize();
+  }
+
+  getSession() {
+    this.session = this.sessionService.currentSessionValue;
+    this.sessionService.currentSession.subscribe(
+      session => {
+        this.session = session;
+      }
+    );
   }
 
   initialize() {
@@ -62,6 +78,11 @@ export class MessagesComponent implements OnInit {
   }
 
   createMessage(replyTo: MessageWithRepliedMessage) {
+    if (this.session == null) {
+      this.router.navigate(['/login']);
+      return;
+    }
+
     this.dialog.open(CreateMessageDialogComponent, {
       data: replyTo,
     }).afterClosed().subscribe(
