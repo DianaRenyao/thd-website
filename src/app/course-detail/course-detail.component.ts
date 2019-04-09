@@ -33,7 +33,7 @@ export class CourseDetailComponent implements OnInit {
   ngOnInit() {
     this.getCourseDetail();
     this.getSession();
-    if (this.session.userInfo.role === 'student') {
+    if (this.session && this.session.userInfo.role === 'student') {
       this.getApplication();
     }
   }
