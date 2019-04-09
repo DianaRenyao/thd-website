@@ -72,8 +72,10 @@ export class MessagesComponent implements OnInit {
           } else {
             if (this.pageIndex === 0) {
               this.messages.unshift(result);
-              this.messages.pop();
-              this.numberOfMessagesPerPage += 1;
+              if (this.numberOfMessages >= this.numberOfMessagesPerPage) {
+                this.messages.pop();
+              }
+              this.numberOfMessages += 1;
             } else {
               this.initialize();
             }
