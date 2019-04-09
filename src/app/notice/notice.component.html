@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="notice-title">{{ notice.title }}</mat-card-title>
+    <mat-card-subtitle>
+      <app-user-reference [userInfo]="notice.author.userInfo" class="notice-author"></app-user-reference>
+      <!-- TODO fix time created-->
+      <span class="notice-time">{{ notice.timeCreated }}</span>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="notice-detail">
+      {{ notice.detail }}
+    </p>
+  </mat-card-content>
+</mat-card>

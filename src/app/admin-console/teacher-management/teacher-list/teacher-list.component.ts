@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../_services';
-import { TeacherMessage } from '../_models';
 import { HttpErrorResponse } from '@angular/common/http';
+import { TeacherMessage } from '../../../_models';
+import { UserService } from '../../../_services';
 
 @Component({
   selector: 'app-teacher-list',

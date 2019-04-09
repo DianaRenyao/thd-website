@@ -1,0 +1,26 @@
+<div class="main-div">
+  <form (ngSubmit)="onSubmit()" [formGroup]="addNoticeForm" class="add-notice-form">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>添加公告</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
+          <input class="form-control" formControlName="title" matInput
+                 placeholder="标题" required type="text"/>
+          <mat-error *ngIf="form.title.errors?.required">请输入标题</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
+          <textarea cdkTextareaAutosize class="form-control" formControlName="detail" matInput
+                    placeholder="内容" required type="text"></textarea>
+          <mat-error *ngIf="form.detail.errors?.required">请输入内容</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button [disabled]="!addNoticeForm.valid" color="primary" mat-button type="submit">添加</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

@@ -35,6 +35,26 @@ export class ServiceErrorMessageService {
         return '公告不存在';
       case ErrorCode.DELETE_NOTICE_NO_SUCH_NOTICE:
         return '公告不存在';
+      case ErrorCode.GET_TEACHER_NO_SUCH_TEACHER:
+        return '教师不存在';
+      case ErrorCode.POST_TEACHER_USERNAME_ALREADY_EXISTS:
+        return '教师账户名已存在';
+      case ErrorCode.GET_COURSE_NO_SUCH_COURSE:
+        return '课程不存在';
+      case ErrorCode.GET_APPLICATION_NO_SUCH_COURSE:
+        return '课程不存在';
+      case ErrorCode.GET_APPLICATION_NO_SUCH_APPLICATION:
+        return '申请不存在';
+      case ErrorCode.POST_APPLICATION_NO_SUCH_COURSE:
+        return '课程不存在';
+      case ErrorCode.POST_APPLICATION_COURSE_CAN_NOT_BE_APPLIED:
+        return '无法申请该课程';
+      case ErrorCode.POST_APPLICATION_ALREADY_APPLIED:
+        return '不能重复提交申请';
+      case ErrorCode.PUT_APPLICATION_NO_SUCH_APPLICATION:
+        return '申请不存在';
+      case ErrorCode.PUT_APPLICATION_CAN_NOT_REJECT_APPLICATION_ALREADY_PASSED:
+        return '无法拒绝已经通过的申请';
       default:
         return '发生了未知错误';
     }
