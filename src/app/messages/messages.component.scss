@@ -1,0 +1,21 @@
+.message-name {
+  font-weight: bold;
+}
+
+.message-footer {
+  padding: 0 32px;
+}
+
+.message-time-created {
+  color: gray;
+  font-size: .8em;
+}
+
+.message-replied {
+  font-size: .8em;
+}
+
+.message {
+  margin: 16px 0;
+  cursor: pointer;
+}
