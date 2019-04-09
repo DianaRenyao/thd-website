@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../_services';
+import { UserService } from '../../../_services';
 import { Router } from '@angular/router';
-import { RegisterComponent } from '../register/register.component';
-import { TeacherMessage } from '../_models';
+import { RegisterComponent } from '../../../register/register.component';
+import { TeacherMessage } from '../../../_models';
 
 @Component({
   selector: 'app-add-teacher',
@@ -34,7 +34,6 @@ export class AddTeacherComponent implements OnInit {
     return password === passwordRepeated ? null : {notSame: true};
   }
 
-
   ngOnInit() {
     this.addTeacherForm = this.formBuilder.group({
       teacherNumber: ['', Validators.pattern(/^\d{10}$/)],
@@ -43,6 +42,7 @@ export class AddTeacherComponent implements OnInit {
       realName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required, ],
+      introduction: ['', Validators.required],
     }, {
       validators: [
         RegisterComponent.checkPasswords
@@ -57,6 +57,7 @@ export class AddTeacherComponent implements OnInit {
       realName: this.form.realName.value,
       email: this.form.email.value,
       phone: this.form.phone.value,
+      introduction: this.form.introduction.value,
     }).subscribe(
       (teacherMessage: TeacherMessage) => {
         this.router.navigate(['/']);

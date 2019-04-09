@@ -1,0 +1,4 @@
+<div class="teachers-container">
+  <app-teacher *ngFor="let teacher of teachers" [teacher]="teacher" class="teacher"></app-teacher>
+  <app-service-error-message [errorResponse]="errorResponse" [indicator]="'获取教师信息失败'"></app-service-error-message>
+</div>

@@ -2,7 +2,11 @@
 
   <app-course-summary class="course" *ngFor="let courseSummaryMessage of courseSummaryMessages"
                       [courseSummaryMessage]="courseSummaryMessage"
+<<<<<<< HEAD
                       (click)="onSelect(courseSummaryMessage)"
   ><a routerLink="/course-detail/{{courseSummaryMessage.courseId}}"></a>
+=======
+                      (click)="onClick(courseSummaryMessage)">
+>>>>>>> 741b3262ab41988427127b239453b9e6ceb5a5cf
   </app-course-summary>
 </div>

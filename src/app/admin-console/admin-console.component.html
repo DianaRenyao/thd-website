@@ -1,11 +1,12 @@
-<mat-sidenav-container class="example-container" >
-  <mat-sidenav mode="side" opened>
-    <app-logout class="sidenav-item"></app-logout>
-  </mat-sidenav>
-  <mat-sidenav-content class="main-container">
-    <app-add-teacher class="console-item"></app-add-teacher>
-    <app-teacher-list class="console-item"></app-teacher-list>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
-
+<div class="main-aside-container">
+  <div class="main-container">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="aside-container">
+    <nav>
+      <button class="nav-button" mat-button routerLink="./teacher-management">教师管理</button>
+    </nav>
+    <mat-divider></mat-divider>
+    <app-logout></app-logout>
+  </div>
+</div>

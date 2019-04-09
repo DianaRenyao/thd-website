@@ -1,3 +1,18 @@
-<p>
-  home works!
-</p>
+<div class="main-aside-container">
+  <div class="main-container">
+    <div>
+      <h2 class="section-title">公告</h2>
+      <app-notices [numberOfNoticesPerPage]="3"></app-notices>
+    </div>
+    <div>
+      <h2 class="section-title">可选课程</h2>
+      <app-selectable-courses></app-selectable-courses>
+    </div>
+  </div>
+  <div class="aside-container">
+    <div>
+      <h2 class="section-title">教师团队</h2>
+      <app-teachers></app-teachers>
+    </div>
+  </div>
+</div>

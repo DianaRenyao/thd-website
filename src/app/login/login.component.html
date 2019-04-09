@@ -7,11 +7,13 @@
 
       <mat-card-content>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <input matInput type="text" class="form-control"
                  placeholder="用户名" required formControlName="username">
           <mat-error *ngIf="form.username.errors?.required">请输入用户名</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
+          <!--suppress HtmlFormInputWithoutLabel -->
           <input matInput type="password" class="form-control"
                  placeholder="密码" required formControlName="password">
           <mat-error *ngIf="form.username.errors?.required">请输入密码</mat-error>
