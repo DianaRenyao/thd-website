@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'admin-console', component: AdminConsoleComponent, children: adminConsoleChildRoutes },
   { path: 'teacher-home', component: TeacherHomeComponent, children: teacherHomeChildRoutes },
   { path: 'student-home', component: StudentHomeComponent },
-  { path: 'course/:id', component: CourseDetailComponent },
+  { path: 'course/:id', component: CourseDetailComponent }
 ];
 
 @NgModule({

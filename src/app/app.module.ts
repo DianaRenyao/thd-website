@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {AppRoutingModule} from './_services/app-routing.module';
+import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -22,7 +22,7 @@ import {
 } from '@angular/material';
 
 import { TeacherCheckscoreComponent } from './teacher-checkscore/teacher-checkscore.component';
-import {StudentCheckscoreComponent} from './student-checkscore/student-checkscore.component';
+import { StudentCheckscoreComponent } from './student-checkscore/student-checkscore.component';
 import { MatButtonModule } from '@angular/material/button';
 import { UserIndicatorComponent } from './user-indicator/user-indicator.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -94,7 +94,7 @@ import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-d
     TeacherManagementComponent,
     CourseManagementComponent,
     NoticeManagementComponent,
-    ApplyCourseDialogComponent,
+    ApplyCourseDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -115,12 +115,12 @@ import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-d
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatSnackBarModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl },
+    { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }
   ],
   entryComponents: [
     ApplyCourseDialogComponent,

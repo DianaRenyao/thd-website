@@ -3,6 +3,8 @@ import {Score} from '../_models/score-message';
 import {ScoreService} from '../_services/score.service';
 import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
 import {Sort} from '@angular/material';
+import {SessionMessage} from '../_models';
+import {SessionService} from '../_services';
 
 @Component({
   selector: 'app-student-checkscore',
@@ -14,14 +16,15 @@ export class StudentCheckscoreComponent implements OnInit {
 
   displayedColumns: string[] = ['studentUserId', 'courseCourseId', 'midScore', 'finalScore', 'avgOnlineScore', 'totalScore'];
   dataSource: MatTableDataSource<Score>;
-
+  session: SessionMessage;
   num: number;
 
   // @ViewChild(MatSort) sort;
   // @ViewChild(MatPaginator) paginator: MatPaginator;
 
   getScores(): void {
-    this.scoreService.getScores().subscribe(dataSource => this.dataSource = new MatTableDataSource(dataSource));
+    this.scoreService.getScores(this.session.userInfo.username)
+      .subscribe(dataSource => this.dataSource = new MatTableDataSource(dataSource));
   }// 订阅getScores的返回
 
   applyFilter(filterValue: string) {
@@ -38,13 +41,26 @@ export class StudentCheckscoreComponent implements OnInit {
   //   });
   // }
 
+  getSession() {
+    this.session = this.sessionService.currentSessionValue;
+    this.sessionService.currentSession.subscribe(
+      session => {
+        this.session = session;
+      }
+    );
+  }
+
   constructor(
-    private scoreService: ScoreService
+    private scoreService: ScoreService,
+    private sessionService: SessionService,
   ) {
   }
 
   ngOnInit() {
-    this.getScores();
+    this.getSession();
+    if (this.session.userInfo.role === 'student') {
+      this.getScores();
+    }
     // this.dataSource.sort = this.sort;
     // this.dataSource.paginator = this.paginator;
     // this.getTotalNum();

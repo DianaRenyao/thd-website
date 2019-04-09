@@ -15,11 +15,7 @@ export class ScoreService {
   constructor(private http: HttpClient) {
   }
 
-  getScores(): Observable<Score[]> {
-    return this.http.get<Score[]>(this.scoresUrl, {
-      params: {
-        username: '2000000001'
-      }
-    });
+  getScores(username: string): Observable<Score[]> {
+    return this.http.get<Score[]>(`scores/${username}`, {});
   }
 }
