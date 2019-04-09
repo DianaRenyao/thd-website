@@ -1,5 +1,6 @@
 <div class="messages-container">
   <button (click)="createMessage(null)" mat-raised-button>发表新留言</button>
+  <app-service-error-message [errorResponse]="errorResponse" indicator="'失败'"></app-service-error-message>
   <div class="messages">
     <mat-card (click)="createMessage(message)" *ngFor="let message of messages"
               class="message"
@@ -33,7 +34,6 @@
       </mat-card-footer>
     </mat-card>
   </div>
-  <app-service-error-message [errorResponse]="errorResponse" indicator="'获取留言失败'"></app-service-error-message>
   <mat-paginator (page)="onPageEvent($event)"
                  *ngIf="numberOfMessages"
                  [length]="numberOfMessages"
