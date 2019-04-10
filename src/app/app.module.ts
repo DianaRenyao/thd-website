@@ -55,6 +55,7 @@ import { NoticeManagementComponent } from './teacher-home/notice-management/noti
 import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-dialog.component';
 import { MessagesComponent } from './messages/messages.component';
 import { CreateMessageDialogComponent } from './create-message-dialog/create-message-dialog.component';
+import { ApplicationManagementComponent } from './teacher-home/application-management/application-management.component';
 
 
 @NgModule({
@@ -92,6 +93,7 @@ import { CreateMessageDialogComponent } from './create-message-dialog/create-mes
     ApplyCourseDialogComponent,
     MessagesComponent,
     CreateMessageDialogComponent,
+    ApplicationManagementComponent,
   ],
   imports: [
     BrowserModule,

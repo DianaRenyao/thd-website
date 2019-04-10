@@ -22,8 +22,22 @@ export class ApplicationService {
     });
   }
 
+  getCourseApplication(courseId: number): Observable<ApplicationMessage[]> {
+    return this.http.get<ApplicationMessage[]>(`courses/${ courseId }/applications`);
+  }
+
   apply(studentUsername: string, courseId: number,
         applicationCreationMessage: ApplicationCreationMessage): Observable<ApplicationMessage> {
     return this.http.post<ApplicationMessage>(`courses/${ courseId }/applications`, applicationCreationMessage);
+  }
+
+  changeApplication(applicationMessage: ApplicationMessage, pass: boolean): Observable<ApplicationMessage> {
+    return this.http.put<ApplicationMessage>(
+      `courses/${ applicationMessage.courseSummary.courseId }/applications`, null, {
+        params: {
+          studentUserId: applicationMessage.student.userInfo.id.toString(),
+          isPass: pass.toString(),
+        }
+      });
   }
 }
