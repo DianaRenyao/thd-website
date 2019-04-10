@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CourseMessage } from '../_models';
+import { CourseMessage, SessionMessage } from '../_models';
 import { CourseCreationMessage } from '../_models/course-creation-message';
 import { CourseSummaryMessage } from '../_models/course-summary-message';
 
@@ -29,5 +29,13 @@ export class CourseService {
 
   getCourseDetail(courseId: number): Observable<CourseMessage> {
     return this.http.get<CourseMessage>(`courses/${ courseId }`);
+  }
+
+  getCourseOfTeacher(sessionMessage: SessionMessage): Observable<CourseSummaryMessage[]> {
+    return this.http.get<CourseSummaryMessage[]>('courses', {
+      params: {
+        teacher: sessionMessage.userInfo.username,
+      }
+    });
   }
 }
