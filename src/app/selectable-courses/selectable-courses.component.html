@@ -1,4 +1,5 @@
 <div class="selectable-courses-container">
+
   <app-course-summary class="course" *ngFor="let courseSummaryMessage of courseSummaryMessages"
                       [courseSummaryMessage]="courseSummaryMessage"
                       (click)="onClick(courseSummaryMessage)">
