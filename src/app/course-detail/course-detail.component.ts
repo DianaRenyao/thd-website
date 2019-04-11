@@ -14,6 +14,7 @@ import { ApplyCourseDialogComponent } from '../apply-course-dialog/apply-course-
 })
 export class CourseDetailComponent implements OnInit {
 
+
   applicationState = ApplicationState;
 
   session: SessionMessage;
