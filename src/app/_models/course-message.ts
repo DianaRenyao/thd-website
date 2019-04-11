@@ -9,5 +9,5 @@ export class CourseMessage {
   startDate: Date;
   finishDate: Date;
   teacher: TeacherMessage;
-  chapters: Array<ChapterMessage>;
+  chapters: ChapterMessage[];
 }

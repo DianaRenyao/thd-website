@@ -5,5 +5,5 @@ export class ChapterMessage {
   courseId: number;
   chapterName: string;
   sequence: number;
-  sections: Array<SectionMessage>;
+  sections: SectionMessage[];
 }
