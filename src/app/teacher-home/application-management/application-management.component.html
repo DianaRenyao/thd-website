@@ -1,0 +1,87 @@
+<div>
+  <app-service-error-message [errorResponse]="errorResponse"></app-service-error-message>
+  <div *ngFor="let courseAndApplication of courseAndApplications">
+    <app-course-summary [courseSummaryMessage]="courseAndApplication.course"></app-course-summary>
+    <p *ngIf="courseAndApplication.applications.length === 0">没有对该课程的申请</p>
+    <table *ngIf="courseAndApplication.applications.length !== 0" [dataSource]="courseAndApplication.applications"
+           class="application-table"
+           mat-table>
+      <!-- username column -->
+      <ng-container matColumnDef="username">
+        <th *matHeaderCellDef mat-header-cell>学号</th>
+        <td *matCellDef="let element" mat-cell> {{element.student.userInfo.username}} </td>
+      </ng-container>
+      <!-- realName column -->
+      <ng-container matColumnDef="realName">
+        <th *matHeaderCellDef mat-header-cell>姓名</th>
+        <td *matCellDef="let element" mat-cell> {{element.student.userInfo.realName}} </td>
+      </ng-container>
+      <!-- email column -->
+      <ng-container matColumnDef="email">
+        <th *matHeaderCellDef mat-header-cell>邮箱</th>
+        <td *matCellDef="let element" mat-cell> {{element.student.userInfo.email}} </td>
+      </ng-container>
+      <!-- phone column -->
+      <ng-container matColumnDef="phone">
+        <th *matHeaderCellDef mat-header-cell>联系电话</th>
+        <td *matCellDef="let element" mat-cell> {{element.student.userInfo.phone}} </td>
+      </ng-container>
+      <!-- college column -->
+      <ng-container matColumnDef="college">
+        <th *matHeaderCellDef mat-header-cell>学院</th>
+        <td *matCellDef="let element" mat-cell> {{element.student.college}} </td>
+      </ng-container>
+
+      <!-- clazz column -->
+      <ng-container matColumnDef="clazz">
+        <th *matHeaderCellDef mat-header-cell>班级</th>
+        <td *matCellDef="let element" mat-cell> {{element.student.clazz}} </td>
+      </ng-container>
+
+      <!-- time column -->
+      <ng-container matColumnDef="time">
+        <th *matHeaderCellDef mat-header-cell>申请时间</th>
+        <td *matCellDef="let element" mat-cell> {{element.timeCreated}} </td>
+      </ng-container>
+
+      <!-- comment column -->
+      <ng-container matColumnDef="comment">
+        <th *matHeaderCellDef mat-header-cell>备注</th>
+        <td *matCellDef="let element" mat-cell> {{element.comment}} </td>
+      </ng-container>
+
+      <!-- state column -->
+      <ng-container matColumnDef="state">
+        <th *matHeaderCellDef mat-header-cell>状态</th>
+        <td *matCellDef="let element" mat-cell>
+          <span *ngIf="element.state === applicationState.Waiting" class="state state-waiting">等待操作</span>
+          <span *ngIf="element.state === applicationState.Pass" class="state state-passed">已通过</span>
+          <span *ngIf="element.state === applicationState.Reject" class="state state-rejected">已拒绝</span>
+        </td>
+      </ng-container>
+
+      <!-- actions column -->
+      <ng-container matColumnDef="actions">
+        <th *matHeaderCellDef mat-header-cell>操作</th>
+        <td *matCellDef="let element" mat-cell>
+          <span *ngIf="element.state === applicationState.Waiting">
+            <button (click)="modifyApplication(element, true)" class="action-button" color="primary"
+                    mat-button>接受</button>
+            <button (click)="modifyApplication(element, false)" class="action-button" color="primary"
+                    mat-button>拒绝</button>
+          </span>
+          <span *ngIf="element.state === applicationState.Pass">
+            无
+          </span>
+          <span *ngIf="element.state === applicationState.Reject">
+            <button (click)="modifyApplication(element, true)" class="action-button" color="primary"
+                    mat-button>接受</button>
+          </span>
+        </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="applicationDisplayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: applicationDisplayedColumns;" mat-row></tr>
+    </table>
+  </div>
+</div>
