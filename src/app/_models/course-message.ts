@@ -1,4 +1,5 @@
 import { TeacherMessage } from './teacher-message';
+import {ChapterMessage} from './chapter-message';
 
 export class CourseMessage {
   courseId: number;
@@ -8,4 +9,5 @@ export class CourseMessage {
   startDate: Date;
   finishDate: Date;
   teacher: TeacherMessage;
+  chapters: Array<ChapterMessage>;
 }
