@@ -33,10 +33,6 @@ export class SelectableCoursesComponent implements OnInit {
 
   onClick(courseSummaryMessage: CourseSummaryMessage): void {
     console.log('is selected');
-<<<<<<< HEAD
-    this.selectedCourseSummaryMessage = courseSummaryMessage;
-=======
     this.router.navigate([`/course/${ courseSummaryMessage.courseId }`]);
->>>>>>> 741b3262ab41988427127b239453b9e6ceb5a5cf
   }
 }
