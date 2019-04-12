@@ -61,7 +61,9 @@ import { ScoreManagementComponent } from './teacher-home/score-management/score-
 import { MessagesComponent } from './messages/messages.component';
 import { CreateMessageDialogComponent } from './create-message-dialog/create-message-dialog.component';
 import { TeacherCheckscoreComponent } from './teacher-checkscore/teacher-checkscore.component';
-
+import { ApplicationManagementComponent } from './teacher-home/application-management/application-management.component';
+import { ChapterManagementComponent } from './teacher-home/chapter-management/chapter-management.component';
+import { CourseDetailManagementComponent } from './teacher-home/course-detail-management/course-detail-management.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +104,9 @@ import { TeacherCheckscoreComponent } from './teacher-checkscore/teacher-checksc
     MessagesComponent,
     CreateMessageDialogComponent,
     TeacherCheckscoreComponent,
+    ApplicationManagementComponent,
+    ChapterManagementComponent,
+    CourseDetailManagementComponent,
   ],
   imports: [
     BrowserModule,

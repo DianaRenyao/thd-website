@@ -1,1 +1,7 @@
 <app-add-course></app-add-course>
+<div class="teacher-course-container">
+    <app-course-summary *ngFor="let courseSummaryMessage of courseSummaryMessages"
+                        [courseSummaryMessage]="courseSummaryMessage"
+                        routerLink="{{ courseSummaryMessage.courseId }}">
+    </app-course-summary>
+</div>
