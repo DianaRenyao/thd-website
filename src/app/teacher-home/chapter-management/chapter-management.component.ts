@@ -19,6 +19,7 @@ export class ChapterManagementComponent implements OnInit {
   errorResponse: HttpErrorResponse;
   addingPosition: number;
   selectedChapter: ChapterMessage;
+  showingPosition: number;
 
   constructor(
     private route: ActivatedRoute,
