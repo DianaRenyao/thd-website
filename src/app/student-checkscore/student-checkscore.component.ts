@@ -5,6 +5,8 @@ import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
 import {Sort} from '@angular/material';
 import {SessionMessage} from '../_models';
 import {SessionService} from '../_services';
+import { MatButtonModule } from '@angular/material';
+
 
 @Component({
   selector: 'app-student-checkscore',

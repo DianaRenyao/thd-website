@@ -18,4 +18,19 @@ export class ScoreService {
   getScores(username: string): Observable<Score[]> {
     return this.http.get<Score[]>(`scores/${username}`, {});
   }
+
+  getCourseScores(courseId: number): Observable<Score[]> {
+    return this.http.get<Score[]>(`scores/course/${courseId}`, {});
+  }
+
+  addSelectedScore(score: Score, studentId: number, courseId: number): Observable<Score> {
+    return this.http.post<Score>(`scores/import`, score, {
+      params: {
+        studentUserId: studentId.toString(),
+        courseCourseId: courseId.toString(),
+      }
+    });
+  }
+
 }
+

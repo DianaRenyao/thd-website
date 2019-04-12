@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { CourseMessage } from '../_models';
-import { CourseCreationMessage } from '../_models/course-creation-message';
-import { CourseSummaryMessage } from '../_models/course-summary-message';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {CourseMessage} from '../_models';
+import {CourseCreationMessage} from '../_models/course-creation-message';
+import {CourseSummaryMessage} from '../_models/course-summary-message';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,16 @@ export class CourseService {
     });
   }
 
+  getTeacherCourses(username: string): Observable<CourseSummaryMessage[]> {
+    return this.http.get<CourseSummaryMessage[]>('courses', {
+      params: {
+        selectable: 'false',
+        teacher: username
+      }
+    });
+  }
+
   getCourseDetail(courseId: number): Observable<CourseMessage> {
-    return this.http.get<CourseMessage>(`courses/${ courseId }`);
+    return this.http.get<CourseMessage>(`courses/${courseId}`);
   }
 }

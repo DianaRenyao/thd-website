@@ -60,6 +60,7 @@ import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-d
 import { ScoreManagementComponent } from './teacher-home/score-management/score-management.component';
 import { MessagesComponent } from './messages/messages.component';
 import { CreateMessageDialogComponent } from './create-message-dialog/create-message-dialog.component';
+import { TeacherCheckscoreComponent } from './teacher-checkscore/teacher-checkscore.component';
 
 
 @NgModule({
@@ -100,6 +101,7 @@ import { CreateMessageDialogComponent } from './create-message-dialog/create-mes
     ScoreManagementComponent,
     MessagesComponent,
     CreateMessageDialogComponent,
+    TeacherCheckscoreComponent,
   ],
   imports: [
     BrowserModule,

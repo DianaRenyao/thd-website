@@ -1,7 +1,5 @@
-export interface Score {
+export class Score {
   studentUserId: number;
-  courseCourseId: number;
-  approveTime: string;
   avgOnlineScore: number;
   midScore: number;
   finalScore: number;
