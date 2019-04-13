@@ -1,0 +1,15 @@
+<div class="learn-content-container">
+  <div class="download-button">
+    <a [href]="source">
+      <button mat-button>下载 <span>{{ fileSource.filename }}</span></button>
+    </a>
+  </div>
+  <div class="view-area">
+    <video *ngIf="fileSource.fileType.startsWith('video')" controls>
+      <source [src]="source" type="{{ fileSource.fileType }}"/>
+    </video>
+    <pdf-viewer *ngIf="fileSource.fileType === 'application/pdf'"
+                [render-text]="true" [src]="source"></pdf-viewer>
+    <app-error-message>文件无法显示：未知的文件类型</app-error-message>
+  </div>
+</div>

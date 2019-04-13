@@ -41,7 +41,7 @@
       <!-- time column -->
       <ng-container matColumnDef="time">
         <th *matHeaderCellDef mat-header-cell>申请时间</th>
-        <td *matCellDef="let element" mat-cell> {{element.timeCreated}} </td>
+        <td *matCellDef="let element" mat-cell> {{element.timeCreated | date: 'medium' }} </td>
       </ng-container>
 
       <!-- comment column -->

@@ -12,3 +12,4 @@ export * from './user-info-message';
 export * from './course-message';
 export * from './application-message';
 export * from './application-state';
+export * from './file-source-message';
