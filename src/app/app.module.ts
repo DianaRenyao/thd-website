@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -59,6 +59,12 @@ import { ApplicationManagementComponent } from './teacher-home/application-manag
 import { ChapterManagementComponent } from './teacher-home/chapter-management/chapter-management.component';
 import { CourseDetailManagementComponent } from './teacher-home/course-detail-management/course-detail-management.component';
 import { CourseLearnComponent } from './course-learn/course-learn.component';
+import { LearnContentComponent } from './learn-content/learn-content.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { registerLocaleData } from '@angular/common';
+import localeZhHans from '@angular/common/locales/zh-Hans';
+
+registerLocaleData(localeZhHans);
 
 @NgModule({
   declarations: [
@@ -99,6 +105,7 @@ import { CourseLearnComponent } from './course-learn/course-learn.component';
     ChapterManagementComponent,
     CourseDetailManagementComponent,
     CourseLearnComponent,
+    LearnContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -120,10 +127,12 @@ import { CourseLearnComponent } from './course-learn/course-learn.component';
     MatDialogModule,
     MatSnackBarModule,
     MatTooltipModule,
+    PdfViewerModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
+    { provide: LOCALE_ID, useValue: 'zh-Hans' },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
     { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl },
   ],
   entryComponents: [

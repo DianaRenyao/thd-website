@@ -4,7 +4,7 @@
     <mat-card-subtitle>
       <app-user-reference [userInfo]="notice.author.userInfo" class="notice-author"></app-user-reference>
       <!-- TODO fix time created-->
-      <span class="notice-time">{{ notice.timeCreated }}</span>
+      <span class="notice-time">{{ notice.timeCreated | date: 'medium' }}</span>
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
