@@ -58,6 +58,7 @@ import { CreateMessageDialogComponent } from './create-message-dialog/create-mes
 import { ApplicationManagementComponent } from './teacher-home/application-management/application-management.component';
 import { ChapterManagementComponent } from './teacher-home/chapter-management/chapter-management.component';
 import { CourseDetailManagementComponent } from './teacher-home/course-detail-management/course-detail-management.component';
+import { CourseLearnComponent } from './course-learn/course-learn.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { CourseDetailManagementComponent } from './teacher-home/course-detail-ma
     ApplicationManagementComponent,
     ChapterManagementComponent,
     CourseDetailManagementComponent,
+    CourseLearnComponent,
   ],
   imports: [
     BrowserModule,
