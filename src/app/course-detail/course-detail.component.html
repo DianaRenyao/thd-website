@@ -18,4 +18,16 @@
   </div>
   <app-teacher [teacher]="course.teacher"></app-teacher>
   <p>{{ course.description }}</p>
+  <ol *ngFor="let chapter of course.chapters" class="chapter-ol">
+    <li>
+      <span class="sequence">第{{chapter.sequence + 1}}章</span>
+      <span class="chapter-name">{{chapter.chapterName}}</span>
+    </li>
+    <ol *ngFor="let section of chapter.sections" class="section-ol">
+      <li>
+        <span class="sequence">第{{section.sequence + 1}}节</span>
+        <span class="section-name">{{section.sectionName}}</span>
+      </li>
+    </ol>
+  </ol>
 </div>

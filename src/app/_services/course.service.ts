@@ -7,6 +7,9 @@ import {CourseSummaryMessage} from '../_models/course-summary-message';
 import {ChapterMessage} from '../_models/chapter-message';
 import {ChapterCreationMessage} from '../_models/chapter-creation-message';
 import {ChapterEditingMessage} from '../_models/chapter-editing-message';
+import {SectionCreationMessage} from '../_models/section-creation-message';
+import {SectionMessage} from '../_models/section-message';
+import {SectionEditingMessage} from '../_models/section-editing-message';
 
 @Injectable({
   providedIn: 'root'
@@ -56,5 +59,19 @@ export class CourseService {
 
   deleteChapter(courseId: number, chapterSequence: number): Observable<void> {
     return this.http.delete<void>(`courses/${courseId}/chapters/${chapterSequence}`);
+  }
+
+  addSection(courseId: number, chapterSequence: number, sectionCreationMessage: SectionCreationMessage): Observable<SectionMessage> {
+    return this.http.post<SectionMessage>(`courses/${courseId}/chapters/${chapterSequence}/sections`, sectionCreationMessage);
+  }
+
+  editSection(courseId: number, chapterSequence: number, sectionSequence: number, sectionEditingMessage: SectionEditingMessage)
+    : Observable<SectionMessage> {
+    return this.http.put<SectionMessage>(`courses/${courseId}/chapters/${chapterSequence}/sections/${sectionSequence}`,
+      sectionEditingMessage);
+  }
+
+  deleteSection(courseId: number, chapterSequence: number, sectionSequence: number): Observable<void> {
+    return this.http.delete<void>(`courses/${courseId}/chapters/${chapterSequence}/sections/${sectionSequence}`);
   }
 }

@@ -1,4 +1,5 @@
 <div class="chapter-container">
+  <app-service-error-message [errorResponse]="errorResponse" [indicator]="'编辑章节失败'"></app-service-error-message>
   <div *ngFor="let chapter of chapters">
     <button (click)="toggleAdd(chapter.sequence)" class="add-button" mat-icon-button>
       <mat-icon>add</mat-icon>
@@ -11,12 +12,12 @@
       </label>
       <button (click)="addChapter()" [disabled]="newChapter.chapterName === null" color="primary" mat-button>添加</button>
     </div>
-    <span class="sequence">{{chapter.sequence + 1}}</span>
+    <span class="sequence">第{{chapter.sequence + 1}}章</span>
     <span class="chapter-name">{{chapter.chapterName}}</span>
     <button mat-icon-button (click)="toggleEdit(chapter.sequence, chapter.chapterName)">
       <mat-icon>edit</mat-icon>
     </button>
-    <button mat-icon-button (click)="removeChapter()">
+    <button mat-icon-button (click)="removeChapter(chapter.sequence)">
       <mat-icon>delete</mat-icon>
     </button>
     <div *ngIf="editingPosition === chapter.sequence">
@@ -28,17 +29,13 @@
       <button (click)="editChapter()" [disabled]="editingChapter.chapterName === null" color="primary" mat-button>修改
       </button>
     </div>
-    <div *ngIf="selectedChapter && showingPosition === chapter.sequence">
-      <div *ngFor="let section of chapter.sections">
-        <span class="sequence">{{section.sequence}}</span>
-        <span class="section-name">{{section.sectionName}}</span>
-      </div>
-    </div>
+    <app-section-management [chapterSequence]="chapter.sequence" [courseId]="courseId" [sections]="chapter.sections"
+                            class="section-management"></app-section-management>
   </div>
-  <button (click)="toggleAdd(chaptersCount)" class="add-button" mat-icon-button>
+  <button (click)="toggleAdd(chapters.length)" class="add-button" mat-icon-button>
     <mat-icon>add</mat-icon>
   </button>
-  <div *ngIf="addingPosition === chaptersCount">
+  <div *ngIf="addingPosition === chapters.length">
     <label>序号：{{newChapter.sequence + 1}}
     </label>
     <label>章节名称：
