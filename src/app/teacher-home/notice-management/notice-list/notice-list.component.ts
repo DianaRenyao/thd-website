@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { NoticeMessage } from '../../../_models';
+import {Component, OnInit} from '@angular/core';
+import {NoticeMessage} from '../../../_models';
+import {HttpErrorResponse} from '@angular/common/http';
+import {NoticeService} from '../../../_services';
 
 @Component({
   selector: 'app-notice-list',
@@ -8,12 +10,38 @@ import { NoticeMessage } from '../../../_models';
 })
 export class NoticeListComponent implements OnInit {
 
-  notices: NoticeMessage[];
+  displayedColumns: string[] = [
+    'timeCreated',
+    'title',
+    'detail',
+    'action',
+  ];
+  dataSource: NoticeMessage[];
+  errorResponse: HttpErrorResponse;
 
-  constructor() {
+  constructor(
+    private noticeService: NoticeService
+  ) {
+  }
+
+  getTeacherNotices(): void {
+    this.noticeService.getAllNotices().subscribe(
+      (dataSource: NoticeMessage[]) => {
+        this.dataSource = dataSource;
+      },
+      errorResponse => this.errorResponse = errorResponse
+    );
   }
 
   ngOnInit() {
+    this.getTeacherNotices();
   }
 
+  editNotice() {
+    // TODO
+  }
+
+  removeNotice(noticeId: number) {
+    // TODO
+  }
 }

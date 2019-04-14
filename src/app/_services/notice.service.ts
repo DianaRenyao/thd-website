@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { NoticeCreationMessage, NoticeMessage } from '../_models';
-import { Observable } from 'rxjs';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {NoticeCreationMessage, NoticeMessage} from '../_models';
+import {Observable} from 'rxjs';
+import {HttpClient, HttpResponse} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +41,9 @@ export class NoticeService {
 
   createNotice(creationMessage: NoticeCreationMessage): Observable<NoticeMessage> {
     return this.http.post<NoticeMessage>('notices', creationMessage);
+  }
+
+  getTeacherNotices(noticeId: number): Observable<NoticeMessage[]> {
+    return this.http.get<NoticeMessage[]>('notices/teacherNotices');
   }
 }
