@@ -1,4 +1,5 @@
 <div class="chapter-container">
+  <app-service-error-message [errorResponse]="errorResponse" [indicator]="'编辑章节失败'"></app-service-error-message>
   <div *ngFor="let chapter of chapters">
     <button (click)="toggleAdd(chapter.sequence)" class="add-button" mat-icon-button>
       <mat-icon>add</mat-icon>
