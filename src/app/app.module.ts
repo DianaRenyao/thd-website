@@ -106,6 +106,7 @@ registerLocaleData(localeZhHans);
     CourseDetailManagementComponent,
     CourseLearnComponent,
     LearnContentComponent,
+    FileUploaderComponent,
   ],
   imports: [
     BrowserModule,
