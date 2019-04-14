@@ -6,6 +6,7 @@ import {CourseCreationMessage} from '../_models/course-creation-message';
 import {CourseSummaryMessage} from '../_models/course-summary-message';
 import {ChapterMessage} from '../_models/chapter-message';
 import {ChapterCreationMessage} from '../_models/chapter-creation-message';
+import {ChapterEditingMessage} from '../_models/chapter-editing-message';
 
 @Injectable({
   providedIn: 'root'
@@ -47,5 +48,13 @@ export class CourseService {
 
   addChapter(courseId: number, chapterCreationMessage: ChapterCreationMessage): Observable<ChapterMessage> {
     return this.http.post<ChapterMessage>(`courses/${courseId}/chapters`, chapterCreationMessage);
+  }
+
+  editChapter(courseId: number, chapterSequence: number, chapterEditingMessage: ChapterEditingMessage): Observable<ChapterMessage> {
+    return this.http.put<ChapterMessage>(`courses/${courseId}/chapters/${chapterSequence}`, chapterEditingMessage);
+  }
+
+  deleteChapter(courseId: number, chapterSequence: number): Observable<void> {
+    return this.http.delete<void>(`courses/${courseId}/chapters/${chapterSequence}`);
   }
 }
