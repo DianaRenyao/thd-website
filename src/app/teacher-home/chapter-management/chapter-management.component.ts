@@ -17,7 +17,6 @@ export class ChapterManagementComponent implements OnInit {
   courseId: number;
   newChapter: ChapterCreationMessage;
   chapters: ChapterMessage[];
-  chaptersCount: number;
   errorResponse: HttpErrorResponse;
   addingPosition: number;
   editingPosition: number;
@@ -29,13 +28,13 @@ export class ChapterManagementComponent implements OnInit {
   ) {
     this.newChapter = new ChapterCreationMessage();
     this.editingChapter = new ChapterEditingMessage();
+    this.chapters = [];
   }
 
   getCourseChapters() {
     this.courseService.getChapterOfCourse(this.courseId).subscribe(
       chapters => {
         this.chapters = chapters;
-        this.chaptersCount = chapters.length;
       },
       errorResponse => this.errorResponse = errorResponse
     );
@@ -50,7 +49,6 @@ export class ChapterManagementComponent implements OnInit {
       (newChapter: ChapterMessage) => {
         this.chapters.splice(newChapter.sequence, 0, newChapter);
         this.chapters.slice(newChapter.sequence + 1).forEach(c => c.sequence += 1);
-        this.chaptersCount += 1;
       },
       (errorResponse: HttpErrorResponse) => {
         this.errorResponse = errorResponse;
@@ -67,7 +65,6 @@ export class ChapterManagementComponent implements OnInit {
       () => {
         this.chapters.splice(sequence, 1);
         this.chapters.slice(sequence).forEach(c => c.sequence -= 1);
-        this.chaptersCount -= 1;
       },
       (errorResponse: HttpErrorResponse) => {
         this.errorResponse = errorResponse;
