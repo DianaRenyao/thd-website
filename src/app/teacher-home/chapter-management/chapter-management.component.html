@@ -1,6 +1,6 @@
 <div class="chapter-container">
   <div *ngFor="let chapter of chapters">
-    <button mat-icon-button (click)="addingPosition = chapter.sequence; newChapter.sequence = chapter.sequence">
+    <button (click)="toggleAdd(chapter.sequence)" mat-icon-button>
       <mat-icon>add</mat-icon>
     </button>
     <div *ngIf="addingPosition === chapter.sequence">
@@ -27,7 +27,7 @@
       </div>
     </div>
   </div>
-  <button mat-raised-button (click)="addingPosition = chaptersCount; newChapter.sequence = chaptersCount">添加</button>
+  <button (click)="toggleAdd(chaptersCount)" mat-raised-button>添加</button>
   <div *ngIf="addingPosition === chaptersCount">
     <label>序号：{{newChapter.sequence + 1}}
     </label>
