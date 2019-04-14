@@ -66,6 +66,7 @@ import localeZhHans from '@angular/common/locales/zh-Hans';
 import { MockComponent } from './admin-console/mock/mock.component';
 // tslint:disable-next-line:max-line-length
 import { SectionFileManagementComponent } from './teacher-home/chapter-management/section-file-management/section-file-management.component';
+import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 
 registerLocaleData(localeZhHans);
 

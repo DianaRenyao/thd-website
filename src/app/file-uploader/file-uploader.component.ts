@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {FileUploadService} from '../_services/file-upload.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { FileUploadService } from '../_services/file-upload.service';
 
 @Component({
   selector: 'app-file-uploader',
@@ -10,6 +10,7 @@ import {FileUploadService} from '../_services/file-upload.service';
 export class FileUploaderComponent implements OnInit {
 
   uploadForm: FormGroup;
+  errorMessage: string;
 
   constructor(private formBuilder: FormBuilder,
               private uploadFile: FileUploadService) { }
@@ -41,13 +42,12 @@ export class FileUploaderComponent implements OnInit {
 
    checkFileType(name: string): boolean {
     console.log(name);
-    const types = ['pdf', 'png', 'mp4'];
+     const types = ['pdf', 'mp4'];
     const suffix = name.split('.');
     if (suffix.length === 1 || !types.includes(suffix[suffix.length - 1])) {
-      console.log(name + ' name invalid');
+      this.errorMessage = '文件类型必须为 pdf 或 mp4';
       return true;
     }
-
     return false;
   }
 }

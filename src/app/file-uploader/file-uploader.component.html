@@ -1,10 +1,11 @@
 <div>
+  <app-error-message></app-error-message>
   <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit()">
     <div>
       <input type="file" name="profile" (change)="onFileSelect($event)" />
     </div>
     <div>
-      <button type="submit">Upload</button>
+      <button type="submit">上传</button>
     </div>
   </form>
 </div>
