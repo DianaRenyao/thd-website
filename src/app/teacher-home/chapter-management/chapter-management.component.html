@@ -4,33 +4,46 @@
       <mat-icon>add</mat-icon>
     </button>
     <div *ngIf="addingPosition === chapter.sequence">
-        <label>序号：{{newChapter.sequence+1}}
-        </label>
-        <label>章节名称：
-          <input [(ngModel)]="newChapter.chapterName" placeholder="章节名称">
-        </label>
-        <button (click)="addChapter()" [disabled]="newChapter.chapterName === null" color="primary" mat-button >添加</button>
+      <label>序号：{{newChapter.sequence + 1}}
+      </label>
+      <label>章节名称：
+        <input [(ngModel)]="newChapter.chapterName" placeholder="章节名称">
+      </label>
+      <button (click)="addChapter()" [disabled]="newChapter.chapterName === null" color="primary" mat-button>添加</button>
     </div>
     <span class="sequence">{{chapter.sequence + 1}}</span>
     <span class="chapter-name">{{chapter.chapterName}}</span>
+    <button mat-icon-button (click)="toggleEdit(chapter.sequence, chapter.chapterName)">
+      <mat-icon>edit</mat-icon>
+    </button>
     <button mat-icon-button (click)="removeChapter()">
-      <mat-icon>
-        delete
-      </mat-icon>
+      <mat-icon>delete</mat-icon>
     </button>
-    <button mat-icon-button (click)="editChapter()">
-      <mat-icon>
-        edit
-      </mat-icon>
-    </button>
+    <div *ngIf="editingPosition === chapter.sequence">
+      <label>序号：{{editingPosition + 1}}
+      </label>
+      <label>章节名称：
+        <input [(ngModel)]="editingChapter.chapterName" placeholder="章节名称">
+      </label>
+      <button (click)="editChapter()" [disabled]="editingChapter.chapterName === null" color="primary" mat-button>修改
+      </button>
+    </div>
+    <div *ngIf="selectedChapter && showingPosition === chapter.sequence">
+      <div *ngFor="let section of chapter.sections">
+        <span class="sequence">{{section.sequence}}</span>
+        <span class="section-name">{{section.sectionName}}</span>
+      </div>
+    </div>
   </div>
   <button (click)="toggleAdd(chaptersCount)" mat-raised-button>添加</button>
   <div *ngIf="addingPosition === chaptersCount">
-    <label>序号：{{newChapter.sequence+1}}
+    <label>序号：{{newChapter.sequence + 1}}
     </label>
     <label>章节名称：
       <input [(ngModel)]="newChapter.chapterName" placeholder="章节名称"/>
     </label>
-    <button (click)="addChapter()" [disabled]="newChapter.chapterName === null" color="primary" mat-button type="submit">添加</button>
+    <button (click)="addChapter()" [disabled]="newChapter.chapterName === null" color="primary" mat-button
+            type="submit">添加
+    </button>
   </div>
 </div>
