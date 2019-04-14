@@ -63,10 +63,11 @@ import { LearnContentComponent } from './learn-content/learn-content.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { registerLocaleData } from '@angular/common';
 import localeZhHans from '@angular/common/locales/zh-Hans';
+import { SectionManagementComponent } from './teacher-home/chapter-management/section-management/section-management.component';
 import { MockComponent } from './admin-console/mock/mock.component';
+import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 // tslint:disable-next-line:max-line-length
 import { SectionFileManagementComponent } from './teacher-home/chapter-management/section-file-management/section-file-management.component';
-import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 
 registerLocaleData(localeZhHans);
 
@@ -110,6 +111,7 @@ registerLocaleData(localeZhHans);
     CourseDetailManagementComponent,
     CourseLearnComponent,
     LearnContentComponent,
+    SectionManagementComponent,
     FileUploaderComponent,
     MockComponent,
     SectionFileManagementComponent,
