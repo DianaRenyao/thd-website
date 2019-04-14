@@ -20,8 +20,6 @@ export class ChapterManagementComponent implements OnInit {
   chaptersCount: number;
   errorResponse: HttpErrorResponse;
   addingPosition: number;
-  selectedChapter: ChapterMessage;
-  showingPosition: number;
   editingPosition: number;
   editingChapter: ChapterEditingMessage;
 
@@ -64,8 +62,18 @@ export class ChapterManagementComponent implements OnInit {
     this.newChapter.chapterName = '';
   }
 
-  removeChapter() {
-    // TODO
+  removeChapter(sequence: number) {
+    this.courseService.deleteChapter(this.courseId, sequence).subscribe(
+      () => {
+        this.chapters.splice(sequence, 1);
+        this.chapters.slice(sequence).forEach(c => c.sequence -= 1);
+        this.chaptersCount -= 1;
+      },
+      (errorResponse: HttpErrorResponse) => {
+        this.errorResponse = errorResponse;
+      }
+    )
+    ;
   }
 
   editChapter() {

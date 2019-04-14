@@ -16,9 +16,13 @@
     <button mat-icon-button (click)="toggleEdit(chapter.sequence, chapter.chapterName)">
       <mat-icon>edit</mat-icon>
     </button>
-    <button mat-icon-button (click)="removeChapter()">
+    <button mat-icon-button (click)="removeChapter(chapter.sequence)">
       <mat-icon>delete</mat-icon>
     </button>
+    <div *ngFor="let section of chapter.sections">
+      <span class="sequence">{{section.sequence}}</span>
+      <span class="section-name">{{section.sectionName}}</span>
+    </div>
     <div *ngIf="editingPosition === chapter.sequence">
       <label>序号：{{editingPosition + 1}}
       </label>
@@ -27,12 +31,7 @@
       </label>
       <button (click)="editChapter()" [disabled]="editingChapter.chapterName === null" color="primary" mat-button>修改
       </button>
-    </div>
-    <div *ngIf="selectedChapter && showingPosition === chapter.sequence">
-      <div *ngFor="let section of chapter.sections">
-        <span class="sequence">{{section.sequence}}</span>
-        <span class="section-name">{{section.sectionName}}</span>
-      </div>
+      <app-section-management [courseId]="courseId" [chapterSequence]="chapter.sequence" [sections]="chapter.sections"></app-section-management>
     </div>
   </div>
   <button (click)="toggleAdd(chaptersCount)" mat-raised-button>添加</button>
