@@ -109,6 +109,7 @@ registerLocaleData(localeZhHans);
     CourseLearnComponent,
     LearnContentComponent,
     SectionManagementComponent,
+    FileUploaderComponent,
     MockComponent,
   ],
   imports: [
