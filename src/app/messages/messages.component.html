@@ -17,7 +17,7 @@
             </mat-card-content>
             <mat-card-footer class="message-footer">
               <p class="message-time-created reply-message-time-created">
-                {{ message.replyToMessage.timeCreated }}
+                {{ message.replyToMessage.timeCreated | date: 'medium' }}
               </p>
             </mat-card-footer>
           </mat-card>
@@ -29,7 +29,7 @@
       </mat-card-content>
       <mat-card-footer class="message-footer">
         <p class="message-time-created">
-          {{ message.timeCreated }}
+          {{ message.timeCreated | date: 'medium' }}
         </p>
       </mat-card-footer>
     </mat-card>

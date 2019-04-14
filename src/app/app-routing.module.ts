@@ -10,6 +10,7 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { teacherHomeChildRoutes } from './teacher-home/teacher-home-routing.module';
 import { adminConsoleChildRoutes } from './admin-console/admin-console-routing.module';
 import {TeacherCheckscoreComponent} from './teacher-checkscore/teacher-checkscore.component';
+import { CourseLearnComponent } from './course-learn/course-learn.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'teacher-home', component: TeacherHomeComponent, children: teacherHomeChildRoutes },
   { path: 'student-home', component: StudentHomeComponent },
   { path: 'course/:id', component: CourseDetailComponent },
+  { path: 'course/:id/learn', component: CourseLearnComponent },
   { path: 'score/:id', component: TeacherCheckscoreComponent },
 ];
 

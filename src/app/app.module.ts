@@ -1,9 +1,9 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {HeaderComponent} from './header/header.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatCardModule,
   MatDialogModule,
@@ -64,6 +64,13 @@ import { TeacherCheckscoreComponent } from './teacher-checkscore/teacher-checksc
 import { ApplicationManagementComponent } from './teacher-home/application-management/application-management.component';
 import { ChapterManagementComponent } from './teacher-home/chapter-management/chapter-management.component';
 import { CourseDetailManagementComponent } from './teacher-home/course-detail-management/course-detail-management.component';
+import { CourseLearnComponent } from './course-learn/course-learn.component';
+import { LearnContentComponent } from './learn-content/learn-content.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { registerLocaleData } from '@angular/common';
+import localeZhHans from '@angular/common/locales/zh-Hans';
+
+registerLocaleData(localeZhHans);
 
 @NgModule({
   declarations: [
@@ -107,6 +114,8 @@ import { CourseDetailManagementComponent } from './teacher-home/course-detail-ma
     ApplicationManagementComponent,
     ChapterManagementComponent,
     CourseDetailManagementComponent,
+    CourseLearnComponent,
+    LearnContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -129,11 +138,13 @@ import { CourseDetailManagementComponent } from './teacher-home/course-detail-ma
     MatDialogModule,
     MatSnackBarModule,
     MatTooltipModule,
+    PdfViewerModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
+    { provide: LOCALE_ID, useValue: 'zh-Hans' },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }
+    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
+    { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl },
   ],
   entryComponents: [
     ApplyCourseDialogComponent,

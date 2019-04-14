@@ -6,7 +6,7 @@ import {ScoreService} from '../_services/score.service';
 import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
 import {Sort} from '@angular/material';
 import {SessionMessage} from '../_models';
-import {Score} from '../_models/score-message';
+import {Score} from '../_models/score-creation-message';
 import {AlertService} from '../_services';
 import * as XLSX from 'xlsx';
 import {forEach} from '@angular/router/src/utils/collection';
@@ -18,7 +18,7 @@ import {forEach} from '@angular/router/src/utils/collection';
 })
 export class TeacherCheckscoreComponent implements OnInit {
 
-  displayedColumns: string[] = ['studentUserId', 'courseCourseId', 'midScore', 'finalScore', 'avgOnlineScore', 'totalScore'];
+  displayedColumns: string[] = ['studentUserId',  'midScore', 'finalScore', 'avgOnlineScore', 'totalScore'];
   dataSource: MatTableDataSource<Score>;
   session: SessionMessage;
   num: number;
@@ -37,10 +37,13 @@ export class TeacherCheckscoreComponent implements OnInit {
       .subscribe(dataSource => this.dataSource = new MatTableDataSource(dataSource));
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   importFromExcel(evt: any): void {
 
     const courseId: number = parseInt(this.route.snapshot.paramMap.get('id'), 10);
-
     const target: DataTransfer = (evt.target) as DataTransfer;
     if (target.files.length !== 1) {
       throw new Error('Cannot use multiple files');
@@ -62,7 +65,6 @@ export class TeacherCheckscoreComponent implements OnInit {
       for (i = 1; i < this.inputData.length; i = i + 1) {
         this.inputScore[i - 1] = new Score();
         this.inputScore[i - 1].studentUserId = this.inputData[i][0];
-        // this.inputScore[i - 1]. = this.inputData[i][1];
         this.inputScore[i - 1].midScore = this.inputData[i][2];
         this.inputScore[i - 1].finalScore = this.inputData[i][3];
         this.inputScore[i - 1].avgOnlineScore = this.inputData[i][4];
@@ -71,8 +73,8 @@ export class TeacherCheckscoreComponent implements OnInit {
         this.scoreService.addSelectedScore({
             studentUserId: this.inputData[i][0],
             midScore: this.inputData[i][2],
-            finalScore: this.inputScore[i - 1].finalScore,
-            avgOnlineScore: this.inputScore[i - 1].avgOnlineScore,
+            finalScore: this.inputData[i][3],
+            avgOnlineScore: this.inputData[i][4],
             totalScore: this.getTotalScore(),
           },
           this.inputScore[i - 1].studentUserId, courseId
@@ -100,6 +102,6 @@ export class TeacherCheckscoreComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getScores();
+    // this.getScores();
   }
 }

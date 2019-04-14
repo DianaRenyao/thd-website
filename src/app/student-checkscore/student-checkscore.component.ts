@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Score} from '../_models/score-message';
+import {Score} from '../_models/score-creation-message';
 import {ScoreService} from '../_services/score.service';
 import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
 import {Sort} from '@angular/material';
@@ -21,27 +21,10 @@ export class StudentCheckscoreComponent implements OnInit {
   session: SessionMessage;
   num: number;
 
-  // @ViewChild(MatSort) sort;
-  // @ViewChild(MatPaginator) paginator: MatPaginator;
-
   getScores(): void {
     this.scoreService.getScores(this.session.userInfo.username)
       .subscribe(dataSource => this.dataSource = new MatTableDataSource(dataSource));
-  }// 订阅getScores的返回
-
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
-  // getAvgAvgOnlineScore() {
-  //   return (this.dataSource.data.map(t => t.avgOnlineScore).reduce((acc, value) => acc + value, 0)) / this.num;
-  // }
-  //
-  // getTotalNum() {
-  //   return this.dataSource.data.forEach((value: Score) => {
-  //     this.num = this.num + 1;
-  //   });
-  // }
 
   getSession() {
     this.session = this.sessionService.currentSessionValue;
@@ -63,8 +46,5 @@ export class StudentCheckscoreComponent implements OnInit {
     if (this.session.userInfo.role === 'student') {
       this.getScores();
     }
-    // this.dataSource.sort = this.sort;
-    // this.dataSource.paginator = this.paginator;
-    // this.getTotalNum();
   }
 }

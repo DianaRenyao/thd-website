@@ -9,7 +9,7 @@
     <button *ngIf="application && application.state === applicationState.Waiting" [disabled]="true" mat-raised-button>
       等待申请结果
     </button>
-    <button *ngIf="application && application.state === applicationState.Pass" mat-raised-button>
+    <button *ngIf="application && application.state === applicationState.Pass" mat-raised-button routerLink="learn">
       进入学习
     </button>
     <button *ngIf="application && application.state === applicationState.Reject" [disabled]="true" mat-raised-button>

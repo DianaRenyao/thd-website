@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {Score} from '../_models/score-message';
+import {Score} from '../_models/score-creation-message';
 
 
 @Injectable({

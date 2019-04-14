@@ -8,10 +8,10 @@
         <span class="field-label">课时数</span>{{courseSummaryMessage.period}}
       </p>
       <p class="content-field">
-        <span class="field-label">开课时间</span>{{courseSummaryMessage.startDate | date:'yyyy 年 MM 月 dd 日'}}
+        <span class="field-label">开课时间</span>{{courseSummaryMessage.startDate | date:'mediumDate'}}
       </p>
       <p class="content-field">
-        <span class="field-label">结课时间</span>{{courseSummaryMessage.finishDate | date:'yyyy 年 MM 月 dd 日'}}
+        <span class="field-label">结课时间</span>{{courseSummaryMessage.finishDate | date:'mediumDate'}}
       </p>
       <p class="content-field">
         <span class="field-label">任课老师</span>{{courseSummaryMessage.teacher.userInfo.realName}}
