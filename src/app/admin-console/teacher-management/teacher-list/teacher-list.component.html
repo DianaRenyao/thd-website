@@ -3,8 +3,8 @@
   <table [dataSource]="dataSource" mat-table>
 
     <!-- username column -->
-    <ng-container matColumnDef="realName">
-      <th *matHeaderCellDef mat-header-cell>姓名</th>
+    <ng-container matColumnDef="username">
+      <th *matHeaderCellDef mat-header-cell>教工号</th>
       <td *matCellDef="let element" mat-cell> {{element.userInfo.username}} </td>
     </ng-container>
 

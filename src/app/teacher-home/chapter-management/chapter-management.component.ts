@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ChapterCreationMessage } from '../../_models/chapter-creation-message';
-import { ChapterMessage } from '../../_models/chapter-message';
-import { HttpErrorResponse } from '@angular/common/http';
-import { CourseService } from '../../_services';
-import { ActivatedRoute } from '@angular/router';
+import {Component, Input, OnInit} from '@angular/core';
+import {ChapterCreationMessage} from '../../_models/chapter-creation-message';
+import {ChapterMessage} from '../../_models/chapter-message';
+import {HttpErrorResponse} from '@angular/common/http';
+import {CourseService} from '../../_services';
+import {ActivatedRoute} from '@angular/router';
+import {ChapterEditingMessage} from '../../_models/chapter-editing-message';
 
 @Component({
   selector: 'app-chapter-management',
@@ -20,12 +21,16 @@ export class ChapterManagementComponent implements OnInit {
   errorResponse: HttpErrorResponse;
   addingPosition: number;
   selectedChapter: ChapterMessage;
+  showingPosition: number;
+  editingPosition: number;
+  editingChapter: ChapterEditingMessage;
 
   constructor(
     private route: ActivatedRoute,
     private courseService: CourseService
   ) {
     this.newChapter = new ChapterCreationMessage();
+    this.editingChapter = new ChapterEditingMessage();
   }
 
   getCourseChapters() {
@@ -64,7 +69,16 @@ export class ChapterManagementComponent implements OnInit {
   }
 
   editChapter() {
-    // TODO
+    this.courseService.editChapter(this.courseId, this.editingPosition, this.editingChapter).subscribe(
+      (editedChapter: ChapterMessage) => {
+        this.chapters[editedChapter.sequence].chapterName = editedChapter.chapterName;
+      },
+      (errorResponse: HttpErrorResponse) => {
+        this.errorResponse = errorResponse;
+      });
+    // clear old
+    this.editingPosition = -1;
+    this.editingChapter.chapterName = null;
   }
 
   toggleAdd(sequence: number) {
@@ -75,6 +89,15 @@ export class ChapterManagementComponent implements OnInit {
       this.addingPosition = sequence;
       this.newChapter.sequence = sequence;
     }
+  }
 
+  toggleEdit(sequence: number, name: string) {
+    if (this.editingPosition === sequence) {
+      this.editingPosition = -1;
+      this.editingChapter.chapterName = null;
+    } else {
+      this.editingPosition = sequence;
+      this.editingChapter.chapterName = name;
+    }
   }
 }

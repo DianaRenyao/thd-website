@@ -63,6 +63,7 @@ import { LearnContentComponent } from './learn-content/learn-content.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { registerLocaleData } from '@angular/common';
 import localeZhHans from '@angular/common/locales/zh-Hans';
+import { MockComponent } from './admin-console/mock/mock.component';
 
 registerLocaleData(localeZhHans);
 
@@ -107,6 +108,7 @@ registerLocaleData(localeZhHans);
     CourseLearnComponent,
     LearnContentComponent,
     FileUploaderComponent,
+    MockComponent,
   ],
   imports: [
     BrowserModule,
