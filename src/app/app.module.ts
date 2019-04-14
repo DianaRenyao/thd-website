@@ -57,7 +57,6 @@ import { MessagesComponent } from './messages/messages.component';
 import { CreateMessageDialogComponent } from './create-message-dialog/create-message-dialog.component';
 import { ApplicationManagementComponent } from './teacher-home/application-management/application-management.component';
 import { ChapterManagementComponent } from './teacher-home/chapter-management/chapter-management.component';
-import { AddSectionComponent } from './teacher-home/chapter-management/add-section/add-section.component';
 import { CourseDetailManagementComponent } from './teacher-home/course-detail-management/course-detail-management.component';
 import { CourseLearnComponent } from './course-learn/course-learn.component';
 import { LearnContentComponent } from './learn-content/learn-content.component';
@@ -104,7 +103,6 @@ registerLocaleData(localeZhHans);
     CreateMessageDialogComponent,
     ApplicationManagementComponent,
     ChapterManagementComponent,
-    AddSectionComponent,
     CourseDetailManagementComponent,
     CourseLearnComponent,
     LearnContentComponent,
