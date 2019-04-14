@@ -64,6 +64,8 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { registerLocaleData } from '@angular/common';
 import localeZhHans from '@angular/common/locales/zh-Hans';
 import { MockComponent } from './admin-console/mock/mock.component';
+// tslint:disable-next-line:max-line-length
+import { SectionFileManagementComponent } from './teacher-home/chapter-management/section-file-management/section-file-management.component';
 
 registerLocaleData(localeZhHans);
 
@@ -108,6 +110,7 @@ registerLocaleData(localeZhHans);
     CourseLearnComponent,
     LearnContentComponent,
     MockComponent,
+    SectionFileManagementComponent,
   ],
   imports: [
     BrowserModule,
