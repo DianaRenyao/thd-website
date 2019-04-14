@@ -65,6 +65,7 @@ import { registerLocaleData } from '@angular/common';
 import localeZhHans from '@angular/common/locales/zh-Hans';
 import { SectionManagementComponent } from './teacher-home/chapter-management/section-management/section-management.component';
 import { MockComponent } from './admin-console/mock/mock.component';
+import {FileUploaderComponent} from './file-uploader/file-uploader.component';
 
 registerLocaleData(localeZhHans);
 
