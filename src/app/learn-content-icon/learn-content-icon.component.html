@@ -1,4 +1,4 @@
-<div [ngSwitch]="fileSourceType">
+<span [ngSwitch]="fileSourceType">
   <mat-icon *ngSwitchCase="fileType.Video">
     movie
   </mat-icon>
@@ -8,4 +8,4 @@
   <mat-icon *ngSwitchDefault>
     attachment
   </mat-icon>
-</div>
+</span>
