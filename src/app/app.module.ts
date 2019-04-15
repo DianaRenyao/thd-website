@@ -68,6 +68,8 @@ import { MockComponent } from './admin-console/mock/mock.component';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 // tslint:disable-next-line:max-line-length
 import { SectionFileManagementDialogComponent } from './teacher-home/chapter-management/section-file-management/section-file-management-dialog.component';
+import { ExperimentManagementComponent } from './teacher-home/experiment-management/experiment-management.component';
+import { AddExperimentDialogComponent } from './add-experiment-dialog/add-experiment-dialog.component';
 
 registerLocaleData(localeZhHans);
 
@@ -115,6 +117,8 @@ registerLocaleData(localeZhHans);
     FileUploaderComponent,
     MockComponent,
     SectionFileManagementDialogComponent,
+    ExperimentManagementComponent,
+    AddExperimentDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -148,6 +152,7 @@ registerLocaleData(localeZhHans);
     ApplyCourseDialogComponent,
     CreateMessageDialogComponent,
     SectionFileManagementDialogComponent,
+    AddExperimentDialogComponent,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,51 @@
+<div>
+  <app-service-error-message [errorResponse]="errorResponse"></app-service-error-message>
+  <div *ngFor="let courseAndExperiment of courseAndExperiments; let i = index">
+    <app-course-summary [courseSummaryMessage]="courseAndExperiment.course"></app-course-summary>
+    <p *ngIf="courseAndExperiment.experiments.length === 0">该课程没有实验</p>
+    <table *ngIf="courseAndExperiment.experiments.length !== 0" [dataSource]="courseAndExperiment.experiments"
+           class="experiment-table"
+           mat-table>
+      <!-- experimentId column -->
+      <ng-container matColumnDef="experimentId">
+        <th *matHeaderCellDef mat-header-cell>实验编号</th>
+        <td *matCellDef="let element" mat-cell> {{element.experimentId}} </td>
+      </ng-container>
+
+      <!-- experimentName column -->
+      <ng-container matColumnDef="experimentName">
+        <th *matHeaderCellDef mat-header-cell>实验名称</th>
+        <td *matCellDef="let element" mat-cell> {{element.experimentName}} </td>
+      </ng-container>
+
+      <!-- description column -->
+      <ng-container matColumnDef="description">
+        <th *matHeaderCellDef mat-header-cell>实验描述</th>
+        <td *matCellDef="let element" mat-cell> {{element.description}} </td>
+      </ng-container>
+
+      <!-- startDate column -->
+      <ng-container matColumnDef="startDate">
+        <th *matHeaderCellDef mat-header-cell>开始日期</th>
+        <td *matCellDef="let element" mat-cell> {{element.startDate | date: 'medium' }} </td>
+      </ng-container>
+
+      <!-- finishDate column -->
+      <ng-container matColumnDef="finishDate">
+        <th *matHeaderCellDef mat-header-cell>结束日期</th>
+        <td *matCellDef="let element" mat-cell> {{element.finishDate | date: 'medium' }} </td>
+      </ng-container>
+
+      <!-- finishDate column -->
+      <ng-container matColumnDef="courseId">
+        <th *matHeaderCellDef mat-header-cell>课程编号</th>
+        <td *matCellDef="let element" mat-cell> {{element.courseId}} </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="experimentDisplayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: experimentDisplayedColumns;" mat-row></tr>
+    </table>
+    <button (click)="addExperiment(i)" mat-button>添加实验</button>
+  </div>
+</div>
+
