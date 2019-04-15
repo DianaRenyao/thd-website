@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {NoticeMessage} from '../../../_models';
+import {NoticeMessage, SessionMessage} from '../../../_models';
 import {HttpErrorResponse} from '@angular/common/http';
-import {NoticeService} from '../../../_services';
+import {NoticeService, SessionService} from '../../../_services';
 
 @Component({
   selector: 'app-notice-list',
@@ -18,14 +18,16 @@ export class NoticeListComponent implements OnInit {
   ];
   dataSource: NoticeMessage[];
   errorResponse: HttpErrorResponse;
+  session: SessionMessage;
 
   constructor(
-    private noticeService: NoticeService
+    private noticeService: NoticeService,
+    private sessionService: SessionService
   ) {
   }
 
-  getTeacherNotices(): void {
-    this.noticeService.getAllNotices().subscribe(
+  getTeacherNotices(session: SessionMessage): void {
+    this.noticeService.getTeacherNotices(session).subscribe(
       (dataSource: NoticeMessage[]) => {
         this.dataSource = dataSource;
       },
@@ -33,8 +35,18 @@ export class NoticeListComponent implements OnInit {
     );
   }
 
+  getSession(): void {
+    this.session = this.sessionService.currentSessionValue;
+    this.sessionService.currentSession.subscribe(
+      session => {
+        this.session = session;
+      }
+    );
+  }
+
   ngOnInit() {
-    this.getTeacherNotices();
+    this.getSession();
+    this.getTeacherNotices(this.session);
   }
 
   editNotice() {
