@@ -12,7 +12,11 @@ export class MockService {
   ) {
   }
 
-  createMockData(): Observable<void> {
-    return this.http.post<void>('meta/mock', null);
+  createUserMockData(): Observable<void> {
+    return this.http.post<void>('meta/mock/users', null);
+  }
+
+  createCourseMockData(): Observable<void> {
+    return this.http.post<void>('meta/mock/courses', null);
   }
 }
