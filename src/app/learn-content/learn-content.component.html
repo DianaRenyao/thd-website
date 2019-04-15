@@ -16,7 +16,6 @@
       </div>
       <!-- TODO still has resize problem -->
       <pdf-viewer *ngSwitchCase="fileType.Pdf" [(page)]="pdfPage"
-                  [autoresize]="true"
                   [external-link-target]="'blank'"
                   [original-size]="false"
                   [render-text]="false"
