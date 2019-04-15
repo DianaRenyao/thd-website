@@ -1,0 +1,15 @@
+<div *ngIf="course && chapter && section">
+  <h2>
+    <span class="chapter-name">{{ chapter.chapterName }}</span>
+    <span> - </span>
+    <span class="section-name">{{ section.sectionName }}</span>
+  </h2>
+  <mat-tab-group>
+    <mat-tab *ngFor="let file of section.fileSources">
+      <ng-template mat-tab-label>
+        <app-learn-content-icon [fileSource]="file"></app-learn-content-icon>
+      </ng-template>
+      <app-learn-content [fileSource]="file" class="learn-content"></app-learn-content>
+    </mat-tab>
+  </mat-tab-group>
+</div>

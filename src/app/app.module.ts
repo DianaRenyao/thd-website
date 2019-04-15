@@ -75,6 +75,9 @@ import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 // tslint:disable-next-line:max-line-length
 import { SectionFileManagementDialogComponent } from './teacher-home/chapter-management/section-file-management/section-file-management-dialog.component';
 import { EnterScoreComponent } from './teacher-checkscore/enter-score/enter-score.component';
+import { CourseLearnContentComponent } from './course-learn/course-learn-content/course-learn-content.component';
+import { CourseLearnSectionComponent } from './course-learn/course-learn-section/course-learn-section.component';
+import { LearnContentIconComponent } from './learn-content-icon/learn-content-icon.component';
 
 registerLocaleData(localeZhHans);
 
@@ -127,6 +130,9 @@ registerLocaleData(localeZhHans);
     MockComponent,
     SectionFileManagementDialogComponent,
     EnterScoreComponent,
+    CourseLearnContentComponent,
+    CourseLearnSectionComponent,
+    LearnContentIconComponent,
   ],
   imports: [
     BrowserModule,
