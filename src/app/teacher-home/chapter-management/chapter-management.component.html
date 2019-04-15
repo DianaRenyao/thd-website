@@ -17,7 +17,7 @@
     <button mat-icon-button (click)="toggleEdit(chapter.sequence, chapter.chapterName)">
       <mat-icon>edit</mat-icon>
     </button>
-    <button mat-icon-button (click)="removeChapter(chapter.sequence)">
+    <button (click)="removeChapter(chapter.sequence)" mat-icon-button>
       <mat-icon>delete</mat-icon>
     </button>
     <div *ngIf="editingPosition === chapter.sequence">

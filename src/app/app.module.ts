@@ -65,7 +65,9 @@ import { registerLocaleData } from '@angular/common';
 import localeZhHans from '@angular/common/locales/zh-Hans';
 import { SectionManagementComponent } from './teacher-home/chapter-management/section-management/section-management.component';
 import { MockComponent } from './admin-console/mock/mock.component';
-import {FileUploaderComponent} from './file-uploader/file-uploader.component';
+import { FileUploaderComponent } from './file-uploader/file-uploader.component';
+// tslint:disable-next-line:max-line-length
+import { SectionFileManagementDialogComponent } from './teacher-home/chapter-management/section-file-management/section-file-management-dialog.component';
 
 registerLocaleData(localeZhHans);
 
@@ -112,6 +114,7 @@ registerLocaleData(localeZhHans);
     SectionManagementComponent,
     FileUploaderComponent,
     MockComponent,
+    SectionFileManagementDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -144,6 +147,7 @@ registerLocaleData(localeZhHans);
   entryComponents: [
     ApplyCourseDialogComponent,
     CreateMessageDialogComponent,
+    SectionFileManagementDialogComponent,
   ],
   bootstrap: [AppComponent]
 })

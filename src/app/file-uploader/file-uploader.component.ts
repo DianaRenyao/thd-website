@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {FileUploadService} from '../_services/file-upload.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FileUploadService } from '../_services/file-upload.service';
+import { FileSourceMessage } from '../_models';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-file-uploader',
@@ -10,44 +12,52 @@ import {FileUploadService} from '../_services/file-upload.service';
 export class FileUploaderComponent implements OnInit {
 
   uploadForm: FormGroup;
+  errorMessage: string;
+  errorResponse: HttpErrorResponse;
+
+  @Output()
+  uploaded = new EventEmitter<FileSourceMessage>();
 
   constructor(private formBuilder: FormBuilder,
-              private uploadFile: FileUploadService) { }
+              private uploadFile: FileUploadService) {
+  }
 
   ngOnInit() {
     this.uploadForm = this.formBuilder.group({
-      profile: ['']
+      file: ['', Validators.required]
     });
   }
-
 
   onFileSelect(event) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.uploadForm.get('profile').setValue(file);
+      this.uploadForm.get('file').setValue(file);
       console.log(file);
     }
+    this.onSubmit();
   }
 
   onSubmit() {
-    const file: File = this.uploadForm.get('profile').value;
-    console.log(file);
+    const file: File = this.uploadForm.get('file').value;
     if (this.checkFileType(file.name)) {
       return;
     }
 
-    this.uploadFile.uploadFile(this.uploadForm.get('profile').value).subscribe();
+    this.uploadFile.uploadFile(this.uploadForm.get('file').value)
+      .subscribe(
+        fileSource => this.uploaded.emit(fileSource),
+        errorResponse => this.errorResponse = errorResponse,
+      );
   }
 
-   checkFileType(name: string): boolean {
+  checkFileType(name: string): boolean {
     console.log(name);
-    const types = ['pdf', 'png', 'mp4'];
+    const types = ['pdf', 'mp4'];
     const suffix = name.split('.');
     if (suffix.length === 1 || !types.includes(suffix[suffix.length - 1])) {
-      console.log(name + ' name invalid');
+      this.errorMessage = '文件类型必须为 pdf 或 mp4';
       return true;
     }
-
     return false;
   }
 }
