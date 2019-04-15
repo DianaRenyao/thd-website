@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NoticeService } from '../../../_services';
@@ -11,8 +11,10 @@ import { NoticeMessage } from '../../../_models';
 })
 export class AddNoticeComponent implements OnInit {
 
+  @Output()
+  added = new EventEmitter<NoticeMessage>();
+
   addNoticeForm: FormGroup;
-  createdNotice: NoticeMessage;
   errorResponse: HttpErrorResponse;
 
   constructor(
@@ -39,7 +41,7 @@ export class AddNoticeComponent implements OnInit {
       detail: this.form.detail.value,
     }).subscribe(
       (noticeMessage: NoticeMessage) => {
-        this.createdNotice = noticeMessage;
+        this.added.emit(noticeMessage);
       },
       (errorResponse: HttpErrorResponse) => {
         this.errorResponse = errorResponse;
