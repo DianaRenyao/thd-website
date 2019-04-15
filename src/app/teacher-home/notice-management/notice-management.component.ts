@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NoticeMessage } from '../../_models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notice-management',
@@ -7,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoticeManagementComponent implements OnInit {
 
-  constructor() {
+  constructor(
+    private router: Router,
+  ) {
   }
 
   ngOnInit() {
   }
 
+  onNoticeAdded(notice: NoticeMessage) {
+    console.log('notice added', notice);
+    this.router.navigate(['/']);
+  }
 }

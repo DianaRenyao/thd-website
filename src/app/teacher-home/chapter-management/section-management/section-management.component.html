@@ -12,17 +12,25 @@
       </label>
       <button (click)="addSection()" [disabled]="newSection.sectionName === null" color="primary" mat-button>添加</button>
     </div>
-    <span class="sequence">第{{section.sequence + 1}}节</span>
-    <span class="section-name">{{section.sectionName}}</span>
-    <button (click)="onEditFile(section)" mat-icon-button>
-      <mat-icon>attach_file</mat-icon>
-    </button>
-    <button (click)="toggleEdit(section.sequence, section.sectionName)" mat-icon-button>
-      <mat-icon>edit</mat-icon>
-    </button>
-    <button (click)="removeSection(section.sequence)" mat-icon-button>
-      <mat-icon>delete</mat-icon>
-    </button>
+    <div>
+      <span class="section-name">
+        <span class="sequence">第{{section.sequence + 1}}节</span>
+        <span class="section-name">{{section.sectionName}}</span>
+      </span>
+      <button (click)="onEditFile(section)" mat-icon-button>
+        <mat-icon>attach_file</mat-icon>
+      </button>
+      <button (click)="toggleEdit(section.sequence, section.sectionName)" mat-icon-button>
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button (click)="removeSection(section.sequence)" mat-icon-button>
+        <mat-icon>delete</mat-icon>
+      </button>
+      <div class="section-file-icons">
+        <app-learn-content-icon *ngFor="let file of section.fileSources" [fileSource]="file">
+        </app-learn-content-icon>
+      </div>
+    </div>
     <div *ngIf="editingPosition === section.sequence">
       <label>序号：{{editingPosition + 1}}
       </label>

@@ -40,7 +40,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AddTeacherComponent } from './admin-console/teacher-management/add-teacher/add-teacher.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import { ServiceErrorMessageComponent } from './service-error-message/service-error-message.component';
-import { AddCourseComponent } from './teacher-home/course-management/add-course/add-course.component';
+import { AddCourseComponent } from './teacher-home/add-course/add-course.component';
 import { TeacherListComponent } from './admin-console/teacher-management/teacher-list/teacher-list.component';
 import { CourseSummaryComponent } from './course-summary/course-summary.component';
 import { SelectableCoursesComponent } from './selectable-courses/selectable-courses.component';

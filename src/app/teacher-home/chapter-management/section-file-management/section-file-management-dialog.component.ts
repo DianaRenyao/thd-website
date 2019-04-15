@@ -25,6 +25,7 @@ export class SectionFileManagementDialogComponent implements OnInit {
   chapterSequence: number;
 
   displayedColumns = [
+    'icon',
     'filename',
     'fileType',
     'identifier',

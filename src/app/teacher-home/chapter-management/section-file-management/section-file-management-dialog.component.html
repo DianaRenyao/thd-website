@@ -4,6 +4,13 @@
 <mat-dialog-content>
   <table [dataSource]="sectionMessage.fileSources" mat-table>
 
+    <ng-container matColumnDef="icon">
+      <th *matHeaderCellDef mat-header-cell>图标</th>
+      <td *matCellDef="let element" mat-cell>
+        <app-learn-content-icon [fileSource]="element"></app-learn-content-icon>
+      </td>
+    </ng-container>
+
     <!-- identifier column -->
     <ng-container matColumnDef="identifier">
       <th *matHeaderCellDef mat-header-cell>文件标识</th>
