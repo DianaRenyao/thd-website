@@ -22,8 +22,8 @@ const routes: Routes = [
   { path: 'teacher-home', component: TeacherHomeComponent, children: teacherHomeChildRoutes },
   { path: 'student-home', component: StudentHomeComponent },
   { path: 'course/:id', component: CourseDetailComponent },
-  { path: 'course/:id/learn', component: CourseLearnComponent, children: courseLearnRouting },
   { path: 'score/:id', component: TeacherCheckscoreComponent },
+  { path: 'course/:id/learn', component: CourseLearnComponent, children: courseLearnRouting },
 ];
 
 @NgModule({

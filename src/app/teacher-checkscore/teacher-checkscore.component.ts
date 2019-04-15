@@ -12,6 +12,7 @@ import G2 from '@antv/g2/build/g2';
 import {SessionMessage} from '../_models';
 import {SelectedCourseMessage} from "../_models/selected-course-message";
 
+
 @Component({
   selector: 'app-teacher-checkscore',
   templateUrl: './teacher-checkscore.component.html',
@@ -48,7 +49,7 @@ export class TeacherCheckscoreComponent implements OnInit {
     this.countNinetyToHundred = 0;
   }
 
-  getScores(): void {
+  getScores(): void  {
 
     const courseId: number = parseInt(this.route.snapshot.paramMap.get('id'), 10);
 
@@ -56,7 +57,7 @@ export class TeacherCheckscoreComponent implements OnInit {
       .subscribe(dataSource => {
         this.dataSource = new MatTableDataSource(dataSource);
         this.dataSource.data.forEach((value) => {
-          if (value < 60) {
+          if (value.< 60) {
             this.countFail += 1;
           } else if (value >= 60 && value < 70) {
             this.countSixtyToSeventy += 1;
