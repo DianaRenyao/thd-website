@@ -5,6 +5,8 @@ import { SectionEditingMessage } from '../../../_models/section-editing-message'
 import { CourseService } from '../../../_services';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { SectionFileManagementDialogComponent } from '../section-file-management/section-file-management-dialog.component';
 
 @Component({
   selector: 'app-section-management',
@@ -19,7 +21,7 @@ export class SectionManagementComponent implements OnInit {
   chapterSequence: number;
   @Input()
   sections: SectionMessage[];
-  sectionCount: number;
+
   newSection: SectionCreationMessage;
   editingSection: SectionEditingMessage;
   errorResponse: HttpErrorResponse;
@@ -28,7 +30,8 @@ export class SectionManagementComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private courseService: CourseService
+    private courseService: CourseService,
+    private matDialog: MatDialog,
   ) {
     this.newSection = new SectionCreationMessage();
     this.editingSection = new SectionEditingMessage();
@@ -97,5 +100,15 @@ export class SectionManagementComponent implements OnInit {
       this.editingPosition = sequence;
       this.editingSection.sectionName = name;
     }
+  }
+
+  onEditFile(section: SectionMessage) {
+    this.matDialog.open(SectionFileManagementDialogComponent, {
+      data: {
+        section,
+        courseId: this.courseId,
+        chapterSequence: this.chapterSequence,
+      }
+    });
   }
 }

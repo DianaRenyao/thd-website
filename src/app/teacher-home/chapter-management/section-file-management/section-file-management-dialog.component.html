@@ -1,0 +1,48 @@
+<h3>第 {{ sectionMessage.sequence + 1 }} 章第 {{ sectionMessage.sequence + 1 }} 节
+  <span>{{ sectionMessage.sectionName }}</span></h3>
+
+<mat-dialog-content>
+  <table [dataSource]="sectionMessage.fileSources" mat-table>
+
+    <!-- identifier column -->
+    <ng-container matColumnDef="identifier">
+      <th *matHeaderCellDef mat-header-cell>文件标识</th>
+      <td *matCellDef="let element" mat-cell>
+        <a [href]="getLinkTo(element)" target="_blank">{{ element.identifier }}</a>
+      </td>
+    </ng-container>
+
+    <!-- filename column -->
+    <ng-container matColumnDef="filename">
+      <th *matHeaderCellDef mat-header-cell>文件名</th>
+      <td *matCellDef="let element" mat-cell> {{ element.filename }} </td>
+    </ng-container>
+
+    <!-- fileType column -->
+    <ng-container matColumnDef="fileType">
+      <th *matHeaderCellDef mat-header-cell>类型</th>
+      <td *matCellDef="let element" mat-cell> {{ element.fileType }} </td>
+    </ng-container>
+
+    <!-- action column -->
+    <ng-container matColumnDef="action">
+      <th *matHeaderCellDef mat-header-cell>操作</th>
+      <td *matCellDef="let element" mat-cell>
+        <button (click)="onDelete(element)" mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+
+  <app-service-error-message [errorResponse]="errorResponse" [indicator]="'添加文件失败'">
+  </app-service-error-message>
+  <app-file-uploader (uploaded)="onFileUploaded($event)"></app-file-uploader>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>完成</button>
+</mat-dialog-actions>

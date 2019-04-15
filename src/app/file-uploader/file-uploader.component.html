@@ -1,13 +1,10 @@
 <div>
-  <app-error-message></app-error-message>
-  <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit()">
-    <div>
-      <input type="file" name="profile" (change)="onFileSelect($event)" />
+  <app-service-error-message [errorResponse]="errorResponse" [indicator]="'上传失败'"></app-service-error-message>
+  <form (ngSubmit)="onSubmit()" [formGroup]="uploadForm">
+    <div class="file-select">
+      <button (click)="fileInput.click()" class="file-upload-button" mat-button type="button">上传文件</button>
+      <input #fileInput (change)="onFileSelect($event)" class="origin-file-select" required type="file"/>
     </div>
-    <div>
-      <button type="submit">上传</button>
-    </div>
+    <app-error-message *ngIf="errorMessage">{{ errorMessage }}</app-error-message>
   </form>
 </div>
-
-
