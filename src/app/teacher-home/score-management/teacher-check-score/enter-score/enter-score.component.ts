@@ -1,11 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {SelectedCourseService} from '../../_services/selected-course.service';
-import {MatSort, MatTableDataSource} from '@angular/material';
-import {SelectedCourseCreationMessage} from '../../_models/selected-course-creation-message';
-import {AlertService, SessionService} from '../../_services';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { SelectedCourseService } from '../../../../_services/selected-course.service';
+import { MatSort, MatTableDataSource } from '@angular/material';
+import { SelectedCourseEditingMessage, SessionMessage } from '../../../../_models';
+import { AlertService, SessionService } from '../../../../_services';
 import * as XLSX from 'xlsx';
-import {SessionMessage} from '../../_models/session-message';
 
 @Component({
   selector: 'app-enter-score',
@@ -15,12 +14,16 @@ import {SessionMessage} from '../../_models/session-message';
 export class EnterScoreComponent implements OnInit {
 
   displayedColumns: string[] = ['studentUserId', 'midScore', 'finalScore', 'avgOnlineScore', 'totalScore'];
-  dataSource: MatTableDataSource<SelectedCourseCreationMessage>;
+  dataSource: MatTableDataSource<SelectedCourseEditingMessage>;
   inputData = [];
-  inputScore: SelectedCourseCreationMessage[] = [];
+  inputScore: SelectedCourseEditingMessage[] = [];
   totalScore = [];
   session: SessionMessage;
   @ViewChild(MatSort) sort: MatSort;
+
+  static calculateTotalScore(avgOnlineScore, midScore, finalScore): number {
+    return avgOnlineScore * 0.3 + midScore * 0.1 + finalScore * 0.6;
+  }
 
   getSession() {
     this.session = this.sessionService.currentSessionValue;
@@ -58,7 +61,7 @@ export class EnterScoreComponent implements OnInit {
       console.log(this.inputData);
       let i: number;
       for (i = 1; i < this.inputData.length; i = i + 1) {
-        this.inputScore[i - 1] = new SelectedCourseCreationMessage();
+        this.inputScore[i - 1] = new SelectedCourseEditingMessage();
         this.inputScore[i - 1].studentUserId = this.inputData[i][0];
         this.inputScore[i - 1].midScore = this.inputData[i][2];
         this.inputScore[i - 1].finalScore = this.inputData[i][3];
@@ -79,7 +82,6 @@ export class EnterScoreComponent implements OnInit {
           midScore: this.inputData[i][2],
           finalScore: this.inputData[i][3],
           avgOnlineScore: this.inputData[i][4],
-          totalScore: this.getTotalScore(),
         },
         this.inputScore[i - 1].studentUserId, courseId, this.session.userInfo.username
       ).subscribe(
@@ -91,15 +93,6 @@ export class EnterScoreComponent implements OnInit {
         },
       );
     }
-  }
-
-  getTotalScore(): number {
-    let totalScore: number;
-    this.dataSource.data.forEach(value => {
-      value.totalScore = (value.avgOnlineScore) * 0.3 + (value.midScore) * 0.1 + (value.finalScore) * 0.6;
-      totalScore = value.totalScore;
-    });
-    return totalScore;
   }
 
   ngOnInit() {

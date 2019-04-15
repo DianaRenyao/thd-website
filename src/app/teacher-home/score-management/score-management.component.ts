@@ -1,10 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {CourseSummaryMessage} from '../../_models/course-summary-message';
-import {HttpErrorResponse} from '@angular/common/http';
-import {CourseService} from '../../_services/course.service';
-import {Router} from '@angular/router';
-import {SessionMessage} from '../../_models';
-import {SessionService} from '../../_services';
+import { Component, OnInit } from '@angular/core';
+import { CourseSummaryMessage } from '../../_models/course-summary-message';
+import { HttpErrorResponse } from '@angular/common/http';
+import { CourseService, SessionService } from '../../_services';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SessionMessage } from '../../_models';
 
 @Component({
   selector: 'app-score-management',
@@ -21,6 +20,7 @@ export class ScoreManagementComponent implements OnInit {
     private courseService: CourseService,
     private router: Router,
     private sessionService: SessionService,
+    private route: ActivatedRoute,
   ) {
   }
 
@@ -47,7 +47,8 @@ export class ScoreManagementComponent implements OnInit {
   }
 
   onClick(courseSummaryMessage: CourseSummaryMessage): void {
-    console.log('is selected');
-    this.router.navigate([`courseStudent/${courseSummaryMessage.courseId}`]);
+    this.router.navigate([`courses/${ courseSummaryMessage.courseId }`], {
+      relativeTo: this.route,
+    });
   }
 }
