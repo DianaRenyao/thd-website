@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {NoticeCreationMessage, NoticeMessage, SessionMessage} from '../_models';
-import {Observable} from 'rxjs';
-import {HttpClient, HttpResponse} from '@angular/common/http';
-import {map} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { NoticeCreationMessage, NoticeMessage, SessionMessage } from '../_models';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +44,6 @@ export class NoticeService {
   }
 
   getTeacherNotices(session: SessionMessage): Observable<NoticeMessage[]> {
-    return this.http.get<NoticeMessage[]>(`notices/${session.userInfo.username}/notices`);
+    return this.http.get<NoticeMessage[]>(`teachers/${ session.userInfo.username }/notices`);
   }
 }

@@ -20,8 +20,16 @@ export class MockComponent implements OnInit {
   ngOnInit() {
   }
 
-  createMockData() {
-    this.mockService.createMockData().subscribe(
+
+  createUserMockData() {
+    this.mockService.createUserMockData().subscribe(
+      () => this.alertService.success('创建模拟数据成功'),
+      errorResponse => this.errorResponse = errorResponse,
+    );
+  }
+
+  createCourseMockData() {
+    this.mockService.createCourseMockData().subscribe(
       () => this.alertService.success('创建模拟数据成功'),
       errorResponse => this.errorResponse = errorResponse,
     );
