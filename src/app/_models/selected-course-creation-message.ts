@@ -1,4 +1,4 @@
-export class SelectedCourse {
+export class SelectedCourseCreationMessage {
   studentUserId: number;
   avgOnlineScore: number;
   midScore: number;

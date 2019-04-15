@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {SelectedCourse} from '../_models/score-creation-message';
+import {SelectedCourseCreationMessage} from '../_models/selected-course-creation-message';
+import {SelectedCourseMessage} from '../_models/selected-course-message';
 
 
 @Injectable({
@@ -14,16 +15,17 @@ export class SelectedCourseService {
   constructor(private http: HttpClient) {
   }
 
-  getStudentScores(username: string): Observable<SelectedCourse[]> {
-    return this.http.get<SelectedCourse[]>(`students/${username}/selectedCourses`);
+  getStudentScores(username: string): Observable<SelectedCourseMessage[]> {
+    return this.http.get<SelectedCourseMessage[]>(`students/${username}/selectedCourses`);
   }
 
-  getCourseScores(username: string, courseId: number): Observable<SelectedCourse[]> {
-    return this.http.get<SelectedCourse[]>(`teachers/${username}/courses/${courseId}/students`);
+  getCourseScores(username: string, courseId: number): Observable<SelectedCourseMessage[]> {
+    return this.http.get<SelectedCourseMessage[]>(`teachers/${username}/courses/${courseId}/students`);
   }
 
-  addSelectedCourseScore(score: SelectedCourse, studentId: number, courseId: number, username: string): Observable<SelectedCourse> {
-    return this.http.post<SelectedCourse>(`teachers/${username}/courses/${courseId}/students`, score, {
+  addSelectedCourseScore(score: SelectedCourseCreationMessage, studentId: number,
+                         courseId: number, username: string): Observable<SelectedCourseMessage> {
+    return this.http.post<SelectedCourseMessage>(`teachers/${username}/courses/${courseId}/students`, score, {
       params: {
         studentUserId: studentId.toString(),
       }

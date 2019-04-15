@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {SelectedCourse} from '../_models/score-creation-message';
+import {SelectedCourseCreationMessage} from '../_models/selected-course-creation-message';
 import {SelectedCourseService} from '../_services/selected-course.service';
 import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
 import {Sort} from '@angular/material';
@@ -7,6 +7,7 @@ import {SessionMessage} from '../_models';
 import {SessionService} from '../_services';
 import { MatButtonModule } from '@angular/material';
 import {HttpErrorResponse} from '@angular/common/http';
+import {SelectedCourseMessage} from '../_models/selected-course-message';
 
 @Component({
   selector: 'app-student-checkscore',
@@ -16,8 +17,8 @@ import {HttpErrorResponse} from '@angular/common/http';
 
 export class StudentCheckscoreComponent implements OnInit {
 
-  displayedColumns: string[] = [ 'courseCourseId', 'midScore', 'finalScore', 'avgOnlineScore', 'totalScore'];
-  dataSource: MatTableDataSource<SelectedCourse>;
+  displayedColumns: string[] = [ 'courseCourseId', 'courseName', 'midScore', 'finalScore', 'avgOnlineScore', 'totalScore'];
+  dataSource: MatTableDataSource<SelectedCourseMessage>;
   session: SessionMessage;
   errorResponse: HttpErrorResponse;
 
