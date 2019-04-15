@@ -1,14 +1,15 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {HttpErrorResponse} from '@angular/common/http';
-import {ScoreService} from '../_services/score.service';
+import {SelectedCourseService} from '../_services/selected-course.service';
 import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
 import {Sort} from '@angular/material';
-import {Score} from '../_models/score-creation-message';
-import {AlertService} from '../_services';
+import {SelectedCourse} from '../_models/score-creation-message';
+import {AlertService, SessionService} from '../_services';
 import * as XLSX from 'xlsx';
 import {forEach} from '@angular/router/src/utils/collection';
 import G2 from '@antv/g2/build/g2';
+import {SessionMessage} from '../_models';
 
 @Component({
   selector: 'app-teacher-checkscore',
@@ -18,21 +19,30 @@ import G2 from '@antv/g2/build/g2';
 export class TeacherCheckscoreComponent implements OnInit {
 
   displayedColumns: string[] = ['studentUserId', 'midScore', 'finalScore', 'avgOnlineScore', 'totalScore'];
-  dataSource: MatTableDataSource<Score>;
+  dataSource: MatTableDataSource<SelectedCourse>;
   inputData = [];
-  inputScore: Score[] = [];
+  inputScore: SelectedCourse[] = [];
   totalScore = [];
-  let
   countFail: number;
   countSixtyToSeventy: number;
   countSeventyToEighty: number;
   countNinetyToHundred: number;
   countEightyToNinety: number;
-
+  session: SessionMessage;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private scoreService: ScoreService,
+  getSession() {
+    this.session = this.sessionService.currentSessionValue;
+    this.sessionService.currentSession.subscribe(
+      session => {
+        this.session = session;
+      }
+    );
+  }
+
+  constructor(private scoreService: SelectedCourseService,
               private alertService: AlertService,
+              private sessionService: SessionService,
               private route: ActivatedRoute) {
     this.countFail = 0;
     this.countSixtyToSeventy = 0;
@@ -45,14 +55,12 @@ export class TeacherCheckscoreComponent implements OnInit {
 
     const courseId: number = parseInt(this.route.snapshot.paramMap.get('id'), 10);
 
-    this.scoreService.getCourseScores(courseId)
+    this.scoreService.getCourseScores(this.session.userInfo.username, courseId)
       .subscribe(dataSource => {
         this.dataSource = new MatTableDataSource(dataSource);
-        console.log(dataSource);
         dataSource.forEach((value, index) => {
           this.totalScore[index] = value.totalScore;
         });
-        console.log(this.totalScore);
         this.totalScore.forEach((value) => {
           if (value < 60) {
             this.countFail += 1;
@@ -81,6 +89,7 @@ export class TeacherCheckscoreComponent implements OnInit {
           height: 500
         });
 
+        /* 图表分析生成 */
         chart.source(data);
         chart.interval().position('scoreClass*count').color('scoreClass');
         chart.render();
@@ -123,21 +132,21 @@ export class TeacherCheckscoreComponent implements OnInit {
       console.log(this.inputData);
       let i: number;
       for (i = 1; i < this.inputData.length; i = i + 1) {
-        this.inputScore[i - 1] = new Score();
+        this.inputScore[i - 1] = new SelectedCourse();
         this.inputScore[i - 1].studentUserId = this.inputData[i][0];
         this.inputScore[i - 1].midScore = this.inputData[i][2];
         this.inputScore[i - 1].finalScore = this.inputData[i][3];
         this.inputScore[i - 1].avgOnlineScore = this.inputData[i][4];
         this.dataSource = new MatTableDataSource(this.inputScore);
 
-        this.scoreService.addSelectedScore({
+        this.scoreService.addSelectedCourseScore({
             studentUserId: this.inputData[i][0],
             midScore: this.inputData[i][2],
             finalScore: this.inputData[i][3],
             avgOnlineScore: this.inputData[i][4],
             totalScore: this.getTotalScore(),
           },
-          this.inputScore[i - 1].studentUserId, courseId
+          this.inputScore[i - 1].studentUserId, courseId, this.session.userInfo.username
         ).subscribe(
           () => {
             this.alertService.success('上传成功');
@@ -162,6 +171,7 @@ export class TeacherCheckscoreComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getSession();
     this.getScores();
   }
 }

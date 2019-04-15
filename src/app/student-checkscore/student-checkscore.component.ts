@@ -1,11 +1,12 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Score} from '../_models/score-creation-message';
-import {ScoreService} from '../_services/score.service';
+import {SelectedCourse} from '../_models/score-creation-message';
+import {SelectedCourseService} from '../_services/selected-course.service';
 import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
 import {Sort} from '@angular/material';
 import {SessionMessage} from '../_models';
 import {SessionService} from '../_services';
 import { MatButtonModule } from '@angular/material';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-student-checkscore',
@@ -15,14 +16,15 @@ import { MatButtonModule } from '@angular/material';
 
 export class StudentCheckscoreComponent implements OnInit {
 
-  displayedColumns: string[] = ['studentUserId', 'courseCourseId', 'midScore', 'finalScore', 'avgOnlineScore', 'totalScore'];
-  dataSource: MatTableDataSource<Score>;
+  displayedColumns: string[] = [ 'courseCourseId', 'midScore', 'finalScore', 'avgOnlineScore', 'totalScore'];
+  dataSource: MatTableDataSource<SelectedCourse>;
   session: SessionMessage;
-  num: number;
+  errorResponse: HttpErrorResponse;
 
   getScores(): void {
-    this.scoreService.getScores(this.session.userInfo.username)
-      .subscribe(dataSource => this.dataSource = new MatTableDataSource(dataSource));
+    this.scoreService.getStudentScores(this.session.userInfo.username)
+      .subscribe(dataSource => this.dataSource = new MatTableDataSource(dataSource),
+        errorResponse => this.errorResponse = errorResponse);
   }
 
   getSession() {
@@ -35,7 +37,7 @@ export class StudentCheckscoreComponent implements OnInit {
   }
 
   constructor(
-    private scoreService: ScoreService,
+    private scoreService: SelectedCourseService,
     private sessionService: SessionService,
   ) {
   }

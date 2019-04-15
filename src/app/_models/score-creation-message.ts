@@ -1,4 +1,4 @@
-export class Score {
+export class SelectedCourse {
   studentUserId: number;
   avgOnlineScore: number;
   midScore: number;
