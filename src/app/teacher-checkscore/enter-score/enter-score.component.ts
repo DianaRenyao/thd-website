@@ -103,6 +103,6 @@ export class EnterScoreComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getSession();
   }
-
 }

@@ -24,6 +24,7 @@ export class TeacherCheckscoreComponent implements OnInit {
   countEightyToNinety: number;
   session: SessionMessage;
   errorResponse: HttpErrorResponse;
+  showChart: boolean;
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -45,6 +46,7 @@ export class TeacherCheckscoreComponent implements OnInit {
     this.countSeventyToEighty = 0;
     this.countEightyToNinety = 0;
     this.countNinetyToHundred = 0;
+    this.showChart = false;
   }
 
   getScores(): void {
@@ -108,4 +110,12 @@ export class TeacherCheckscoreComponent implements OnInit {
     this.getSession();
     this.getScores();
   }
+  //
+  // toggleShowChart() {
+  //   if (this.showChart) {
+  //     this.showChart = false;
+  //   } else {
+  //     this.showChart = true;
+  //   }
+  // }
 }
