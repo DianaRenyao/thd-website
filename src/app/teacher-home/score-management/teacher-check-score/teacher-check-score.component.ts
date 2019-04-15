@@ -1,20 +1,19 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {HttpErrorResponse} from '@angular/common/http';
-import {SelectedCourseService} from '../_services/selected-course.service';
-import {MatSort, MatTableDataSource} from '@angular/material';
-import {AlertService, SessionService} from '../_services';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+import { SelectedCourseService } from '../../../_services/selected-course.service';
+import { MatSort, MatTableDataSource } from '@angular/material';
+import { AlertService, SessionService } from '../../../_services';
 import G2 from '@antv/g2/build/g2';
-import {SessionMessage} from '../_models';
-import {SelectedCourseMessage} from '../_models/selected-course-message';
+import { SelectedCourseMessage, SessionMessage } from '../../../_models';
 
 
 @Component({
-  selector: 'app-teacher-checkscore',
-  templateUrl: './teacher-checkscore.component.html',
-  styleUrls: ['./teacher-checkscore.component.scss']
+  selector: 'app-teacher-check-score',
+  templateUrl: './teacher-check-score.component.html',
+  styleUrls: ['./teacher-check-score.component.scss']
 })
-export class TeacherCheckscoreComponent implements OnInit {
+export class TeacherCheckScoreComponent implements OnInit {
   displayedColumns: string[] = ['studentUserId', 'studentName', 'midScore', 'finalScore', 'avgOnlineScore', 'totalScore'];
   dataSource: MatTableDataSource<SelectedCourseMessage>;
   countFail: number;
@@ -25,6 +24,7 @@ export class TeacherCheckscoreComponent implements OnInit {
   session: SessionMessage;
   errorResponse: HttpErrorResponse;
   showChart: boolean;
+  filter: string;
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -51,7 +51,7 @@ export class TeacherCheckscoreComponent implements OnInit {
 
   getScores(): void {
 
-    const courseId: number = parseInt(this.route.snapshot.paramMap.get('id'), 10);
+    const courseId: number = parseInt(this.route.snapshot.paramMap.get('courseId'), 10);
 
     this.scoreService.getCourseScores(this.session.userInfo.username, courseId)
       .subscribe(dataSource => {
@@ -70,11 +70,11 @@ export class TeacherCheckscoreComponent implements OnInit {
             }
           });
           const data = [
-            {scoreClass: '<60', count: this.countFail},
-            {scoreClass: '60-70', count: this.countSixtyToSeventy},
-            {scoreClass: '70-80', count: this.countSeventyToEighty},
-            {scoreClass: '80-90', count: this.countEightyToNinety},
-            {scoreClass: '90-100', count: this.countNinetyToHundred}
+            { scoreClass: '<60', count: this.countFail },
+            { scoreClass: '60-70', count: this.countSixtyToSeventy },
+            { scoreClass: '70-80', count: this.countSeventyToEighty },
+            { scoreClass: '80-90', count: this.countEightyToNinety },
+            { scoreClass: '90-100', count: this.countNinetyToHundred }
           ];
 
           const chart = new G2.Chart({
@@ -102,15 +102,12 @@ export class TeacherCheckscoreComponent implements OnInit {
     });
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
 
   ngOnInit() {
     this.getSession();
     this.getScores();
   }
-  //
+
   // toggleShowChart() {
   //   if (this.showChart) {
   //     this.showChart = false;
@@ -118,4 +115,8 @@ export class TeacherCheckscoreComponent implements OnInit {
   //     this.showChart = true;
   //   }
   // }
+
+  applyFilter() {
+    this.dataSource.filter = this.filter.trim().toLowerCase();
+  }
 }
