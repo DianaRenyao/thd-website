@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CourseService, SessionService } from '../_services';
 import { CourseMessage, SessionMessage } from '../_models';
 import { HttpErrorResponse } from '@angular/common/http';
+import { LearningCourseService } from '../_services/learning-course.service';
 
 @Component({
   selector: 'app-course-learn',
@@ -19,6 +20,7 @@ export class CourseLearnComponent implements OnInit {
     private route: ActivatedRoute,
     private courseService: CourseService,
     private sessionService: SessionService,
+    private learningCourseService: LearningCourseService,
   ) {
   }
 
@@ -31,7 +33,10 @@ export class CourseLearnComponent implements OnInit {
     const courseId: number = parseInt(this.route.snapshot.paramMap.get('id'), 10);
     this.courseService.getCourseDetail(courseId)
       .subscribe(
-        course => this.course = course,
+        course => {
+          this.course = course;
+          this.learningCourseService.startLearning(this.course);
+        },
         errorResponse => this.errorResponse = errorResponse,
       );
   }

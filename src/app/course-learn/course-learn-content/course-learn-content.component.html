@@ -1,0 +1,15 @@
+<h2>章节目录</h2>
+<div *ngIf="course">
+  <ol *ngFor="let chapter of course.chapters" class="chapter-ol">
+    <li>
+      <span class="sequence">第{{chapter.sequence + 1}}章</span>
+      <span class="chapter-name">{{chapter.chapterName}}</span>
+      <ol *ngFor="let section of chapter.sections" class="section-ol">
+        <li [routerLink]="goSectionRouterLink(chapter, section)">
+          <span class="sequence">第{{section.sequence + 1}}节</span>
+          <span class="section-name">{{section.sectionName}}</span>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
