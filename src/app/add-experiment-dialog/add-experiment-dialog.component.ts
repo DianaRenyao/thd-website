@@ -1,7 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {CourseMessage} from '../_models';
 import {ExperimentService} from '../_services/experiment.service';
 import {AlertService} from '../_services';
 
@@ -19,8 +18,8 @@ export class AddExperimentDialogComponent implements OnInit {
               private experimentService: ExperimentService,
               private alertService: AlertService) {
     this.applyForm = formBuilder.group({
-      name: ['name'],
-      description: ['description'],
+      name: [''],
+      description: [''],
       startDate: [''],
       finishDate: ['']
     });
@@ -35,14 +34,15 @@ export class AddExperimentDialogComponent implements OnInit {
 
   onSubmit() {
     console.log('submit experiment');
-    const experimentMessage = this.experimentService.createCourseExperiment(this.courseId, {
+
+    this.experimentService.createCourseExperiment(this.courseId, {
       experimentName: this.form.name.value,
       description: this.form.description.value,
       startDate: this.form.startDate.value,
       finishDate: this.form.finishDate.value
-    }).subscribe(() => {
+    }).subscribe(experimentMessage => {
         this.alertService.success('创建成功');
-        this.dialogRef.close();
+        this.dialogRef.close(experimentMessage);
       },
       errorResponse => {
         this.alertService.errorResponse('创建失败', errorResponse);

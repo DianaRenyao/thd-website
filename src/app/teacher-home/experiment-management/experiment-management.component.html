@@ -6,11 +6,6 @@
     <table *ngIf="courseAndExperiment.experiments.length !== 0" [dataSource]="courseAndExperiment.experiments"
            class="experiment-table"
            mat-table>
-      <!-- experimentId column -->
-<!--      <ng-container matColumnDef="experimentId">-->
-<!--        <th *matHeaderCellDef mat-header-cell>实验编号</th>-->
-<!--        <td *matCellDef="let element" mat-cell> {{element.experimentId}} </td>-->
-<!--      </ng-container>-->
 
       <!-- experimentName column -->
       <ng-container matColumnDef="experimentName">

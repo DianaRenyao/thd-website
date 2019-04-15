@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ExperimentService} from '../../_services/experiment.service';
 import {mergeMap} from 'rxjs/operators';
 import {forkJoin, of, zip} from 'rxjs';
@@ -22,6 +22,7 @@ export class ExperimentManagementComponent implements OnInit {
     course: CourseSummaryMessage,
     experiments: ExperimentMessage[],
   }[];
+
   errorResponse: HttpErrorResponse;
   experimentDisplayedColumns = [
     // 'experimentId',
@@ -77,12 +78,15 @@ export class ExperimentManagementComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = id;
     this.dialog.open(AddExperimentDialogComponent, dialogConfig).afterClosed().subscribe(
-      () => this.getCoursesAndExperiments()
+      (experimentMessage: ExperimentMessage) => {
+        this.courseAndExperiments[index].experiments.push(experimentMessage);
+        this.courseAndExperiments[index] = {...this.courseAndExperiments[index]};
+      }
     );
 
   }
 
   onFileUploaded(fileSource) {
-
+    // TODO:
   }
 }
