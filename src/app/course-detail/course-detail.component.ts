@@ -16,7 +16,6 @@ export class CourseDetailComponent implements OnInit {
 
 
   applicationState = ApplicationState;
-
   session: SessionMessage;
   course: CourseMessage;
   application: ApplicationMessage;

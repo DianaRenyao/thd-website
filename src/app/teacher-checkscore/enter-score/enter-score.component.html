@@ -1,0 +1,40 @@
+<div>
+  <h2>导入成绩预览</h2>
+  <input type="file" (change)="importFromExcel($event)" multiple="false" />
+  <table mat-table [dataSource]="dataSource" >
+
+    <!-- stu_id Column -->
+    <ng-container matColumnDef="studentUserId">
+      <th mat-header-cell *matHeaderCellDef> Student ID</th>
+      <td mat-cell *matCellDef="let element"> {{element.studentUserId}} </td>
+    </ng-container>
+
+    <!-- avgOnlineScore Column -->
+    <ng-container matColumnDef="avgOnlineScore">
+      <th mat-header-cell *matHeaderCellDef > avgOnlineScore</th>
+      <td mat-cell *matCellDef="let element"> {{element.avgOnlineScore}} </td>
+    </ng-container>
+
+    <!-- midScore Column -->
+    <ng-container matColumnDef="midScore">
+      <th mat-header-cell *matHeaderCellDef > midScore</th>
+      <td mat-cell *matCellDef="let element"> {{element.midScore}} </td>
+    </ng-container>
+
+    <!-- finalScore Column -->
+    <ng-container matColumnDef="finalScore">
+      <th mat-header-cell *matHeaderCellDef > finalScore</th>
+      <td mat-cell *matCellDef="let element"> {{element.finalScore}} </td>
+    </ng-container>
+
+    <!-- totalScore Column -->
+    <ng-container matColumnDef="totalScore">
+      <th mat-header-cell *matHeaderCellDef > totalScore</th>
+      <td mat-cell *matCellDef="let element"> {{element.totalScore}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <button (click)="addSelectedCourseScore()" mat-button>上传</button>
+</div>
