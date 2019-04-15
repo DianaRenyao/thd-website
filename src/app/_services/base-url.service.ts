@@ -9,7 +9,7 @@ export class BaseUrlService {
   }
 
   get baseUrl() {
-    return 'http://114.115.159.56:8080/spm-service/webapi';
-    // return 'http://localhost:8080/spm_service_war/webapi';
+    // return 'http://114.115.159.56:8080/spm-service/webapi';
+    return 'http://localhost:8080/spm_service_war/webapi';
   }
 }

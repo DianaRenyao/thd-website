@@ -11,20 +11,19 @@ import {Score} from '../_models/score-creation-message';
 
 export class ScoreService {
 
-  private scoresUrl = 'scores';  // URL to web api
   constructor(private http: HttpClient) {
   }
 
   getScores(username: string): Observable<Score[]> {
-    return this.http.get<Score[]>(`scores/${username}`, {});
+    return this.http.get<Score[]>(`selectedCourse/${username}`, {});
   }
 
   getCourseScores(courseId: number): Observable<Score[]> {
-    return this.http.get<Score[]>(`scores/course/${courseId}`, {});
+    return this.http.get<Score[]>(`selectedCourse/course/${courseId}`, {});
   }
 
   addSelectedScore(score: Score, studentId: number, courseId: number): Observable<Score> {
-    return this.http.post<Score>(`scores/import`, score, {
+    return this.http.post<Score>(`selectedCourse/score`, score, {
       params: {
         studentUserId: studentId.toString(),
         courseCourseId: courseId.toString(),
