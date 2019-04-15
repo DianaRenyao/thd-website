@@ -1,0 +1,49 @@
+<div class="section-container">
+  <app-service-error-message [errorResponse]="errorResponse" [indicator]="'编辑小节失败'"></app-service-error-message>
+  <div *ngFor="let section of sections">
+    <button (click)="toggleAdd(section.sequence)" class="add-button" mat-icon-button>
+      <mat-icon>add</mat-icon>
+    </button>
+    <div *ngIf="addingPosition === section.sequence">
+      <label>序号：{{newSection.sequence + 1}}
+      </label>
+      <label>小节名称：
+        <input [(ngModel)]="newSection.sectionName" placeholder="小节名称">
+      </label>
+      <button (click)="addSection()" [disabled]="newSection.sectionName === null" color="primary" mat-button>添加</button>
+    </div>
+    <span class="sequence">第{{section.sequence + 1}}节</span>
+    <span class="section-name">{{section.sectionName}}</span>
+    <button (click)="onEditFile(section)" mat-icon-button>
+      <mat-icon>attach_file</mat-icon>
+    </button>
+    <button (click)="toggleEdit(section.sequence, section.sectionName)" mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button (click)="removeSection(section.sequence)" mat-icon-button>
+      <mat-icon>delete</mat-icon>
+    </button>
+    <div *ngIf="editingPosition === section.sequence">
+      <label>序号：{{editingPosition + 1}}
+      </label>
+      <label>小节名称：
+        <input [(ngModel)]="editingSection.sectionName" placeholder="小节名称">
+      </label>
+      <button (click)="editSection()" [disabled]="editingSection.sectionName === null" color="primary" mat-button>修改
+      </button>
+    </div>
+  </div>
+  <button (click)="toggleAdd(sections.length)" class="add-button" mat-icon-button>
+    <mat-icon>add</mat-icon>
+  </button>
+  <div *ngIf="addingPosition === sections.length">
+    <label>序号：{{newSection.sequence + 1}}
+    </label>
+    <label>小节名称：
+      <input [(ngModel)]="newSection.sectionName" placeholder="小节名称"/>
+    </label>
+    <button (click)="addSection()" [disabled]="newSection.sectionName === null" color="primary" mat-button
+            type="submit">添加
+    </button>
+  </div>
+</div>
