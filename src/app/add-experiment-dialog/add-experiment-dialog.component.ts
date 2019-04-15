@@ -35,7 +35,7 @@ export class AddExperimentDialogComponent implements OnInit {
 
   onSubmit() {
     console.log('submit experiment');
-    this.experimentService.createCourseExperiment(this.courseId, {
+    const experimentMessage = this.experimentService.createCourseExperiment(this.courseId, {
       experimentName: this.form.name.value,
       description: this.form.description.value,
       startDate: this.form.startDate.value,
@@ -48,5 +48,6 @@ export class AddExperimentDialogComponent implements OnInit {
         this.alertService.errorResponse('创建失败', errorResponse);
         this.dialogRef.close();
       });
-  }
+    }
+
 }

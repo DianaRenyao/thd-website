@@ -7,7 +7,7 @@ import {SessionMessage} from '../../_models';
 import {CourseSummaryMessage} from '../../_models/course-summary-message';
 import {ExperimentMessage} from '../../_models/experiment-message';
 import {HttpErrorResponse} from '@angular/common/http';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatDialogConfig} from '@angular/material';
 import {AddExperimentDialogComponent} from '../../add-experiment-dialog/add-experiment-dialog.component';
 
 @Component({
@@ -24,12 +24,13 @@ export class ExperimentManagementComponent implements OnInit {
   }[];
   errorResponse: HttpErrorResponse;
   experimentDisplayedColumns = [
-    'experimentId',
+    // 'experimentId',
     'experimentName',
     'description',
     'startDate',
     'finishDate',
     'courseId',
+    'actions',
   ];
   constructor(private experimentService: ExperimentService,
               private courseService: CourseService,
@@ -72,7 +73,16 @@ export class ExperimentManagementComponent implements OnInit {
   addExperiment(index: number) {
     console.log('addExp');
     const id = this.courseAndExperiments[index].course.courseId;
-    this.dialog.open(AddExperimentDialogComponent, {data : id}).afterClosed().subscribe();
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = id;
+    this.dialog.open(AddExperimentDialogComponent, dialogConfig).afterClosed().subscribe(
+      () => this.getCoursesAndExperiments()
+    );
+
+  }
+
+  onFileUploaded(fileSource) {
 
   }
 }

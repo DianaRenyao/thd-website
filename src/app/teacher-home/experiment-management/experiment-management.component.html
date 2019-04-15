@@ -7,10 +7,10 @@
            class="experiment-table"
            mat-table>
       <!-- experimentId column -->
-      <ng-container matColumnDef="experimentId">
-        <th *matHeaderCellDef mat-header-cell>实验编号</th>
-        <td *matCellDef="let element" mat-cell> {{element.experimentId}} </td>
-      </ng-container>
+<!--      <ng-container matColumnDef="experimentId">-->
+<!--        <th *matHeaderCellDef mat-header-cell>实验编号</th>-->
+<!--        <td *matCellDef="let element" mat-cell> {{element.experimentId}} </td>-->
+<!--      </ng-container>-->
 
       <!-- experimentName column -->
       <ng-container matColumnDef="experimentName">
@@ -40,6 +40,14 @@
       <ng-container matColumnDef="courseId">
         <th *matHeaderCellDef mat-header-cell>课程编号</th>
         <td *matCellDef="let element" mat-cell> {{element.courseId}} </td>
+      </ng-container>
+
+      <!-- addFile column -->
+      <ng-container matColumnDef="actions">
+        <th *matHeaderCellDef mat-header-cell>操作</th>
+        <td *matCellDef="let element" mat-cell>
+          <app-file-uploader (uploaded)="onFileUploaded($event)"></app-file-uploader>
+        </td>
       </ng-container>
 
       <tr *matHeaderRowDef="experimentDisplayedColumns" mat-header-row></tr>
