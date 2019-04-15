@@ -48,6 +48,6 @@ export class ScoreManagementComponent implements OnInit {
 
   onClick(courseSummaryMessage: CourseSummaryMessage): void {
     console.log('is selected');
-    this.router.navigate([`score/${courseSummaryMessage.courseId}`]);
+    this.router.navigate([`courseStudent/${courseSummaryMessage.courseId}`]);
   }
 }

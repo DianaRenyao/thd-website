@@ -1,14 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {HttpErrorResponse} from '@angular/common/http';
 import {SelectedCourseService} from '../../_services/selected-course.service';
-import {MatSort, MatTableDataSource, MatPaginator} from '@angular/material';
-import {Sort} from '@angular/material';
+import {MatSort, MatTableDataSource} from '@angular/material';
 import {SelectedCourseCreationMessage} from '../../_models/selected-course-creation-message';
 import {AlertService, SessionService} from '../../_services';
 import * as XLSX from 'xlsx';
-import {forEach} from '@angular/router/src/utils/collection';
-import G2 from '@antv/g2/build/g2';
 import {SessionMessage} from '../../_models/session-message';
 
 @Component({
@@ -42,8 +38,7 @@ export class EnterScoreComponent implements OnInit {
   }
 
   importFromExcel(evt: any): void {
-
-    const courseId: number = parseInt(this.route.snapshot.paramMap.get('id'), 10);
+    console.log('start');
     const target: DataTransfer = (evt.target) as DataTransfer;
     if (target.files.length !== 1) {
       throw new Error('Cannot use multiple files');
@@ -68,28 +63,34 @@ export class EnterScoreComponent implements OnInit {
         this.inputScore[i - 1].midScore = this.inputData[i][2];
         this.inputScore[i - 1].finalScore = this.inputData[i][3];
         this.inputScore[i - 1].avgOnlineScore = this.inputData[i][4];
-        this.dataSource = new MatTableDataSource(this.inputScore);
-
-        this.scoreService.addSelectedCourseScore({
-            studentUserId: this.inputData[i][0],
-            midScore: this.inputData[i][2],
-            finalScore: this.inputData[i][3],
-            avgOnlineScore: this.inputData[i][4],
-            totalScore: this.getTotalScore(),
-          },
-          this.inputScore[i - 1].studentUserId, courseId, this.session.userInfo.username
-        ).subscribe(
-          () => {
-            this.alertService.success('上传成功');
-          },
-          errorResponse => {
-            this.alertService.errorResponse('上传失败', errorResponse);
-          },
-        );
       }
+      this.dataSource = new MatTableDataSource(this.inputScore);
       evt.target.value = '';
     };
     reader.readAsBinaryString(target.files[0]);
+  }
+
+  addSelectedCourseScore() {
+    const courseId: number = parseInt(this.route.snapshot.paramMap.get('id'), 10);
+    let i: number;
+    for (i = 1; i < this.inputData.length; i = i + 1) {
+      this.scoreService.addSelectedCourseScore({
+          studentUserId: this.inputData[i][0],
+          midScore: this.inputData[i][2],
+          finalScore: this.inputData[i][3],
+          avgOnlineScore: this.inputData[i][4],
+          totalScore: this.getTotalScore(),
+        },
+        this.inputScore[i - 1].studentUserId, courseId, this.session.userInfo.username
+      ).subscribe(
+        () => {
+          this.alertService.success('上传成功');
+        },
+        errorResponse => {
+          this.alertService.errorResponse('上传失败', errorResponse);
+        },
+      );
+    }
   }
 
   getTotalScore(): number {
