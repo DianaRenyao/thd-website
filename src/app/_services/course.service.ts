@@ -33,6 +33,15 @@ export class CourseService {
     });
   }
 
+  getTeacherCourses(username: string): Observable<CourseSummaryMessage[]> {
+    return this.http.get<CourseSummaryMessage[]>('courses', {
+      params: {
+        selectable: 'false',
+        teacher: username
+      }
+    });
+  }
+
   getCourseDetail(courseId: number): Observable<CourseMessage> {
     return this.http.get<CourseMessage>(`courses/${ courseId }`);
   }

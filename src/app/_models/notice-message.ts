@@ -1,4 +1,4 @@
-import { TeacherMessage } from './teacher-message';
+import {TeacherMessage} from './teacher-message';
 
 export class NoticeMessage {
   noticeId: number;
@@ -6,4 +6,6 @@ export class NoticeMessage {
   title: string;
   detail: string;
   timeCreated: Date;
+
+
 }

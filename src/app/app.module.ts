@@ -11,14 +11,18 @@ import {
   MatInputModule,
   MatListModule,
   MatPaginatorIntl,
-  MatPaginatorModule,
   MatSidenavModule,
   MatSnackBarModule,
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatProgressSpinnerModule,
   MatTooltipModule
 } from '@angular/material';
+
+import { StudentCheckscoreComponent } from './student-checkscore/student-checkscore.component';
 import { MatButtonModule } from '@angular/material/button';
 import { UserIndicatorComponent } from './user-indicator/user-indicator.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -53,8 +57,10 @@ import { TeacherManagementComponent } from './admin-console/teacher-management/t
 import { CourseManagementComponent } from './teacher-home/course-management/course-management.component';
 import { NoticeManagementComponent } from './teacher-home/notice-management/notice-management.component';
 import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-dialog.component';
+import { ScoreManagementComponent } from './teacher-home/score-management/score-management.component';
 import { MessagesComponent } from './messages/messages.component';
 import { CreateMessageDialogComponent } from './create-message-dialog/create-message-dialog.component';
+import { TeacherCheckscoreComponent } from './teacher-checkscore/teacher-checkscore.component';
 import { ApplicationManagementComponent } from './teacher-home/application-management/application-management.component';
 import { ChapterManagementComponent } from './teacher-home/chapter-management/chapter-management.component';
 import { CourseDetailManagementComponent } from './teacher-home/course-detail-management/course-detail-management.component';
@@ -71,6 +77,7 @@ import { SectionFileManagementDialogComponent } from './teacher-home/chapter-man
 import { CourseLearnContentComponent } from './course-learn/course-learn-content/course-learn-content.component';
 import { CourseLearnSectionComponent } from './course-learn/course-learn-section/course-learn-section.component';
 import { LearnContentIconComponent } from './learn-content-icon/learn-content-icon.component';
+import { EnterScoreComponent } from './teacher-checkscore/enter-score/enter-score.component';
 
 registerLocaleData(localeZhHans);
 
@@ -90,6 +97,8 @@ registerLocaleData(localeZhHans);
     LogoutComponent,
     AddTeacherComponent,
     ErrorMessageComponent,
+    StudentCheckscoreComponent,
+    ServiceErrorMessageComponent,
     ServiceErrorMessageComponent,
     AddCourseComponent,
     TeacherListComponent,
@@ -107,8 +116,10 @@ registerLocaleData(localeZhHans);
     CourseManagementComponent,
     NoticeManagementComponent,
     ApplyCourseDialogComponent,
+    ScoreManagementComponent,
     MessagesComponent,
     CreateMessageDialogComponent,
+    TeacherCheckscoreComponent,
     ApplicationManagementComponent,
     ChapterManagementComponent,
     CourseDetailManagementComponent,
@@ -121,6 +132,7 @@ registerLocaleData(localeZhHans);
     CourseLearnContentComponent,
     CourseLearnSectionComponent,
     LearnContentIconComponent,
+    EnterScoreComponent,
   ],
   imports: [
     BrowserModule,
@@ -137,6 +149,7 @@ registerLocaleData(localeZhHans);
     HttpClientModule,
     MatListModule,
     MatSidenavModule,
+    MatSortModule,
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
@@ -157,5 +170,6 @@ registerLocaleData(localeZhHans);
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
 }

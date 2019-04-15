@@ -1,0 +1,10 @@
+<p>
+  score-management works!
+</p>
+<div class="score-management-container">
+  <app-course-summary class="course" *ngFor="let courseSummaryMessage of courseSummaryMessages"
+                      [courseSummaryMessage]="courseSummaryMessage"
+                      (click)="onClick(courseSummaryMessage)">
+  </app-course-summary>
+</div>
+
