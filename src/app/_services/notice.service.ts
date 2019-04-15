@@ -46,4 +46,8 @@ export class NoticeService {
   getTeacherNotices(session: SessionMessage): Observable<NoticeMessage[]> {
     return this.http.get<NoticeMessage[]>(`teachers/${ session.userInfo.username }/notices`);
   }
+
+  deleteNotice(id: number): Observable<void> {
+    return this.http.delete<void>(`notices/${ id }`);
+  }
 }
