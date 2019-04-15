@@ -1,7 +1,15 @@
+.main-container {
+  padding: 16px;
+}
+
 .chapter-ol {
   list-style-type: none;
 }
 
 .section-ol {
   list-style-type: square;
+}
+
+.chapter-name, .section-name {
+  margin-left: 16px;
 }

@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {NoticeMessage, SessionMessage} from '../../../_models';
-import {HttpErrorResponse} from '@angular/common/http';
-import {NoticeService, SessionService} from '../../../_services';
+import { Component, OnInit } from '@angular/core';
+import { NoticeMessage, SessionMessage } from '../../../_models';
+import { HttpErrorResponse } from '@angular/common/http';
+import { NoticeService, SessionService } from '../../../_services';
 
 @Component({
   selector: 'app-notice-list',
@@ -54,6 +54,13 @@ export class NoticeListComponent implements OnInit {
   }
 
   removeNotice(noticeId: number) {
-    // TODO
+    this.noticeService.deleteNotice(noticeId).subscribe(
+      () => {
+        const index = this.dataSource.findIndex(n => n.noticeId === noticeId);
+        this.dataSource.splice(index, 1);
+        this.dataSource = [...this.dataSource]; // force refresh
+      },
+      errorResponse => this.errorResponse = errorResponse,
+    );
   }
 }

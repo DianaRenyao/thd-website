@@ -1,0 +1,11 @@
+<span [ngSwitch]="fileSourceType">
+  <mat-icon *ngSwitchCase="fileType.Video">
+    movie
+  </mat-icon>
+  <mat-icon *ngSwitchCase="fileType.Pdf">
+    picture_as_pdf
+  </mat-icon>
+  <mat-icon *ngSwitchDefault>
+    attachment
+  </mat-icon>
+</span>

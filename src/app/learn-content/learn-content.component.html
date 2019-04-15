@@ -1,15 +1,28 @@
 <div class="learn-content-container">
   <div class="download-button">
-    <a [href]="source">
-      <button mat-button>下载 <span>{{ fileSource.filename }}</span></button>
+    <a [href]="downloadSource" class="button-link">
+      <button color="primary" mat-button>下载<span>{{ fileSource.filename }}</span></button>
     </a>
   </div>
-  <div class="view-area">
-    <video *ngIf="fileSource.fileType.startsWith('video')" controls>
+  <div [ngSwitch]="fileSourceType" class="view-area">
+    <video *ngSwitchCase="fileType.Video" class="content video" controls>
       <source [src]="source" type="{{ fileSource.fileType }}"/>
     </video>
-    <pdf-viewer *ngIf="fileSource.fileType === 'application/pdf'"
-                [render-text]="true" [src]="source"></pdf-viewer>
-    <app-error-message>文件无法显示：未知的文件类型</app-error-message>
+    <div class="pdf-container">
+      <div class="paginator">
+        <button (click)="pdfPreviousPage()" mat-button>上一页</button>
+        <span class="page-number">{{ pdfPage }}</span>
+        <button (click)="pdfNextPage()" mat-button>下一页</button>
+      </div>
+      <!-- TODO still has resize problem -->
+      <pdf-viewer *ngSwitchCase="fileType.Pdf" [(page)]="pdfPage"
+                  [external-link-target]="'blank'"
+                  [original-size]="false"
+                  [render-text]="false"
+                  [show-all]="false"
+                  [src]="source"
+                  class="content pdf-viewer"></pdf-viewer>
+    </div>
+    <app-error-message *ngSwitchDefault class="content">文件无法显示：未知的文件类型</app-error-message>
   </div>
 </div>

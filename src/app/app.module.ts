@@ -14,11 +14,14 @@ import {
   MatPaginatorModule,
   MatSidenavModule,
   MatSnackBarModule,
+  MatSortModule,
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule
 } from '@angular/material';
+
+import { StudentCheckScoreComponent } from './student-home/student-check-score/student-check-score.component';
 import { MatButtonModule } from '@angular/material/button';
 import { UserIndicatorComponent } from './user-indicator/user-indicator.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -36,7 +39,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AddTeacherComponent } from './admin-console/teacher-management/add-teacher/add-teacher.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import { ServiceErrorMessageComponent } from './service-error-message/service-error-message.component';
-import { AddCourseComponent } from './teacher-home/course-management/add-course/add-course.component';
+import { AddCourseComponent } from './teacher-home/add-course/add-course.component';
 import { TeacherListComponent } from './admin-console/teacher-management/teacher-list/teacher-list.component';
 import { CourseSummaryComponent } from './course-summary/course-summary.component';
 import { SelectableCoursesComponent } from './selectable-courses/selectable-courses.component';
@@ -53,8 +56,10 @@ import { TeacherManagementComponent } from './admin-console/teacher-management/t
 import { CourseManagementComponent } from './teacher-home/course-management/course-management.component';
 import { NoticeManagementComponent } from './teacher-home/notice-management/notice-management.component';
 import { ApplyCourseDialogComponent } from './apply-course-dialog/apply-course-dialog.component';
+import { ScoreManagementComponent } from './teacher-home/score-management/score-management.component';
 import { MessagesComponent } from './messages/messages.component';
 import { CreateMessageDialogComponent } from './create-message-dialog/create-message-dialog.component';
+import { TeacherCheckScoreComponent } from './teacher-home/score-management/teacher-check-score/teacher-check-score.component';
 import { ApplicationManagementComponent } from './teacher-home/application-management/application-management.component';
 import { ChapterManagementComponent } from './teacher-home/chapter-management/chapter-management.component';
 import { CourseDetailManagementComponent } from './teacher-home/course-detail-management/course-detail-management.component';
@@ -68,8 +73,14 @@ import { MockComponent } from './admin-console/mock/mock.component';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 // tslint:disable-next-line:max-line-length
 import { SectionFileManagementDialogComponent } from './teacher-home/chapter-management/section-file-management/section-file-management-dialog.component';
+
 import { ExperimentManagementComponent } from './teacher-home/experiment-management/experiment-management.component';
 import { AddExperimentDialogComponent } from './add-experiment-dialog/add-experiment-dialog.component';
+import { EnterScoreComponent } from './teacher-home/score-management/teacher-check-score/enter-score/enter-score.component';
+import { CourseLearnContentComponent } from './course-learn/course-learn-content/course-learn-content.component';
+import { CourseLearnSectionComponent } from './course-learn/course-learn-section/course-learn-section.component';
+import { LearnContentIconComponent } from './learn-content-icon/learn-content-icon.component';
+
 
 registerLocaleData(localeZhHans);
 
@@ -89,6 +100,8 @@ registerLocaleData(localeZhHans);
     LogoutComponent,
     AddTeacherComponent,
     ErrorMessageComponent,
+    StudentCheckScoreComponent,
+    ServiceErrorMessageComponent,
     ServiceErrorMessageComponent,
     AddCourseComponent,
     TeacherListComponent,
@@ -106,8 +119,10 @@ registerLocaleData(localeZhHans);
     CourseManagementComponent,
     NoticeManagementComponent,
     ApplyCourseDialogComponent,
+    ScoreManagementComponent,
     MessagesComponent,
     CreateMessageDialogComponent,
+    TeacherCheckScoreComponent,
     ApplicationManagementComponent,
     ChapterManagementComponent,
     CourseDetailManagementComponent,
@@ -119,6 +134,10 @@ registerLocaleData(localeZhHans);
     SectionFileManagementDialogComponent,
     ExperimentManagementComponent,
     AddExperimentDialogComponent,
+    EnterScoreComponent,
+    CourseLearnContentComponent,
+    CourseLearnSectionComponent,
+    LearnContentIconComponent,
   ],
   imports: [
     BrowserModule,
@@ -135,6 +154,7 @@ registerLocaleData(localeZhHans);
     HttpClientModule,
     MatListModule,
     MatSidenavModule,
+    MatSortModule,
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
@@ -156,5 +176,6 @@ registerLocaleData(localeZhHans);
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
 }

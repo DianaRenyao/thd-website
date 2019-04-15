@@ -1,0 +1,16 @@
+.chapter-ol {
+  list-style-type: none;
+}
+
+.section-ol {
+  list-style-type: square;
+}
+
+.section-link {
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.chapter-name, .section-name {
+  margin-left: 16px;
+}

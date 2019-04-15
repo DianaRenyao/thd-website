@@ -1,5 +1,5 @@
 <app-service-error-message [errorResponse]="courseErrorResponse" [indicator]="'获取课程信息失败'"></app-service-error-message>
-<div *ngIf="course">
+<div *ngIf="course" class="main-container">
   <h2>{{ course.courseName }}</h2>
   <div *ngIf="!session">
     <button mat-raised-button routerLink="/login">申请加入</button>
@@ -17,13 +17,15 @@
     </button>
   </div>
   <app-teacher [teacher]="course.teacher"></app-teacher>
+
+  <h3>课程简介</h3>
   <p>{{ course.description }}</p>
+
+  <h3>课程章节</h3>
   <ol *ngFor="let chapter of course.chapters" class="chapter-ol">
     <li>
       <span class="sequence">第{{chapter.sequence + 1}}章</span>
       <span class="chapter-name">{{chapter.chapterName}}</span>
-    </li>
-    <li>
       <ol *ngFor="let section of chapter.sections" class="section-ol">
         <li>
           <span class="sequence">第{{section.sequence + 1}}节</span>

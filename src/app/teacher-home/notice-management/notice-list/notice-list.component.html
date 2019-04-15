@@ -1,7 +1,6 @@
 <div class="notice-list-container">
   <h2>公告列表</h2>
-  <table [dataSource]="dataSource" mat-table>
-
+  <table [dataSource]="dataSource" class="notice-list-table" mat-table>
     <!-- timeCreated column -->
     <ng-container matColumnDef="timeCreated">
       <th *matHeaderCellDef mat-header-cell>创建时间</th>
@@ -24,9 +23,10 @@
     <ng-container matColumnDef="action">
       <th *matHeaderCellDef mat-header-cell>管理公告</th>
       <td *matCellDef="let element" mat-cell>
-        <button (click)="editNotice()" mat-icon-button>
-          <mat-icon>edit</mat-icon>
-        </button>
+        <!-- TODO add notice edit -->
+        <!--        <button (click)="editNotice()" mat-icon-button>-->
+        <!--          <mat-icon>edit</mat-icon>-->
+        <!--        </button>-->
         <button (click)="removeNotice(element.noticeId)" mat-icon-button>
           <mat-icon>delete</mat-icon>
         </button>
@@ -36,6 +36,6 @@
     <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
     <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10]" class="paginator" showFirstLastButtons></mat-paginator>
   <app-service-error-message [errorResponse]="errorResponse" [indicator]="'获取公告列表失败'"></app-service-error-message>
 </div>
