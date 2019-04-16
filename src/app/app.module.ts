@@ -12,6 +12,7 @@ import {
   MatListModule,
   MatPaginatorIntl,
   MatPaginatorModule,
+  MatRadioModule,
   MatSidenavModule,
   MatSnackBarModule,
   MatSortModule,
@@ -161,6 +162,7 @@ registerLocaleData(localeZhHans);
     MatSnackBarModule,
     MatTooltipModule,
     PdfViewerModule,
+    MatRadioModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'zh-Hans' },

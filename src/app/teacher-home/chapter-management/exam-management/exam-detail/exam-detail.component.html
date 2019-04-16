@@ -1,3 +1,4 @@
+<app-service-error-message [errorResponse]="errorResponse" [indicator]="'获取考试详情失败'"></app-service-error-message>
 <ol *ngFor="let question of exam.questionMessages; let i = index" class="question-ol">
   <li>
     <span class="index">第{{i + 1}}题</span>

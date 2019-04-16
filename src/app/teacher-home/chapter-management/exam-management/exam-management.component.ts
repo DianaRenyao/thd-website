@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ChapterMessage} from '../../../_models/chapter-message';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CourseService, SessionService} from '../../../_services';
 import {HttpErrorResponse} from '@angular/common/http';
 import {SessionMessage} from '../../../_models';
@@ -21,6 +21,7 @@ export class ExamManagementComponent implements OnInit {
   detailPosition: number;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private courseService: CourseService,
     private sessionService: SessionService,
@@ -68,5 +69,10 @@ export class ExamManagementComponent implements OnInit {
     } else {
       this.detailPosition = examId;
     }
+  }
+
+  goAddExam(chapterSequence: number) {
+    console.log('is selected');
+    this.router.navigate([`/teacher-home/add-exam/courses/${this.courseId}/chapterSequence/${chapterSequence}`]);
   }
 }

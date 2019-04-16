@@ -1,3 +1,114 @@
-<p>
-  add-exam works!
-</p>
+<h2>创建第{{chapterSequence + 1}}章考试内容</h2>
+<div class="add-exam-container">
+  <app-service-error-message [errorResponse]="errorResponse" [indicator]="'编辑考试失败'"></app-service-error-message>
+
+  <div *ngFor="let question of examCreationMessage.questionsCreationMessages; let i = index">
+    <button (click)="toggleAddQuestionPosition(i)" class="add-button" mat-icon-button>
+      <mat-icon>add</mat-icon>
+    </button>
+    <div *ngIf="addQuestionPosition === i">
+      <label>第{{ i + 1 }}题
+      </label>
+      <label>问题：
+        <input [(ngModel)]="questionnCreationMessage.detail" placeholder="问题">
+      </label>
+      <mat-radio-group
+        [(ngModel)]="questionnCreationMessage.answerIndex"
+        class="add-option-container">
+        <mat-radio-button *ngFor="let option of questionnCreationMessage.questionOptionCreationMessages
+                          let k= index"
+                          [value]="k" class="example-radio-button">
+          <div>
+          <span *ngIf="k === questionnCreationMessage.answerIndex"
+                class="right-answer">{{option.questionOptionDetail}}</span>
+            <span *ngIf="k != questionnCreationMessage.answerIndex"
+                  class="other-option">{{option.questionOptionDetail}}</span>
+            <button (click)="removeOption(k)" mat-icon-button>
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </mat-radio-button>
+      </mat-radio-group>
+      <button (click)="toggleAddOptionBoolean()" class="add-button" mat-icon-button>
+        <mat-icon>add</mat-icon>
+      </button>
+      <div *ngIf="addOptionBoolean">
+        <label>选项：
+          <input [(ngModel)]="questionOptionCreationMessage.questionOptionDetail" placeholder="选项">
+        </label>
+        <button (click)="addOption()" [disabled]="questionOptionCreationMessage.questionOptionDetail === null"
+                color="primary"
+                mat-button>
+          添加选项
+        </button>
+      </div>
+      <button (click)="addQuestion()" [disabled]="questionnCreationMessage.detail === null
+      || questionnCreationMessage.answerIndex === -1 || questionnCreationMessage.questionOptionCreationMessages === null"
+              color="primary" mat-button>添加问题
+      </button>
+    </div>
+
+    <span class="index">第{{i + 1}}题</span>
+    <span class="question-detail">{{question.detail}}</span>
+    <button (click)="removeQuestion(i)" mat-icon-button>
+      <mat-icon>delete</mat-icon>
+    </button>
+    <div *ngFor="let option of question.questionOptionCreationMessages; let h = index">
+      <span *ngIf="h === question.answerIndex"
+            class="right-answer">{{option.questionOptionDetail}}</span>
+      <span *ngIf="h != question.answerIndex"
+            class="other-option">{{option.questionOptionDetail}}</span>
+    </div>
+  </div>
+  <button (click)="toggleAddQuestionPosition(examCreationMessage.questionsCreationMessages.length)" class="add-button"
+          mat-icon-button>
+    <mat-icon>add</mat-icon>
+  </button>
+  <div *ngIf="addQuestionPosition === examCreationMessage.questionsCreationMessages.length">
+    <label>序号：{{ examCreationMessage.questionsCreationMessages.length + 1 }}
+    </label>
+    <label>问题：
+      <input [(ngModel)]="questionnCreationMessage.detail" placeholder="问题">
+    </label>
+    <mat-radio-group
+      [(ngModel)]="questionnCreationMessage.answerIndex"
+      class="add-option-container">
+      <mat-radio-button *ngFor="let option of questionnCreationMessage.questionOptionCreationMessages
+                let k= index"
+                        [value]="k" class="example-radio-button">
+        <div>
+          <span *ngIf="k === questionnCreationMessage.answerIndex"
+                class="right-answer">{{option.questionOptionDetail}}</span>
+          <span *ngIf="k != questionnCreationMessage.answerIndex"
+                class="other-option">{{option.questionOptionDetail}}</span>
+          <button (click)="removeOption(k)" mat-icon-button>
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-radio-button>
+    </mat-radio-group>
+    <button (click)="toggleAddOptionBoolean()" class="add-button" mat-icon-button>
+      <mat-icon>add</mat-icon>
+    </button>
+    <div *ngIf="addOptionBoolean">
+      <label>选项：
+        <input [(ngModel)]="questionOptionCreationMessage.questionOptionDetail" placeholder="选项">
+      </label>
+      <button (click)="addOption()" [disabled]="questionOptionCreationMessage.questionOptionDetail === null"
+              color="primary"
+              mat-button>
+        添加选项
+      </button>
+    </div>
+    <button (click)="addQuestion()" [disabled]="questionnCreationMessage.detail === null
+      || questionnCreationMessage.answerIndex === -1 || questionnCreationMessage.questionOptionCreationMessages === null"
+            color="primary" mat-button>添加问题
+    </button>
+  </div>
+
+  <div>
+    <button (click)="createExam()" [disabled]="examCreationMessage.questionsCreationMessages === null" color="primary"
+            mat-button>
+      创建考试
+    </button>
+  </div>
