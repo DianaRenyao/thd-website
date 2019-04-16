@@ -47,7 +47,7 @@ export class ScoreManagementComponent implements OnInit {
   }
 
   onClick(courseSummaryMessage: CourseSummaryMessage): void {
-    this.router.navigate([`courses/${ courseSummaryMessage.courseId }`], {
+    this.router.navigate([`course/${ courseSummaryMessage.courseId }`], {
       relativeTo: this.route,
     });
   }

@@ -14,13 +14,13 @@ export const teacherHomeChildRoutes: Routes = [
   { path: '', redirectTo: 'notice-management', pathMatch: 'full' },
   { path: 'notice-management', component: NoticeManagementComponent },
   { path: 'course-management', component: CourseManagementComponent },
-  { path: 'score-management/courses/:courseId', component: TeacherCheckScoreComponent },
+  { path: 'score-management/course/:courseId', component: TeacherCheckScoreComponent },
   { path: 'score-management', component: ScoreManagementComponent },
   { path: 'application-management', component: ApplicationManagementComponent },
   { path: 'course-management/:courseId', component: CourseDetailManagementComponent },
   { path: 'add-course', component: AddCourseComponent },
-  { path: 'exam-management/:courseId', component: ExamManagementComponent },
   { path: 'experiment-management', component: ExperimentManagementComponent },
-  { path: 'add-exam/courses/:courseId/chapterSequence/:chapterSequence', component: AddExamComponent }
+  { path: 'exam-management/:courseId', component: ExamManagementComponent },
+  { path: 'exam-management/:courseId/chapter/:chapterSequence/add-exam', component: AddExamComponent },
 ];
 
