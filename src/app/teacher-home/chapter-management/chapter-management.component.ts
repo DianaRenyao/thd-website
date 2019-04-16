@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ChapterCreationMessage } from '../../_models/chapter-creation-message';
-import { ChapterMessage } from '../../_models/chapter-message';
-import { HttpErrorResponse } from '@angular/common/http';
-import { CourseService } from '../../_services';
-import { ActivatedRoute } from '@angular/router';
-import { ChapterEditingMessage } from '../../_models/chapter-editing-message';
+import {Component, Input, OnInit} from '@angular/core';
+import {ChapterCreationMessage} from '../../_models/chapter-creation-message';
+import {ChapterMessage} from '../../_models/chapter-message';
+import {HttpErrorResponse} from '@angular/common/http';
+import {CourseService} from '../../_services';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ChapterEditingMessage} from '../../_models/chapter-editing-message';
 
 @Component({
   selector: 'app-chapter-management',
@@ -24,6 +24,7 @@ export class ChapterManagementComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private courseService: CourseService
   ) {
     this.newChapter = new ChapterCreationMessage();
@@ -104,5 +105,10 @@ export class ChapterManagementComponent implements OnInit {
       this.editingPosition = sequence;
       this.editingChapter.chapterName = name;
     }
+  }
+
+  goExamManagement() {
+    console.log('is selected');
+    this.router.navigate([`/teacher-home/exam-management/${this.courseId}`]);
   }
 }
