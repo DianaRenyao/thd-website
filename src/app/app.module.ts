@@ -85,6 +85,7 @@ import { ExamDetailComponent } from './teacher-home/chapter-management/exam-mana
 import { AddExamComponent } from './teacher-home/chapter-management/exam-management/add-exam/add-exam.component';
 import { CourseLearnExamComponent } from './course-learn/course-learn-exam/course-learn-exam.component';
 import { CourseLearnExamsComponent } from './course-learn/course-learn-exams/course-learn-exams.component';
+import { StudentSelectedCoursesComponent } from './student-home/student-selected-courses/student-selected-courses.component';
 
 registerLocaleData(localeZhHans);
 
@@ -148,6 +149,7 @@ registerLocaleData(localeZhHans);
     CourseLearnExamComponent,
     CourseLearnExamsComponent,
     TeacherDetailComponent,
+    StudentSelectedCoursesComponent,
   ],
   imports: [
     BrowserModule,

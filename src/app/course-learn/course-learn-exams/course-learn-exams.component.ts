@@ -15,7 +15,6 @@ import { LearningCourseService } from '../../_services/learning-course.service';
 })
 export class CourseLearnExamsComponent implements OnInit {
 
-  courseId: number;
   exams: StudentExamSummaryMessage[];
   errorResponse: HttpErrorResponse;
   session: SessionMessage;
@@ -34,15 +33,19 @@ export class CourseLearnExamsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getSession();
     this.course = this.learningCourseService.currentLearningCourseValue;
+    if (this.course) {
+      this.getStudentExamSummaries();
+    }
     this.learningCourseService.currentLearningCourse.subscribe(
       c => {
         this.course = c;
+        if (this.course) {
+          this.getStudentExamSummaries();
+        }
       },
     );
-    this.getSession();
-    this.courseId = this.course.courseId;
-    this.getStudentExamSummaries();
   }
 
   getSession() {
@@ -55,13 +58,13 @@ export class CourseLearnExamsComponent implements OnInit {
   }
 
   getStudentExamSummaries() {
-    this.examService.getStudentExamSummaries(this.session.userInfo.username, this.courseId).subscribe(
+    this.examService.getStudentExamSummaries(this.session.userInfo.username, this.course.courseId).subscribe(
       exams => this.exams = exams,
       errorResponse => this.errorResponse = errorResponse);
   }
 
   takeExam(examId: number) {
-    this.router.navigate([`../takeExam/${ examId }`], {
+    this.router.navigate([`${ examId }`], {
       relativeTo: this.route,
     });
   }

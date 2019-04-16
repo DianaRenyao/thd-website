@@ -13,7 +13,7 @@ export class SelectedCourseService {
   constructor(private http: HttpClient) {
   }
 
-  getStudentScores(username: string): Observable<SelectedCourseMessage[]> {
+  getStudentSelectedCourses(username: string): Observable<SelectedCourseMessage[]> {
     return this.http.get<SelectedCourseMessage[]>(`students/${ username }/selectedCourses`);
   }
 
