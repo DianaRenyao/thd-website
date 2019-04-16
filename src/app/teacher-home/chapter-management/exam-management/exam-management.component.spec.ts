@@ -1,6 +1,6 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {ExamManagementComponent} from './exam-management.component';
+import { ExamManagementComponent } from './exam-management.component';
 
 describe('ExamManagementComponent', () => {
   let component: ExamManagementComponent;

@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {CourseSummaryMessage} from '../../_models/course-summary-message';
-import {HttpErrorResponse} from '@angular/common/http';
-import {CourseService, SessionService} from '../../_services';
-import {Router} from '@angular/router';
-import {SessionMessage} from '../../_models';
+import { Component, OnInit } from '@angular/core';
+import { CourseSummaryMessage } from '../../_models/course-summary-message';
+import { HttpErrorResponse } from '@angular/common/http';
+import { CourseService, SessionService } from '../../_services';
+import { Router } from '@angular/router';
+import { SessionMessage } from '../../_models';
 
 @Component({
   selector: 'app-course-management',
@@ -22,7 +22,7 @@ export class CourseManagementComponent implements OnInit {
   }
 
   getCourseOfTeacher() {
-    this.courseService.getCourseOfTeacher(this.session)
+    this.courseService.getCourseOfTeacher(this.session.userInfo.username)
       .subscribe(
         message => this.courseSummaryMessages = message,
       );

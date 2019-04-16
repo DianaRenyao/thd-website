@@ -1,10 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {CourseService, SessionService} from '../../../../_services';
-import {ExamService} from '../../../../_services/exam.service';
-import {HttpErrorResponse} from '@angular/common/http';
-import {SessionMessage} from '../../../../_models';
-import {ExamMessage} from '../../../../_models/exam-message';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CourseService, SessionService } from '../../../../_services';
+import { ExamService } from '../../../../_services/exam.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { SessionMessage } from '../../../../_models';
+import { ExamMessage } from '../../../../_models/exam-message';
 
 @Component({
   selector: 'app-exam-detail',

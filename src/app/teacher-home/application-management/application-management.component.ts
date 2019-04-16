@@ -56,7 +56,7 @@ export class ApplicationManagementComponent implements OnInit {
   }
 
   getCoursesAndApplications() {
-    this.courseService.getCourseOfTeacher(this.session)
+    this.courseService.getCourseOfTeacher(this.session.userInfo.username)
       .pipe(
         mergeMap(
           courses => forkJoin(

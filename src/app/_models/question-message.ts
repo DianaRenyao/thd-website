@@ -1,4 +1,4 @@
-import {QuestionOptionMessage} from './question-option-message';
+import { QuestionOptionMessage } from './question-option-message';
 
 export class QuestionMessage {
   examId: number;

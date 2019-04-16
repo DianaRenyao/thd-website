@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {ChapterMessage} from '../../../_models/chapter-message';
-import {ActivatedRoute, Router} from '@angular/router';
-import {CourseService, SessionService} from '../../../_services';
-import {HttpErrorResponse} from '@angular/common/http';
-import {SessionMessage} from '../../../_models';
-import {ExamService} from '../../../_services/exam.service';
-import {TeacherExamSummaryMessage} from '../../../_models/teacher-exam-summary-message';
+import { Component, OnInit } from '@angular/core';
+import { ChapterMessage } from '../../../_models/chapter-message';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CourseService, SessionService } from '../../../_services';
+import { HttpErrorResponse } from '@angular/common/http';
+import { SessionMessage } from '../../../_models';
+import { ExamService } from '../../../_services/exam.service';
+import { TeacherExamSummaryMessage } from '../../../_models/teacher-exam-summary-message';
 
 @Component({
   selector: 'app-exam-management',
@@ -73,6 +73,6 @@ export class ExamManagementComponent implements OnInit {
 
   goAddExam(chapterSequence: number) {
     console.log('is selected');
-    this.router.navigate([`/teacher-home/add-exam/courses/${this.courseId}/chapterSequence/${chapterSequence}`]);
+    this.router.navigate([`/teacher-home/add-exam/courses/${ this.courseId }/chapterSequence/${ chapterSequence }`]);
   }
 }

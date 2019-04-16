@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {ExperimentService} from '../../_services/experiment.service';
-import {mergeMap} from 'rxjs/operators';
-import {forkJoin, of, zip} from 'rxjs';
-import {CourseService, SessionService} from '../../_services';
-import {SessionMessage} from '../../_models';
-import {CourseSummaryMessage} from '../../_models/course-summary-message';
-import {ExperimentMessage} from '../../_models/experiment-message';
-import {HttpErrorResponse} from '@angular/common/http';
-import {MatDialog, MatDialogConfig} from '@angular/material';
-import {AddExperimentDialogComponent} from '../../add-experiment-dialog/add-experiment-dialog.component';
+import { Component, OnInit } from '@angular/core';
+import { ExperimentService } from '../../_services/experiment.service';
+import { mergeMap } from 'rxjs/operators';
+import { forkJoin, of, zip } from 'rxjs';
+import { CourseService, SessionService } from '../../_services';
+import { SessionMessage } from '../../_models';
+import { CourseSummaryMessage } from '../../_models/course-summary-message';
+import { ExperimentMessage } from '../../_models/experiment-message';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { AddExperimentDialogComponent } from '../../add-experiment-dialog/add-experiment-dialog.component';
 
 @Component({
   selector: 'app-experiment-management',
@@ -51,7 +51,7 @@ export class ExperimentManagementComponent implements OnInit {
   }
 
   getCoursesAndExperiments() {
-    this.courseService.getCourseOfTeacher(this.session)
+    this.courseService.getCourseOfTeacher(this.session.userInfo.username)
       .pipe(
         mergeMap(
           courses => forkJoin(
@@ -81,7 +81,7 @@ export class ExperimentManagementComponent implements OnInit {
       (experimentMessage: ExperimentMessage) => {
         if (experimentMessage) {
           this.courseAndExperiments[index].experiments.push(experimentMessage);
-          this.courseAndExperiments[index] = {...this.courseAndExperiments[index]};
+          this.courseAndExperiments[index] = { ...this.courseAndExperiments[index] };
         }
       }
     );

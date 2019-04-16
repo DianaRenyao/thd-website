@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {ExamService} from '../../../../_services/exam.service';
-import {ExamCreationMessage} from '../../../../_models/exam-creation-message';
-import {QuestionCreationMessage} from '../../../../_models/question-creation-message';
-import {HttpErrorResponse} from '@angular/common/http';
-import {ExamMessage} from '../../../../_models/exam-message';
-import {QuestionOptionCreationMessage} from '../../../../_models/question-option-creation-message';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ExamService } from '../../../../_services/exam.service';
+import { ExamCreationMessage } from '../../../../_models/exam-creation-message';
+import { QuestionCreationMessage } from '../../../../_models/question-creation-message';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ExamMessage } from '../../../../_models/exam-message';
+import { QuestionOptionCreationMessage } from '../../../../_models/question-option-creation-message';
 
 @Component({
   selector: 'app-add-exam',
@@ -50,7 +50,7 @@ export class AddExamComponent implements OnInit {
       examMessage => this.examMessage = examMessage,
       errorResponse => this.errorResponse = errorResponse
     );
-    this.router.navigate([`/teacher-home/exam-management/${this.courseId}`]);
+    this.router.navigate([`/teacher-home/exam-management/${ this.courseId }`]);
   }
 
   addQuestion() {
@@ -80,11 +80,7 @@ export class AddExamComponent implements OnInit {
   }
 
   toggleAddOptionBoolean() {
-    if (this.addOptionBoolean) {
-      this.addOptionBoolean = false;
-    } else {
-      this.addOptionBoolean = true;
-    }
+    this.addOptionBoolean = !this.addOptionBoolean;
   }
 
   removeQuestion(i: number) {

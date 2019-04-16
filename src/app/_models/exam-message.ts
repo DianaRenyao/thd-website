@@ -1,4 +1,4 @@
-import {QuestionMessage} from './question-message';
+import { QuestionMessage } from './question-message';
 
 export class ExamMessage {
   examId: number;

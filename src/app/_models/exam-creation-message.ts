@@ -1,4 +1,4 @@
-import {QuestionCreationMessage} from './question-creation-message';
+import { QuestionCreationMessage } from './question-creation-message';
 
 export class ExamCreationMessage {
   chpaterId: number;
