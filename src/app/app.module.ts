@@ -12,6 +12,7 @@ import {
   MatListModule,
   MatPaginatorIntl,
   MatPaginatorModule,
+  MatRadioModule,
   MatSidenavModule,
   MatSnackBarModule,
   MatSortModule,
@@ -20,7 +21,6 @@ import {
   MatToolbarModule,
   MatTooltipModule
 } from '@angular/material';
-
 import { StudentCheckScoreComponent } from './student-home/student-check-score/student-check-score.component';
 import { MatButtonModule } from '@angular/material/button';
 import { UserIndicatorComponent } from './user-indicator/user-indicator.component';
@@ -73,7 +73,6 @@ import { MockComponent } from './admin-console/mock/mock.component';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 // tslint:disable-next-line:max-line-length
 import { SectionFileManagementDialogComponent } from './teacher-home/chapter-management/section-file-management/section-file-management-dialog.component';
-
 import { ExperimentManagementComponent } from './teacher-home/experiment-management/experiment-management.component';
 import { AddExperimentDialogComponent } from './add-experiment-dialog/add-experiment-dialog.component';
 import { EnterScoreComponent } from './teacher-home/score-management/teacher-check-score/enter-score/enter-score.component';
@@ -81,7 +80,11 @@ import { CourseLearnContentComponent } from './course-learn/course-learn-content
 import { CourseLearnSectionComponent } from './course-learn/course-learn-section/course-learn-section.component';
 import { LearnContentIconComponent } from './learn-content-icon/learn-content-icon.component';
 import { TeacherDetailComponent } from './teacher-detail/teacher-detail.component';
-
+import { ExamManagementComponent } from './teacher-home/chapter-management/exam-management/exam-management.component';
+import { ExamDetailComponent } from './teacher-home/chapter-management/exam-management/exam-detail/exam-detail.component';
+import { AddExamComponent } from './teacher-home/chapter-management/exam-management/add-exam/add-exam.component';
+import { CourseLearnExamComponent } from './course-learn/course-learn-exam/course-learn-exam.component';
+import { CourseLearnExamsComponent } from './course-learn/course-learn-exams/course-learn-exams.component';
 
 registerLocaleData(localeZhHans);
 
@@ -139,6 +142,11 @@ registerLocaleData(localeZhHans);
     CourseLearnContentComponent,
     CourseLearnSectionComponent,
     LearnContentIconComponent,
+    ExamManagementComponent,
+    ExamDetailComponent,
+    AddExamComponent,
+    CourseLearnExamComponent,
+    CourseLearnExamsComponent,
     TeacherDetailComponent,
   ],
   imports: [
@@ -163,6 +171,7 @@ registerLocaleData(localeZhHans);
     MatSnackBarModule,
     MatTooltipModule,
     PdfViewerModule,
+    MatRadioModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'zh-Hans' },

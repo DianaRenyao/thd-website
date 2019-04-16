@@ -79,8 +79,10 @@ export class ExperimentManagementComponent implements OnInit {
     dialogConfig.data = id;
     this.dialog.open(AddExperimentDialogComponent, dialogConfig).afterClosed().subscribe(
       (experimentMessage: ExperimentMessage) => {
-        this.courseAndExperiments[index].experiments.push(experimentMessage);
-        this.courseAndExperiments[index] = {...this.courseAndExperiments[index]};
+        if (experimentMessage) {
+          this.courseAndExperiments[index].experiments.push(experimentMessage);
+          this.courseAndExperiments[index] = { ...this.courseAndExperiments[index] };
+        }
       }
     );
 

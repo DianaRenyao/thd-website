@@ -1,0 +1,15 @@
+<app-service-error-message [errorResponse]="errorResponse" [indicator]="'获取考试详情失败'"></app-service-error-message>
+<ol *ngFor="let question of exam.questionMessages; let i = index" class="question-ol">
+  <li>
+    <span class="index">第{{i + 1}}题</span>
+    <span class="questionDetail">{{question.questionDetail}} </span>
+    <ol *ngFor="let option of question.questionOptionMessages" class="option-ol">
+      <li>
+        <span *ngIf="option.questionOptionId === question.answerId"
+              class="right-answer">{{option.questionOptionDetail}}</span>
+        <span *ngIf="option.questionOptionId != question.answerId"
+              class="other-option">{{option.questionOptionDetail}}</span>
+      </li>
+    </ol>
+  </li>
+</ol>

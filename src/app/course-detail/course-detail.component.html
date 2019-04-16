@@ -1,20 +1,25 @@
 <app-service-error-message [errorResponse]="courseErrorResponse" [indicator]="'获取课程信息失败'"></app-service-error-message>
 <div *ngIf="course" class="main-container">
   <h2>{{ course.courseName }}</h2>
-  <div *ngIf="!session">
-    <button mat-raised-button routerLink="/login">申请加入</button>
-  </div>
-  <div *ngIf="session && session.userInfo.role == 'student'" class="status-button">
-    <button (click)="applyCourse()" *ngIf="!application" mat-raised-button>申请加入</button>
-    <button *ngIf="application && application.state === applicationState.Waiting" [disabled]="true" mat-raised-button>
-      等待申请结果
-    </button>
-    <button *ngIf="application && application.state === applicationState.Pass" mat-raised-button routerLink="learn">
-      进入学习
-    </button>
-    <button *ngIf="application && application.state === applicationState.Reject" [disabled]="true" mat-raised-button>
-      申请已被拒绝
-    </button>
+  <div class="status-button">
+    <div *ngIf="!session && courseIsSelectable">
+      <button mat-raised-button routerLink="/login">申请加入</button>
+    </div>
+    <div *ngIf="!session && !courseIsSelectable">
+      <button [disabled]="true" mat-raised-button>课程已经结束</button>
+    </div>
+    <div *ngIf="session && session.userInfo.role == 'student'">
+      <button (click)="applyCourse()" *ngIf="!application" mat-raised-button>申请加入</button>
+      <button *ngIf="application && application.state === applicationState.Waiting" [disabled]="true" mat-raised-button>
+        等待申请结果
+      </button>
+      <button *ngIf="application && application.state === applicationState.Pass" mat-raised-button routerLink="learn">
+        进入学习
+      </button>
+      <button *ngIf="application && application.state === applicationState.Reject" [disabled]="true" mat-raised-button>
+        申请已被拒绝
+      </button>
+    </div>
   </div>
   <app-teacher [teacher]="course.teacher"></app-teacher>
 
