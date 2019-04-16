@@ -33,10 +33,14 @@ export class ExperimentManagementComponent implements OnInit {
     'courseId',
     'actions',
   ];
-  constructor(private experimentService: ExperimentService,
-              private courseService: CourseService,
-              private sessionService: SessionService,
-              private dialog: MatDialog, ) { }
+
+  constructor(
+    private experimentService: ExperimentService,
+    private courseService: CourseService,
+    private sessionService: SessionService,
+    private dialog: MatDialog
+  ) {
+  }
 
   ngOnInit() {
     this.getSession();

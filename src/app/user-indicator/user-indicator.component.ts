@@ -13,7 +13,8 @@ export class UserIndicatorComponent implements OnInit {
 
   constructor(
     private sessionService: SessionService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.session = this.sessionService.currentSessionValue;

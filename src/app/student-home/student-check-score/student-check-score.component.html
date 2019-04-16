@@ -1,49 +1,49 @@
 <div>
 
-  <app-service-error-message [indicator]="'获取已选课程失败'" [errorResponse]="errorResponse"></app-service-error-message>
+  <app-service-error-message [errorResponse]="errorResponse" [indicator]="'获取已选课程失败'"></app-service-error-message>
   <h2>已选课程成绩</h2>
-  <table mat-table [dataSource]="dataSource" >
+  <table [dataSource]="dataSource" mat-table>
 
 
     <!-- course_id Column -->
     <ng-container matColumnDef="courseCourseId">
-      <th mat-header-cell *matHeaderCellDef > 课程编号</th>
-      <td mat-cell *matCellDef="let element"> {{element.course.courseId}} </td>
+      <th *matHeaderCellDef mat-header-cell> 课程编号</th>
+      <td *matCellDef="let element" mat-cell> {{element.course.courseId}} </td>
     </ng-container>
 
     <!-- course_name Column -->
     <ng-container matColumnDef="courseName">
-      <th mat-header-cell *matHeaderCellDef > 课程名称</th>
-      <td mat-cell *matCellDef="let element"> {{element.course.courseName}} </td>
+      <th *matHeaderCellDef mat-header-cell> 课程名称</th>
+      <td *matCellDef="let element" mat-cell> {{element.course.courseName}} </td>
     </ng-container>
 
 
     <!-- avgOnlineScore Column -->
     <ng-container matColumnDef="avgOnlineScore">
-      <th mat-header-cell *matHeaderCellDef > 平均网上测试成绩</th>
-      <td mat-cell *matCellDef="let element"> {{element.avgOnlineScore}} </td>
+      <th *matHeaderCellDef mat-header-cell> 平均网上测试成绩</th>
+      <td *matCellDef="let element" mat-cell> {{element.avgOnlineScore}} </td>
     </ng-container>
 
     <!-- midScore Column -->
     <ng-container matColumnDef="midScore">
-      <th mat-header-cell *matHeaderCellDef > 期中成绩</th>
-      <td mat-cell *matCellDef="let element"> {{element.midScore}} </td>
+      <th *matHeaderCellDef mat-header-cell> 期中成绩</th>
+      <td *matCellDef="let element" mat-cell> {{element.midScore}} </td>
     </ng-container>
 
     <!-- finalScore Column -->
     <ng-container matColumnDef="finalScore">
-      <th mat-header-cell *matHeaderCellDef > 期末成绩</th>
-      <td mat-cell *matCellDef="let element"> {{element.finalScore}} </td>
+      <th *matHeaderCellDef mat-header-cell> 期末成绩</th>
+      <td *matCellDef="let element" mat-cell> {{element.finalScore}} </td>
     </ng-container>
 
     <!-- totalScore Column -->
     <ng-container matColumnDef="totalScore">
-      <th mat-header-cell *matHeaderCellDef > 总成绩</th>
-      <td mat-cell *matCellDef="let element"> {{element.totalScore}} </td>
+      <th *matHeaderCellDef mat-header-cell> 总成绩</th>
+      <td *matCellDef="let element" mat-cell> {{element.totalScore}} </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
   </table>
 </div>
 

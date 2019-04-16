@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpErrorResponse} from '@angular/common/http';
-import {CourseMessage, SessionMessage} from '../../_models';
-import {StudentExamSummaryMessage} from '../../_models/student-exam-summary-message';
-import {ActivatedRoute, Router} from '@angular/router';
-import {CourseService, SessionService} from '../../_services';
-import {ExamService} from '../../_services/exam.service';
-import {LearningCourseService} from '../../_services/learning-course.service';
+import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { CourseMessage, SessionMessage } from '../../_models';
+import { StudentExamSummaryMessage } from '../../_models/student-exam-summary-message';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CourseService, SessionService } from '../../_services';
+import { ExamService } from '../../_services/exam.service';
+import { LearningCourseService } from '../../_services/learning-course.service';
 
 
 @Component({
@@ -61,7 +61,7 @@ export class CourseLearnExamsComponent implements OnInit {
   }
 
   takeExam(examId: number) {
-    this.router.navigate([`../takeExam/${examId}`], {
+    this.router.navigate([`../takeExam/${ examId }`], {
       relativeTo: this.route,
     });
   }

@@ -8,7 +8,8 @@ import { FileSourceMessage } from '../_models';
 })
 export class FileUploadService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   uploadFile(file: File): Observable<FileSourceMessage> {
     const formData = new FormData();

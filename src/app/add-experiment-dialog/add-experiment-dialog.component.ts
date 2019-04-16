@@ -1,8 +1,8 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {ExperimentService} from '../_services/experiment.service';
-import {AlertService} from '../_services';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { ExperimentService } from '../_services/experiment.service';
+import { AlertService } from '../_services';
 
 @Component({
   selector: 'app-add-experiment-dialog',
@@ -25,11 +25,11 @@ export class AddExperimentDialogComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
-
   get form() {
     return this.applyForm.controls;
+  }
+
+  ngOnInit() {
   }
 
   onSubmit() {
@@ -48,6 +48,6 @@ export class AddExperimentDialogComponent implements OnInit {
         this.alertService.errorResponse('创建失败', errorResponse);
         this.dialogRef.close();
       });
-    }
+  }
 
 }

@@ -8,10 +8,10 @@ import { CourseSummaryMessage } from '../_models/course-summary-message';
 })
 export class CourseSummaryComponent implements OnInit {
 
-  @Input()courseSummaryMessage: CourseSummaryMessage;
+  @Input() courseSummaryMessage: CourseSummaryMessage;
 
-  constructor(
-  ) { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

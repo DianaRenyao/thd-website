@@ -1,5 +1,5 @@
 import { TeacherMessage } from './teacher-message';
-import {ChapterMessage} from './chapter-message';
+import { ChapterMessage } from './chapter-message';
 
 export class CourseMessage {
   courseId: number;

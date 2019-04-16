@@ -1,9 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {SelectedCourseService} from '../../../../_services/selected-course.service';
-import {MatSort, MatTableDataSource} from '@angular/material';
-import {SelectedCourseEditingMessage, SessionMessage} from '../../../../_models';
-import {AlertService, SessionService} from '../../../../_services';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { SelectedCourseService } from '../../../../_services/selected-course.service';
+import { MatSort, MatTableDataSource } from '@angular/material';
+import { SelectedCourseEditingMessage, SessionMessage } from '../../../../_models';
+import { AlertService, SessionService } from '../../../../_services';
 import * as XLSX from 'xlsx';
 
 @Component({
@@ -21,6 +21,12 @@ export class EnterScoreComponent implements OnInit {
   session: SessionMessage;
   @ViewChild(MatSort) sort: MatSort;
 
+  constructor(private scoreService: SelectedCourseService,
+              private alertService: AlertService,
+              private sessionService: SessionService,
+              private route: ActivatedRoute) {
+  }
+
   static calculateTotalScore(avgOnlineScore, midScore, finalScore): number {
     return avgOnlineScore * 0.3 + midScore * 0.1 + finalScore * 0.6;
   }
@@ -34,12 +40,6 @@ export class EnterScoreComponent implements OnInit {
     );
   }
 
-  constructor(private scoreService: SelectedCourseService,
-              private alertService: AlertService,
-              private sessionService: SessionService,
-              private route: ActivatedRoute) {
-  }
-
   importFromExcel(evt: any): void {
     console.log('start');
     const target: DataTransfer = (evt.target) as DataTransfer;
@@ -50,14 +50,14 @@ export class EnterScoreComponent implements OnInit {
     reader.onload = (e: any) => {
       /* read workbook */
       const bstr: string = e.target.result;
-      const wb: XLSX.WorkBook = XLSX.read(bstr, {type: 'binary'});
+      const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
 
       /* grab first sheet */
       const wsname: string = wb.SheetNames[0];
       const ws: XLSX.WorkSheet = wb.Sheets[wsname];
 
       /* save data */
-      this.inputData = (XLSX.utils.sheet_to_json(ws, {header: 1}));
+      this.inputData = (XLSX.utils.sheet_to_json(ws, { header: 1 }));
       console.log(this.inputData);
       let i: number;
       for (i = 1; i < this.inputData.length; i = i + 1) {

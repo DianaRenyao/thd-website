@@ -30,6 +30,11 @@ export class CourseDetailComponent implements OnInit {
   ) {
   }
 
+  get courseIsSelectable() {
+    const currentDate = new Date();
+    return new Date(this.course.finishDate).getTime() > currentDate.getTime();
+  }
+
   ngOnInit() {
     this.getCourseDetail();
     this.getSession();
@@ -71,10 +76,5 @@ export class CourseDetailComponent implements OnInit {
     })
       .afterClosed()
       .subscribe(() => this.getApplication());
-  }
-
-  get courseIsSelectable() {
-    const currentDate = new Date();
-    return new Date(this.course.finishDate).getTime() > currentDate.getTime();
   }
 }

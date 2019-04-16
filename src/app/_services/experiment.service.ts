@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {ExperimentMessage} from '../_models/experiment-message';
-import {ExperimentCreationMessage} from '../_models/experiment-creation-message';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ExperimentMessage } from '../_models/experiment-message';
+import { ExperimentCreationMessage } from '../_models/experiment-creation-message';
 
 
 @Injectable({
@@ -10,7 +10,8 @@ import {ExperimentCreationMessage} from '../_models/experiment-creation-message'
 })
 export class ExperimentService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   getCourseExperiment(courseId: number): Observable<ExperimentMessage[]> {
     return this.httpClient.get<ExperimentMessage[]>(`courses/${ courseId }/experiments`);

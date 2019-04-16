@@ -8,9 +8,9 @@ describe('AdminConsoleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminConsoleComponent ]
+      declarations: [AdminConsoleComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,5 +1,5 @@
 <div class="main-div">
-  <form class="add-teacher-form" [formGroup]="addTeacherForm" (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" [formGroup]="addTeacherForm" class="add-teacher-form">
     <mat-card>
       <mat-card-header>
         <mat-card-title>添加教师</mat-card-title>
@@ -7,15 +7,15 @@
       <mat-card-content>
         <mat-form-field class="form-field">
           <!--suppress HtmlFormInputWithoutLabel -->
-          <input matInput class="form-control" formControlName="teacherNumber"
-                 placeholder="教工号（账号）" required type="text" >
+          <input class="form-control" formControlName="teacherNumber" matInput
+                 placeholder="教工号（账号）" required type="text">
           <mat-error *ngIf="form.teacherNumber.errors?.pattern">教工号的格式不正确</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
           <!--suppress HtmlFormInputWithoutLabel -->
-          <input matInput class="form-control" formControlName="password"
-                 placeholder="初始密码" required type="password" >
-                 <mat-error *ngIf="form.password.errors?.required">请输入密码</mat-error>
+          <input class="form-control" formControlName="password" matInput
+                 placeholder="初始密码" required type="password">
+          <mat-error *ngIf="form.password.errors?.required">请输入密码</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
           <!--suppress HtmlFormInputWithoutLabel -->
@@ -51,7 +51,7 @@
         </mat-form-field>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button color="primary" type="submit" [disabled]="!addTeacherForm.valid">添加</button>
+        <button [disabled]="!addTeacherForm.valid" color="primary" mat-button type="submit">添加</button>
       </mat-card-actions>
     </mat-card>
   </form>

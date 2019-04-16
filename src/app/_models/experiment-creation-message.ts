@@ -1,4 +1,4 @@
-export class ExperimentCreationMessage{
+export class ExperimentCreationMessage {
   experimentName: string;
   description: string;
   startDate: Date;

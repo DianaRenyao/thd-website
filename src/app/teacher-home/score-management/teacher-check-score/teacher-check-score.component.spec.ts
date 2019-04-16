@@ -10,7 +10,7 @@ describe('TeacherCheckScoreComponent', () => {
     TestBed.configureTestingModule({
       declarations: [TeacherCheckScoreComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

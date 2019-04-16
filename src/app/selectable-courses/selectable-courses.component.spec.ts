@@ -8,9 +8,9 @@ describe('SelectableCoursesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SelectableCoursesComponent ]
+      declarations: [SelectableCoursesComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

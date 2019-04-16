@@ -8,9 +8,9 @@ describe('ScoreManagementComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScoreManagementComponent ]
+      declarations: [ScoreManagementComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

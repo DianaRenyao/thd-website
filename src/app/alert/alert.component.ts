@@ -9,8 +9,8 @@ import { AlertMessage } from '../_models';
   styleUrls: ['./alert.component.scss']
 })
 export class AlertComponent implements OnInit, OnDestroy {
-  private subscription: Subscription;
   message: AlertMessage;
+  private subscription: Subscription;
 
   constructor(private alertService: AlertService) {
   }
