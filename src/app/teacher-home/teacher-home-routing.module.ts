@@ -8,6 +8,7 @@ import {AddCourseComponent} from './add-course/add-course.component';
 import {TeacherCheckScoreComponent} from './score-management/teacher-check-score/teacher-check-score.component';
 import {ExamManagementComponent} from './chapter-management/exam-management/exam-management.component';
 import {AddExamComponent} from './chapter-management/exam-management/add-exam/add-exam.component';
+import {ExperimentManagementComponent} from './experiment-management/experiment-management.component';
 
 export const teacherHomeChildRoutes: Routes = [
   {path: '', redirectTo: 'notice-management', pathMatch: 'full'},
@@ -19,5 +20,7 @@ export const teacherHomeChildRoutes: Routes = [
   {path: 'course-management/:courseId', component: CourseDetailManagementComponent},
   {path: 'add-course', component: AddCourseComponent},
   {path: 'exam-management/:courseId', component: ExamManagementComponent},
+  { path: 'experiment-management', component: ExperimentManagementComponent},
   {path: 'add-exam/courses/:courseId/chapterSequence/:chapterSequence', component: AddExamComponent}
 ];
+

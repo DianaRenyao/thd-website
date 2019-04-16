@@ -83,6 +83,9 @@ import {ExamDetailComponent} from './teacher-home/chapter-management/exam-manage
 import {AddExamComponent} from './teacher-home/chapter-management/exam-management/add-exam/add-exam.component';
 import { CourseLearnExamComponent } from './course-learn/course-learn-exam/course-learn-exam.component';
 import { CourseLearnExamsComponent } from './course-learn/course-learn-exams/course-learn-exams.component';
+import { ExperimentManagementComponent } from './teacher-home/experiment-management/experiment-management.component';
+import { AddExperimentDialogComponent } from './add-experiment-dialog/add-experiment-dialog.component';
+
 
 registerLocaleData(localeZhHans);
 
@@ -134,6 +137,8 @@ registerLocaleData(localeZhHans);
     FileUploaderComponent,
     MockComponent,
     SectionFileManagementDialogComponent,
+    ExperimentManagementComponent,
+    AddExperimentDialogComponent,
     EnterScoreComponent,
     CourseLearnContentComponent,
     CourseLearnSectionComponent,
@@ -178,6 +183,7 @@ registerLocaleData(localeZhHans);
     ApplyCourseDialogComponent,
     CreateMessageDialogComponent,
     SectionFileManagementDialogComponent,
+    AddExperimentDialogComponent,
   ],
   bootstrap: [AppComponent]
 })
