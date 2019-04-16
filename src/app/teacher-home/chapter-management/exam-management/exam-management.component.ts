@@ -34,8 +34,8 @@ export class ExamManagementComponent implements OnInit {
 
   ngOnInit() {
     this.courseId = parseInt(this.route.snapshot.paramMap.get('courseId'), 10);
-    this.getCourseChapters();
     this.getSession();
+    this.getCourseChapters();
     this.getTeacherExamSummaries();
   }
 
@@ -73,6 +73,8 @@ export class ExamManagementComponent implements OnInit {
 
   goAddExam(chapterSequence: number) {
     console.log('is selected');
-    this.router.navigate([`/teacher-home/add-exam/courses/${ this.courseId }/chapterSequence/${ chapterSequence }`]);
+    this.router.navigate([`./chapter/${ chapterSequence }/add-exam`], {
+      relativeTo: this.route,
+    });
   }
 }

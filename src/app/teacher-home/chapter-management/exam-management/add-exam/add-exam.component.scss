@@ -1,4 +1,28 @@
+$option-indent: 48px;
+
 .right-answer {
   color: green;
   font-weight: bold;
+}
+
+.added-options {
+  display: block;
+  margin-left: $option-indent;
+}
+
+.add-option {
+  display: block;
+  margin-left: $option-indent;
+}
+
+.option-radio-button {
+  display: block;
+}
+
+.added-question-options {
+  margin-left: $option-indent;
+}
+
+.question-label, .option-label {
+  margin-right: 16px;
 }

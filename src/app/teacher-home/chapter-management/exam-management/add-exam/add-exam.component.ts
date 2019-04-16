@@ -4,8 +4,8 @@ import { ExamService } from '../../../../_services/exam.service';
 import { ExamCreationMessage } from '../../../../_models/exam-creation-message';
 import { QuestionCreationMessage } from '../../../../_models/question-creation-message';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ExamMessage } from '../../../../_models/exam-message';
 import { QuestionOptionCreationMessage } from '../../../../_models/question-option-creation-message';
+import { AlertService } from '../../../../_services';
 
 @Component({
   selector: 'app-add-exam',
@@ -18,16 +18,15 @@ export class AddExamComponent implements OnInit {
   questionNum: number;
   examCreationMessage: ExamCreationMessage;
   addQuestionPosition: number;
-  addOptionBoolean: boolean;
   questionCreationMessage: QuestionCreationMessage;
   questionOptionCreationMessage: QuestionOptionCreationMessage;
   errorResponse: HttpErrorResponse;
-  examMessage: ExamMessage;
 
   constructor(
     private route: ActivatedRoute,
     private examService: ExamService,
-    private router: Router
+    private router: Router,
+    private alertService: AlertService,
   ) {
     this.questionNum = 0;
     this.addQuestionPosition = -1;
@@ -37,7 +36,6 @@ export class AddExamComponent implements OnInit {
     this.questionCreationMessage.answerIndex = -1;
     this.questionOptionCreationMessage = new QuestionOptionCreationMessage();
     this.questionOptionCreationMessage.questionId = -1;
-    this.addOptionBoolean = false;
   }
 
   ngOnInit() {
@@ -47,10 +45,15 @@ export class AddExamComponent implements OnInit {
 
   createExam() {
     this.examService.createExam(this.courseId, this.chapterSequence, this.examCreationMessage).subscribe(
-      examMessage => this.examMessage = examMessage,
+      () => {
+        this.router.navigate(['../../..'], {
+          relativeTo: this.route,
+        }).then(
+          () => this.alertService.success('新的考试已被成功创建'),
+        );
+      },
       errorResponse => this.errorResponse = errorResponse
     );
-    this.router.navigate([`/teacher-home/exam-management/${ this.courseId }`]);
   }
 
   addQuestion() {
@@ -66,7 +69,6 @@ export class AddExamComponent implements OnInit {
     console.log(this.questionCreationMessage);
     this.questionOptionCreationMessage = new QuestionOptionCreationMessage();
     this.questionOptionCreationMessage.questionId = -1;
-    this.addOptionBoolean = false;
   }
 
   toggleAddQuestionPosition(position: number) {
@@ -77,10 +79,6 @@ export class AddExamComponent implements OnInit {
       this.addQuestionPosition = position;
       this.questionCreationMessage.questionOptionCreationMessages = [];
     }
-  }
-
-  toggleAddOptionBoolean() {
-    this.addOptionBoolean = !this.addOptionBoolean;
   }
 
   removeQuestion(i: number) {
