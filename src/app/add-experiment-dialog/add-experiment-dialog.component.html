@@ -1,0 +1,23 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="applyForm" >
+  <h2 mat-dialog-title>添加实验</h2>
+  <mat-dialog-content>
+    <mat-form-field>
+      <input matInput type="text" placeholder="实验名称" formControlName="name"/>
+      </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" placeholder="实验描述" formControlName="description"/>
+      </mat-form-field>
+
+      <mat-form-field>
+      <input matInput type="date" placeholder="开始时间" formControlName="startDate"/>
+      </mat-form-field>
+    <mat-form-field>
+      <input matInput type="date" placeholder="结束时间" formControlName="finishDate"/>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>取消</button>
+    <button [disabled]="!applyForm.valid" mat-button type="submit">添加</button>
+  </mat-dialog-actions>
+</form>
