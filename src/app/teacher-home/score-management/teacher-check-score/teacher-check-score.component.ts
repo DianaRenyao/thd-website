@@ -28,15 +28,6 @@ export class TeacherCheckScoreComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  getSession() {
-    this.session = this.sessionService.currentSessionValue;
-    this.sessionService.currentSession.subscribe(
-      session => {
-        this.session = session;
-      }
-    );
-  }
-
   constructor(private scoreService: SelectedCourseService,
               private alertService: AlertService,
               private sessionService: SessionService,
@@ -47,6 +38,15 @@ export class TeacherCheckScoreComponent implements OnInit {
     this.countEightyToNinety = 0;
     this.countNinetyToHundred = 0;
     this.showChart = false;
+  }
+
+  getSession() {
+    this.session = this.sessionService.currentSessionValue;
+    this.sessionService.currentSession.subscribe(
+      session => {
+        this.session = session;
+      }
+    );
   }
 
   getScores(): void {

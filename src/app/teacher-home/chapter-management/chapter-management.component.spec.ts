@@ -8,9 +8,9 @@ describe('ChapterManagementComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChapterManagementComponent ]
+      declarations: [ChapterManagementComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

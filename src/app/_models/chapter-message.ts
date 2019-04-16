@@ -1,4 +1,4 @@
-import {SectionMessage} from './section-message';
+import { SectionMessage } from './section-message';
 
 export class ChapterMessage {
   chapterId: number;

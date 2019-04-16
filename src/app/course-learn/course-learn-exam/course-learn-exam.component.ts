@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {SessionService} from '../../_services';
-import {ExamService} from '../../_services/exam.service';
-import {ExamMessage} from '../../_models/exam-message';
-import {HttpErrorResponse} from '@angular/common/http';
-import {ExamAnswerMessage} from '../../_models/exam-answer-message';
-import {QuestionAnswerMessage} from '../../_models/question-answer-message';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SessionService } from '../../_services';
+import { ExamService } from '../../_services/exam.service';
+import { ExamMessage } from '../../_models/exam-message';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ExamAnswerMessage } from '../../_models/exam-answer-message';
+import { QuestionAnswerMessage } from '../../_models/question-answer-message';
 
 @Component({
   selector: 'app-course-learn-exam',

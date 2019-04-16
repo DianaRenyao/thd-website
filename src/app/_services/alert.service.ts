@@ -30,6 +30,10 @@ export class AlertService {
     });
   }
 
+  get message(): Observable<AlertMessage> {
+    return this.subject.asObservable();
+  }
+
   success(message: string, keepAfterNavigationChange = false) {
     this.keepAfterNavigationChange = keepAfterNavigationChange;
     this.subject.next({ type: 'success', text: message });
@@ -43,9 +47,5 @@ export class AlertService {
   errorResponse(indicator: string, errorResponse: HttpErrorResponse, keepAfterNavigationChange = false) {
     const errorMessage = this.serviceErrorMessageService.getMessageOfResponse(errorResponse);
     this.error(`${ indicator }：${ errorMessage }`, keepAfterNavigationChange);
-  }
-
-  get message(): Observable<AlertMessage> {
-    return this.subject.asObservable();
   }
 }

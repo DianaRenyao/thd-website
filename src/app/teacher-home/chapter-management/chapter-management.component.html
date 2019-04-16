@@ -15,7 +15,7 @@
     </div>
     <span class="sequence">第{{chapter.sequence + 1}}章</span>
     <span class="chapter-name">{{chapter.chapterName}}</span>
-    <button mat-icon-button (click)="toggleEdit(chapter.sequence, chapter.chapterName)">
+    <button (click)="toggleEdit(chapter.sequence, chapter.chapterName)" mat-icon-button>
       <mat-icon>edit</mat-icon>
     </button>
     <button (click)="removeChapter(chapter.sequence)" mat-icon-button>

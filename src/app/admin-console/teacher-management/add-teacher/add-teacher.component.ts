@@ -31,7 +31,7 @@ export class AddTeacherComponent implements OnInit {
     const password = group.controls.password.value;
     const passwordRepeated = group.controls.passwordRepeated.value;
 
-    return password === passwordRepeated ? null : {notSame: true};
+    return password === passwordRepeated ? null : { notSame: true };
   }
 
   ngOnInit() {
@@ -41,7 +41,7 @@ export class AddTeacherComponent implements OnInit {
       passwordRepeated: ['', Validators.required],
       realName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required, ],
+      phone: ['', Validators.required],
       introduction: ['', Validators.required],
     }, {
       validators: [

@@ -8,9 +8,9 @@ describe('EnterScoreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EnterScoreComponent ]
+      declarations: [EnterScoreComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

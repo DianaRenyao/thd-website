@@ -17,8 +17,8 @@ export const teacherHomeChildRoutes: Routes = [
   { path: 'score-management/courses/:courseId', component: TeacherCheckScoreComponent },
   { path: 'score-management', component: ScoreManagementComponent },
   { path: 'application-management', component: ApplicationManagementComponent },
-  {path: 'course-management/:courseId', component: CourseDetailManagementComponent},
-  {path: 'add-course', component: AddCourseComponent},
+  { path: 'course-management/:courseId', component: CourseDetailManagementComponent },
+  { path: 'add-course', component: AddCourseComponent },
   { path: 'exam-management/:courseId', component: ExamManagementComponent },
   { path: 'experiment-management', component: ExperimentManagementComponent },
   { path: 'add-exam/courses/:courseId/chapterSequence/:chapterSequence', component: AddExamComponent }

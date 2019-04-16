@@ -43,6 +43,6 @@ export class CourseManagementComponent implements OnInit {
 
   onClick(courseSummaryMessage: CourseSummaryMessage): void {
     console.log('is selected');
-    this.router.navigate([`/teacher-home/chapter-management/${courseSummaryMessage.courseId}`]);
+    this.router.navigate([`/teacher-home/chapter-management/${ courseSummaryMessage.courseId }`]);
   }
 }

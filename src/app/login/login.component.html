@@ -8,20 +8,20 @@
       <mat-card-content>
         <mat-form-field class="form-field">
           <!--suppress HtmlFormInputWithoutLabel -->
-          <input matInput type="text" class="form-control"
-                 placeholder="用户名" required formControlName="username">
+          <input class="form-control" formControlName="username" matInput
+                 placeholder="用户名" required type="text">
           <mat-error *ngIf="form.username.errors?.required">请输入用户名</mat-error>
         </mat-form-field>
         <mat-form-field class="form-field">
           <!--suppress HtmlFormInputWithoutLabel -->
-          <input matInput type="password" class="form-control"
-                 placeholder="密码" required formControlName="password">
+          <input class="form-control" formControlName="password" matInput
+                 placeholder="密码" required type="password">
           <mat-error *ngIf="form.username.errors?.required">请输入密码</mat-error>
         </mat-form-field>
         <app-service-error-message [errorResponse]="errorResponse" [indicator]="'登录失败'"></app-service-error-message>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button color="primary" type="submit" [disabled]="!loginForm.valid">登陆</button>
+        <button [disabled]="!loginForm.valid" color="primary" mat-button type="submit">登陆</button>
         <button mat-button routerLink="/register">注册</button>
       </mat-card-actions>
     </mat-card>

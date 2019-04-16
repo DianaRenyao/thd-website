@@ -10,7 +10,7 @@ describe('ShowTeachersComponent', () => {
     TestBed.configureTestingModule({
       declarations: [TeacherListComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

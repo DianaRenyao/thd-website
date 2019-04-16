@@ -1,5 +1,5 @@
-import {StudentMessage} from './student-message';
-import {CourseSummaryMessage} from './course-summary-message';
+import { StudentMessage } from './student-message';
+import { CourseSummaryMessage } from './course-summary-message';
 
 export class SelectedCourseMessage {
   student: StudentMessage;

@@ -18,6 +18,12 @@ export class StudentCheckScoreComponent implements OnInit {
   session: SessionMessage;
   errorResponse: HttpErrorResponse;
 
+  constructor(
+    private scoreService: SelectedCourseService,
+    private sessionService: SessionService,
+  ) {
+  }
+
   getScores(): void {
     this.scoreService.getStudentScores(this.session.userInfo.username)
       .subscribe(dataSource => this.dataSource = new MatTableDataSource(dataSource),
@@ -31,12 +37,6 @@ export class StudentCheckScoreComponent implements OnInit {
         this.session = session;
       }
     );
-  }
-
-  constructor(
-    private scoreService: SelectedCourseService,
-    private sessionService: SessionService,
-  ) {
   }
 
   ngOnInit() {
