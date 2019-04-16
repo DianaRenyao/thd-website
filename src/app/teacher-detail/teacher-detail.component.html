@@ -1,0 +1,19 @@
+<div class="teacher-detail">
+  <div *ngIf="teacher">
+    <h2>{{ teacher.userInfo.realName }}</h2>
+    <h3>介绍</h3>
+    <p>{{ teacher.introduction }}</p>
+    <h3>联系方式</h3>
+    <p><span>电子邮箱：</span>{{ teacher.userInfo.email }}</p>
+  </div>
+  <div *ngIf="courses && courses.length != 0">
+    <h3>开设课程</h3>
+    <div>
+      <app-course-summary *ngFor="let course of courses"
+                          [courseSummaryMessage]="course"
+                          class="course-summary"
+                          routerLink="/course/{{ course.courseId }}">
+      </app-course-summary>
+    </div>
+  </div>
+</div>

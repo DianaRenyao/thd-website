@@ -1,4 +1,4 @@
-import {ChapterSummaryMessage} from './chapter-summary-message';
+import { ChapterSummaryMessage } from './chapter-summary-message';
 
 export class TeacherExamSummaryMessage {
   chapter: ChapterSummaryMessage;

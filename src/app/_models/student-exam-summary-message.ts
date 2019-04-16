@@ -1,5 +1,5 @@
-import {ChapterSummaryMessage} from './chapter-summary-message';
-import {ExamScoreMessage} from './exam-score-message';
+import { ChapterSummaryMessage } from './chapter-summary-message';
+import { ExamScoreMessage } from './exam-score-message';
 
 export class StudentExamSummaryMessage {
   chapter: ChapterSummaryMessage;

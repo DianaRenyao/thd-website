@@ -2,7 +2,7 @@
   {{ userInfo.realName }}
 </span>
 <span *ngIf="userInfo.role == 'teacher'" class="user-reference teacher-user-reference">
-  <a class="user-reference-link" routerLink="/teachers/{{userInfo.username}}">{{ userInfo.realName }}</a>
+  <a class="user-reference-link" routerLink="/teacher/{{userInfo.username}}">{{ userInfo.realName }}</a>
 </span>
 <span *ngIf="userInfo.role == 'administrator'" class="user-reference administrator-user-reference">
   {{ userInfo.realName }}

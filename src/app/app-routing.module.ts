@@ -12,6 +12,7 @@ import { adminConsoleChildRoutes } from './admin-console/admin-console-routing.m
 import { CourseLearnComponent } from './course-learn/course-learn.component';
 import { courseLearnRouting } from './course-learn/course-learn-routing.module';
 import { studentHomeChildRoutes } from './student-home/student-home-routing.module';
+import { TeacherDetailComponent } from './teacher-detail/teacher-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'admin-console', component: AdminConsoleComponent, children: adminConsoleChildRoutes },
   { path: 'teacher-home', component: TeacherHomeComponent, children: teacherHomeChildRoutes },
   { path: 'student-home', component: StudentHomeComponent, children: studentHomeChildRoutes },
+  { path: 'teacher/:username', component: TeacherDetailComponent },
   { path: 'course/:id', component: CourseDetailComponent },
   { path: 'course/:id/learn', component: CourseLearnComponent, children: courseLearnRouting },
 ];

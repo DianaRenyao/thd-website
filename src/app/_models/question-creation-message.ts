@@ -1,4 +1,4 @@
-import {QuestionOptionCreationMessage} from './question-option-creation-message';
+import { QuestionOptionCreationMessage } from './question-option-creation-message';
 
 export class QuestionCreationMessage {
   examId: number;

@@ -19,15 +19,15 @@ export class ExamService {
   }
 
   getTeacherExamSummaries(username: string, courseId: number): Observable<TeacherExamSummaryMessage[]> {
-    return this.http.get<TeacherExamSummaryMessage[]>(`teachers/${username}/courses/${courseId}/exams`);
+    return this.http.get<TeacherExamSummaryMessage[]>(`teachers/${ username }/courses/${ courseId }/exams`);
   }
 
   getStudentExamSummaries(username: string, courseId: number): Observable<StudentExamSummaryMessage[]> {
-    return this.http.get<StudentExamSummaryMessage[]>(`students/${username}/courses/${courseId}/exams`);
+    return this.http.get<StudentExamSummaryMessage[]>(`students/${ username }/courses/${ courseId }/exams`);
   }
 
   getExam(examId: number, withAnswerBoolean: string): Observable<ExamMessage> {
-    return this.http.get<ExamMessage>(`exams/${examId}`, {
+    return this.http.get<ExamMessage>(`exams/${ examId }`, {
       params: {
         withAnswer: withAnswerBoolean
       }
@@ -35,7 +35,7 @@ export class ExamService {
   }
 
   createExam(courseId: number, chapterSequence: number, examCreationMessage: ExamCreationMessage): Observable<ExamMessage> {
-    return this.http.post<ExamMessage>(`courses/${courseId}/chapters/${chapterSequence}/exams`, examCreationMessage);
+    return this.http.post<ExamMessage>(`courses/${ courseId }/chapters/${ chapterSequence }/exams`, examCreationMessage);
   }
 
   submitAnswer(examId: number, answer: ExamAnswerMessage): Observable<ExamScoreMessage> {
