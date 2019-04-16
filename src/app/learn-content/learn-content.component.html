@@ -8,14 +8,14 @@
     <video *ngSwitchCase="fileType.Video" class="content video" controls>
       <source [src]="source" type="{{ fileSource.fileType }}"/>
     </video>
-    <div class="pdf-container">
+    <div *ngSwitchCase="fileType.Pdf" class="pdf-container">
       <div class="paginator">
         <button (click)="pdfPreviousPage()" mat-button>上一页</button>
         <span class="page-number">{{ pdfPage }}</span>
         <button (click)="pdfNextPage()" mat-button>下一页</button>
       </div>
       <!-- TODO still has resize problem -->
-      <pdf-viewer *ngSwitchCase="fileType.Pdf" [(page)]="pdfPage"
+      <pdf-viewer [(page)]="pdfPage"
                   [external-link-target]="'blank'"
                   [original-size]="false"
                   [render-text]="false"
