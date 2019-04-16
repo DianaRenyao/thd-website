@@ -79,6 +79,7 @@ import {CourseLearnSectionComponent} from './course-learn/course-learn-section/c
 import {LearnContentIconComponent} from './learn-content-icon/learn-content-icon.component';
 import {ExamManagementComponent} from './teacher-home/chapter-management/exam-management/exam-management.component';
 import {ExamDetailComponent} from './teacher-home/chapter-management/exam-management/exam-detail/exam-detail.component';
+import {AddExamComponent} from './teacher-home/chapter-management/exam-management/add-exam/add-exam.component';
 
 registerLocaleData(localeZhHans);
 
@@ -136,6 +137,7 @@ registerLocaleData(localeZhHans);
     LearnContentIconComponent,
     ExamManagementComponent,
     ExamDetailComponent,
+    AddExamComponent,
   ],
   imports: [
     BrowserModule,
