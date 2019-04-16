@@ -80,6 +80,7 @@ import { EnterScoreComponent } from './teacher-home/score-management/teacher-che
 import { CourseLearnContentComponent } from './course-learn/course-learn-content/course-learn-content.component';
 import { CourseLearnSectionComponent } from './course-learn/course-learn-section/course-learn-section.component';
 import { LearnContentIconComponent } from './learn-content-icon/learn-content-icon.component';
+import { TeacherDetailComponent } from './teacher-detail/teacher-detail.component';
 
 
 registerLocaleData(localeZhHans);
@@ -138,6 +139,7 @@ registerLocaleData(localeZhHans);
     CourseLearnContentComponent,
     CourseLearnSectionComponent,
     LearnContentIconComponent,
+    TeacherDetailComponent,
   ],
   imports: [
     BrowserModule,

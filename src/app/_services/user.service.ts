@@ -22,6 +22,10 @@ export class UserService {
     return this.http.post<TeacherMessage>('teachers', registerMessage);
   }
 
+  getTeacher(username: string): Observable<TeacherMessage> {
+    return this.http.get<TeacherMessage>(`teachers/${ username }`);
+  }
+
   getAllTeachers(): Observable<TeacherMessage[]> {
     return this.http.get<TeacherMessage[]>('teachers');
   }
