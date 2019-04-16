@@ -1,3 +1,17 @@
-<p>
-  course-learn-exam works!
-</p>
+<h2>考试：</h2>
+<app-service-error-message [errorResponse]="errorResponse" [indicator]="'提交考试失败'"></app-service-error-message>
+<div *ngIf="exam && exam.questionMessages && answer">
+  <div *ngFor="let question of exam.questionMessages; let i = index">
+    <div>第{{i + 1}}题 {{question.questionDetail}}</div>
+    <mat-radio-group
+      [(ngModel)]="answer.questionAnswers[i].questionOptionId"
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group">
+      <mat-radio-button *ngFor="let option of question.questionOptionMessages" [value]="option.questionOptionId"
+                        class="example-radio-button">
+        <div>{{option.questionOptionDetail}}</div>
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <button (click)="submitAnswer()">提交</button>
+</div>

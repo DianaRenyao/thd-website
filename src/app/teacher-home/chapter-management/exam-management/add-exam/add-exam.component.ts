@@ -19,7 +19,7 @@ export class AddExamComponent implements OnInit {
   examCreationMessage: ExamCreationMessage;
   addQuestionPosition: number;
   addOptionBoolean: boolean;
-  questionnCreationMessage: QuestionCreationMessage;
+  questionCreationMessage: QuestionCreationMessage;
   questionOptionCreationMessage: QuestionOptionCreationMessage;
   errorResponse: HttpErrorResponse;
   examMessage: ExamMessage;
@@ -33,8 +33,8 @@ export class AddExamComponent implements OnInit {
     this.addQuestionPosition = -1;
     this.examCreationMessage = new ExamCreationMessage();
     this.examCreationMessage.questionsCreationMessages = [];
-    this.questionnCreationMessage = new QuestionCreationMessage();
-    this.questionnCreationMessage.answerIndex = -1;
+    this.questionCreationMessage = new QuestionCreationMessage();
+    this.questionCreationMessage.answerIndex = -1;
     this.questionOptionCreationMessage = new QuestionOptionCreationMessage();
     this.questionOptionCreationMessage.questionId = -1;
     this.addOptionBoolean = false;
@@ -54,16 +54,16 @@ export class AddExamComponent implements OnInit {
   }
 
   addQuestion() {
-    this.examCreationMessage.questionsCreationMessages.splice(this.addQuestionPosition, 0, this.questionnCreationMessage);
-    this.questionnCreationMessage = new QuestionCreationMessage();
-    this.questionnCreationMessage.answerIndex = -1;
+    this.examCreationMessage.questionsCreationMessages.splice(this.addQuestionPosition, 0, this.questionCreationMessage);
+    this.questionCreationMessage = new QuestionCreationMessage();
+    this.questionCreationMessage.answerIndex = -1;
     this.addQuestionPosition = -1;
   }
 
   addOption() {
-    this.questionnCreationMessage.questionOptionCreationMessages.splice(this.questionnCreationMessage.questionOptionCreationMessages.length,
+    this.questionCreationMessage.questionOptionCreationMessages.splice(this.questionCreationMessage.questionOptionCreationMessages.length,
       0, this.questionOptionCreationMessage);
-    console.log(this.questionnCreationMessage);
+    console.log(this.questionCreationMessage);
     this.questionOptionCreationMessage = new QuestionOptionCreationMessage();
     this.questionOptionCreationMessage.questionId = -1;
     this.addOptionBoolean = false;
@@ -75,7 +75,7 @@ export class AddExamComponent implements OnInit {
       this.addQuestionPosition = -1;
     } else {
       this.addQuestionPosition = position;
-      this.questionnCreationMessage.questionOptionCreationMessages = [];
+      this.questionCreationMessage.questionOptionCreationMessages = [];
     }
   }
 
@@ -92,6 +92,6 @@ export class AddExamComponent implements OnInit {
   }
 
   removeOption(i: number) {
-    this.questionnCreationMessage.questionOptionCreationMessages.splice(i, 1);
+    this.questionCreationMessage.questionOptionCreationMessages.splice(i, 1);
   }
 }

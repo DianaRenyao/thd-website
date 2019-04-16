@@ -4,6 +4,6 @@
   <span class="chapter-name">{{exam.chapter.chapterName}}</span>
   <span class="questionNum">问题数目:{{exam.questionNum}}</span>
   <span class="currentScore">当前分数：{{exam.examScoreMessage.examScore}}</span>
-  <button (click)="takeExam(exam.examId)" mat-button>参加测试</button>
+  <button (click)="takeExam(exam.examId)" [disabled]="!exam.examScoreMessage.examScore" mat-button>参加测试</button>
   <app-exam-detail *ngIf="exam.examId === detailPosition" [examId]="exam.examId"></app-exam-detail>
 </div>

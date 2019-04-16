@@ -1,12 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {ChapterMessage} from '../../_models/chapter-message';
-import {TeacherExamSummaryMessage} from '../../_models/teacher-exam-summary-message';
 import {HttpErrorResponse} from '@angular/common/http';
-import {SessionMessage} from '../../_models';
+import {CourseMessage, SessionMessage} from '../../_models';
 import {StudentExamSummaryMessage} from '../../_models/student-exam-summary-message';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CourseService, SessionService} from '../../_services';
 import {ExamService} from '../../_services/exam.service';
+import {LearningCourseService} from '../../_services/learning-course.service';
 
 @Component({
   selector: 'app-course-learn-exams',
@@ -20,20 +19,28 @@ export class CourseLearnExamsComponent implements OnInit {
   errorResponse: HttpErrorResponse;
   session: SessionMessage;
   detailPosition: number;
+  course: CourseMessage;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private courseService: CourseService,
     private sessionService: SessionService,
-    private examService: ExamService
+    private examService: ExamService,
+    private learningCourseService: LearningCourseService,
   ) {
     this.exams = [];
   }
 
   ngOnInit() {
+    this.course = this.learningCourseService.currentLearningCourseValue;
+    this.learningCourseService.currentLearningCourse.subscribe(
+      c => {
+        this.course = c;
+      },
+    );
     this.getSession();
-    this.courseId = parseInt(this.route.snapshot.paramMap.get('courseId'), 10);
+    this.courseId = this.course.courseId;
     this.getStudentExamSummaries();
   }
 
@@ -53,6 +60,8 @@ export class CourseLearnExamsComponent implements OnInit {
   }
 
   takeExam(examId: number) {
-    // TODO
+    this.router.navigate([`../takeExam/${examId}`], {
+      relativeTo: this.route,
+    });
   }
 }
