@@ -15,6 +15,7 @@ export class CourseLearnComponent implements OnInit {
   session: SessionMessage;
   course: CourseMessage;
   errorResponse: HttpErrorResponse;
+  courseId: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,13 +26,13 @@ export class CourseLearnComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.courseId = parseInt(this.route.snapshot.paramMap.get('id'), 10);
     this.getCourseDetail();
     this.getSession();
   }
 
   getCourseDetail() {
-    const courseId: number = parseInt(this.route.snapshot.paramMap.get('id'), 10);
-    this.courseService.getCourseDetail(courseId)
+    this.courseService.getCourseDetail(this.courseId)
       .subscribe(
         course => {
           this.course = course;
