@@ -15,7 +15,7 @@ export class ExamService {
   }
 
   getTeacherExamSummaries(username: string, courseId: number): Observable<TeacherExamSummaryMessage[]> {
-    return this.http.get<TeacherExamSummaryMessage[]>(`exams/teacher/${username}/courses/${courseId}`);
+    return this.http.get<TeacherExamSummaryMessage[]>(`teachers/${username}/courses/${courseId}/exams`);
   }
 
   getExam(examId: number, withAnswerBoolean: string): Observable<ExamMessage> {
