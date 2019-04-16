@@ -10,18 +10,18 @@
       <label>第{{ i + 1 }}题
       </label>
       <label>问题：
-        <input [(ngModel)]="questionnCreationMessage.detail" placeholder="问题">
+        <input [(ngModel)]="questionCreationMessage.detail" placeholder="问题">
       </label>
       <mat-radio-group
-        [(ngModel)]="questionnCreationMessage.answerIndex"
+        [(ngModel)]="questionCreationMessage.answerIndex"
         class="add-option-container">
-        <mat-radio-button *ngFor="let option of questionnCreationMessage.questionOptionCreationMessages
+        <mat-radio-button *ngFor="let option of questionCreationMessage.questionOptionCreationMessages
                           let k= index"
                           [value]="k" class="example-radio-button">
           <div>
-          <span *ngIf="k === questionnCreationMessage.answerIndex"
+          <span *ngIf="k === questionCreationMessage.answerIndex"
                 class="right-answer">{{option.questionOptionDetail}}</span>
-            <span *ngIf="k != questionnCreationMessage.answerIndex"
+            <span *ngIf="k != questionCreationMessage.answerIndex"
                   class="other-option">{{option.questionOptionDetail}}</span>
             <button (click)="removeOption(k)" mat-icon-button>
               <mat-icon>delete</mat-icon>
@@ -42,8 +42,8 @@
           添加选项
         </button>
       </div>
-      <button (click)="addQuestion()" [disabled]="questionnCreationMessage.detail === null
-      || questionnCreationMessage.answerIndex === -1 || questionnCreationMessage.questionOptionCreationMessages === null"
+      <button (click)="addQuestion()" [disabled]="questionCreationMessage.detail === null
+      || questionCreationMessage.answerIndex === -1 || questionCreationMessage.questionOptionCreationMessages === null"
               color="primary" mat-button>添加问题
       </button>
     </div>
@@ -68,18 +68,18 @@
     <label>序号：{{ examCreationMessage.questionsCreationMessages.length + 1 }}
     </label>
     <label>问题：
-      <input [(ngModel)]="questionnCreationMessage.detail" placeholder="问题">
+      <input [(ngModel)]="questionCreationMessage.detail" placeholder="问题">
     </label>
     <mat-radio-group
-      [(ngModel)]="questionnCreationMessage.answerIndex"
+      [(ngModel)]="questionCreationMessage.answerIndex"
       class="add-option-container">
-      <mat-radio-button *ngFor="let option of questionnCreationMessage.questionOptionCreationMessages
+      <mat-radio-button *ngFor="let option of questionCreationMessage.questionOptionCreationMessages
                 let k= index"
                         [value]="k" class="example-radio-button">
         <div>
-          <span *ngIf="k === questionnCreationMessage.answerIndex"
+          <span *ngIf="k === questionCreationMessage.answerIndex"
                 class="right-answer">{{option.questionOptionDetail}}</span>
-          <span *ngIf="k != questionnCreationMessage.answerIndex"
+          <span *ngIf="k != questionCreationMessage.answerIndex"
                 class="other-option">{{option.questionOptionDetail}}</span>
           <button (click)="removeOption(k)" mat-icon-button>
             <mat-icon>delete</mat-icon>
@@ -100,8 +100,8 @@
         添加选项
       </button>
     </div>
-    <button (click)="addQuestion()" [disabled]="questionnCreationMessage.detail === null
-      || questionnCreationMessage.answerIndex === -1 || questionnCreationMessage.questionOptionCreationMessages === null"
+    <button (click)="addQuestion()" [disabled]="questionCreationMessage.detail === null
+      || questionCreationMessage.answerIndex === -1 || questionCreationMessage.questionOptionCreationMessages === null"
             color="primary" mat-button>添加问题
     </button>
   </div>

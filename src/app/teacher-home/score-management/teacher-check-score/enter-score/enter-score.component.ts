@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { SelectedCourseService } from '../../../../_services/selected-course.service';
-import { MatSort, MatTableDataSource } from '@angular/material';
-import { SelectedCourseEditingMessage, SessionMessage } from '../../../../_models';
-import { AlertService, SessionService } from '../../../../_services';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {SelectedCourseService} from '../../../../_services/selected-course.service';
+import {MatSort, MatTableDataSource} from '@angular/material';
+import {SelectedCourseEditingMessage, SessionMessage} from '../../../../_models';
+import {AlertService, SessionService} from '../../../../_services';
 import * as XLSX from 'xlsx';
 
 @Component({
@@ -74,7 +74,7 @@ export class EnterScoreComponent implements OnInit {
   }
 
   addSelectedCourseScore() {
-    const courseId: number = parseInt(this.route.snapshot.paramMap.get('id'), 10);
+    const courseId: number = parseInt(this.route.snapshot.paramMap.get('courseId'), 10);
     let i: number;
     for (i = 1; i < this.inputData.length; i = i + 1) {
       this.scoreService.addSelectedCourseScore({
