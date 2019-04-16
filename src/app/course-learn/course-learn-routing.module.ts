@@ -9,5 +9,5 @@ export const courseLearnRouting: Routes = [
   { path: 'content', component: CourseLearnContentComponent },
   { path: 'chapters/:chapterSequence/sections/:sectionSequence', component: CourseLearnSectionComponent },
   { path: 'exams', component: CourseLearnExamsComponent },
-  { path: 'takeExam/:examId', component: CourseLearnExamComponent },
+  { path: 'exams/:examId', component: CourseLearnExamComponent },
 ];

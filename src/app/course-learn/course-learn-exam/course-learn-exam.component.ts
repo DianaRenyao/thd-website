@@ -41,7 +41,7 @@ export class CourseLearnExamComponent implements OnInit {
         console.log('success');
         this.exam = exam;
         this.exam.questionMessages.forEach(
-          (question, index) => {
+          (question) => {
             const questionAnswerMessage = new QuestionAnswerMessage();
             questionAnswerMessage.questionId = question.questionId;
             this.answer.questionAnswers.push(questionAnswerMessage);
@@ -54,8 +54,10 @@ export class CourseLearnExamComponent implements OnInit {
 
   submitAnswer() {
     this.examService.submitAnswer(this.examId, this.answer).subscribe(
-      examScoreMessage => {
-        this.router.navigate([`../exams`]);
+      () => {
+        this.router.navigate([`..`], {
+          relativeTo: this.route,
+        });
       },
       errorResponse => this.errorResponse = errorResponse
     );

@@ -25,7 +25,7 @@ export class StudentCheckScoreComponent implements OnInit {
   }
 
   getScores(): void {
-    this.scoreService.getStudentScores(this.session.userInfo.username)
+    this.scoreService.getStudentSelectedCourses(this.session.userInfo.username)
       .subscribe(dataSource => this.dataSource = new MatTableDataSource(dataSource),
         errorResponse => this.errorResponse = errorResponse);
   }
