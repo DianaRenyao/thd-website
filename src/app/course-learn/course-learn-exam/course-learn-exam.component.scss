@@ -7,4 +7,10 @@
 
 .option-radio-group {
   margin-left: 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+.option-radio-button {
+  margin: 5px;
 }
