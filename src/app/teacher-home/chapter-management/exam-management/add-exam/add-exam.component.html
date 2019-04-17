@@ -9,7 +9,7 @@
     <div *ngIf="addQuestionPosition === i">
       <label class="question-label">第 {{ i + 1 }} 题</label>
       <mat-form-field>
-        <input [(ngModel)]="questionCreationMessage.detail" matInput placeholder="问题">
+        <textarea [(ngModel)]="questionCreationMessage.detail" cdkTextareaAutosize matInput placeholder="问题"></textarea>
       </mat-form-field>
       <button (click)="addQuestion()" [disabled]="questionCreationMessage.detail === null
       || questionCreationMessage.answerIndex === -1 || questionCreationMessage.questionOptionCreationMessages === null"
@@ -66,7 +66,7 @@
   <div *ngIf="addQuestionPosition === examCreationMessage.questionsCreationMessages.length">
     <label class="question-label">第 {{ examCreationMessage.questionsCreationMessages.length + 1 }} 题</label>
     <mat-form-field>
-      <input [(ngModel)]="questionCreationMessage.detail" matInput placeholder="问题"/>
+      <textarea [(ngModel)]="questionCreationMessage.detail" cdkTextareaAutosize matInput placeholder="问题"></textarea>
     </mat-form-field>
     <button (click)="addQuestion()" [disabled]="questionCreationMessage.detail === null
       || questionCreationMessage.answerIndex === -1 || questionCreationMessage.questionOptionCreationMessages === null"
