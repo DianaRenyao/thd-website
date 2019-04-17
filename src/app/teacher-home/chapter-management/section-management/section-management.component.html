@@ -5,16 +5,16 @@
       <mat-icon>add</mat-icon>
     </button>
     <div *ngIf="addingPosition === section.sequence">
-      <label>序号：{{newSection.sequence + 1}}
-      </label>
-      <label>小节名称：
-        <input [(ngModel)]="newSection.sectionName" placeholder="小节名称">
-      </label>
+      <span>第 {{newSection.sequence + 1}} 节
+      </span>
+      <mat-form-field>
+        <input [(ngModel)]="newSection.sectionName" matInput placeholder="小节名称"/>
+      </mat-form-field>
       <button (click)="addSection()" [disabled]="newSection.sectionName === null" color="primary" mat-button>添加</button>
     </div>
     <div>
       <span class="section-name">
-        <span class="sequence">第{{section.sequence + 1}}节</span>
+        <span class="sequence">第 {{section.sequence + 1}} 节</span>
         <span class="section-name">{{section.sectionName}}</span>
       </span>
       <button (click)="onEditFile(section)" mat-icon-button>
@@ -32,11 +32,11 @@
       </div>
     </div>
     <div *ngIf="editingPosition === section.sequence">
-      <label>序号：{{editingPosition + 1}}
-      </label>
-      <label>小节名称：
-        <input [(ngModel)]="editingSection.sectionName" placeholder="小节名称">
-      </label>
+      <span>第 {{editingPosition + 1}} 节
+      </span>
+      <mat-form-field>
+        <input [(ngModel)]="editingSection.sectionName" matInput placeholder="小节名称"/>
+      </mat-form-field>
       <button (click)="editSection()" [disabled]="editingSection.sectionName === null" color="primary" mat-button>修改
       </button>
     </div>
@@ -45,11 +45,11 @@
     <mat-icon>add</mat-icon>
   </button>
   <div *ngIf="addingPosition === sections.length">
-    <label>序号：{{newSection.sequence + 1}}
-    </label>
-    <label>小节名称：
-      <input [(ngModel)]="newSection.sectionName" placeholder="小节名称"/>
-    </label>
+    <span>第 {{newSection.sequence + 1}} 节
+    </span>
+    <mat-form-field>
+      <input [(ngModel)]="newSection.sectionName" matInput placeholder="小节名称"/>
+    </mat-form-field>
     <button (click)="addSection()" [disabled]="newSection.sectionName === null" color="primary" mat-button
             type="submit">添加
     </button>

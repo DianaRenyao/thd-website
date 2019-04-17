@@ -6,14 +6,14 @@
       <mat-icon>add</mat-icon>
     </button>
     <div *ngIf="addingPosition === chapter.sequence">
-      <label>序号：{{newChapter.sequence + 1}}
-      </label>
-      <label>章节名称：
-        <input [(ngModel)]="newChapter.chapterName" placeholder="章节名称">
-      </label>
+      <span>第 {{newChapter.sequence + 1}} 章
+      </span>
+      <mat-form-field>
+        <input [(ngModel)]="newChapter.chapterName" matInput placeholder="章节名称"/>
+      </mat-form-field>
       <button (click)="addChapter()" [disabled]="newChapter.chapterName === null" color="primary" mat-button>添加</button>
     </div>
-    <span class="sequence">第{{chapter.sequence + 1}}章</span>
+    <span class="sequence">第 {{chapter.sequence + 1}} 章</span>
     <span class="chapter-name">{{chapter.chapterName}}</span>
     <button (click)="toggleEdit(chapter.sequence, chapter.chapterName)" mat-icon-button>
       <mat-icon>edit</mat-icon>
@@ -22,11 +22,11 @@
       <mat-icon>delete</mat-icon>
     </button>
     <div *ngIf="editingPosition === chapter.sequence">
-      <label>序号：{{editingPosition + 1}}
-      </label>
-      <label>章节名称：
-        <input [(ngModel)]="editingChapter.chapterName" placeholder="章节名称">
-      </label>
+      <span>第 {{editingPosition + 1}} 章
+      </span>
+      <mat-form-field>
+        <input [(ngModel)]="editingChapter.chapterName" matInput placeholder="章节名称">
+      </mat-form-field>
       <button (click)="editChapter()" [disabled]="editingChapter.chapterName === null" color="primary" mat-button>修改
       </button>
     </div>
@@ -37,11 +37,11 @@
     <mat-icon>add</mat-icon>
   </button>
   <div *ngIf="addingPosition === chapters.length">
-    <label>序号：{{newChapter.sequence + 1}}
-    </label>
-    <label>章节名称：
-      <input [(ngModel)]="newChapter.chapterName" placeholder="章节名称"/>
-    </label>
+    <span>第 {{newChapter.sequence + 1}} 章
+    </span>
+    <mat-form-field>
+      <input [(ngModel)]="newChapter.chapterName" matInput placeholder="章节名称"/>
+    </mat-form-field>
     <button (click)="addChapter()" [disabled]="newChapter.chapterName === null" color="primary" mat-button
             type="submit">添加
     </button>
